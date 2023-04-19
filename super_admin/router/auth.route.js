@@ -11,5 +11,6 @@ router.post("/self/registration", authValidation.superAdminRegister, authControl
 router.post("/login", authValidation.login, authController.login);
 router.post("/admin/registration", authValidation.register, verifyJWTToken, authController.register);
 router.post("/fund/transfer", transactionValidation.transferFund, verifyJWTToken, transactionController.transferFund);
+router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
 
 module.exports = router;

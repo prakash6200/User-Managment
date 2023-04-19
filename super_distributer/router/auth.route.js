@@ -10,6 +10,6 @@ const transactionController = require("../../fund_transfer/transaction.controlle
 router.post("/login", authValidation.login, authController.login);
 router.post("/distributer/registration", authValidation.register, verifyJWTToken, authController.register);
 router.post("/fund/transfer", transactionValidation.transferFund, verifyJWTToken, transactionController.transferFund);
-
+router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
 
 module.exports = router;
