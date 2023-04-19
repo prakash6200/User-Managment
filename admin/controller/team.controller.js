@@ -61,7 +61,7 @@ module.exports.salesRegister = async (request, response, next) => {
 
         return response.json({
             status: true,
-            message: "SUPER-DISTRIBUTER Register successfully",
+            message: "SALES Register successfully",
             data: sendData,
         });
     
@@ -132,7 +132,7 @@ module.exports.supportDeskRegister = async (request, response, next) => {
 
         return response.json({
             status: true,
-            message: "SUPER-DISTRIBUTER Register successfully",
+            message: "SUPPORT-DESK Register successfully",
             data: sendData,
         });
     
@@ -203,7 +203,7 @@ module.exports.relManagerRegister = async (request, response, next) => {
 
         return response.json({
             status: true,
-            message: "SUPER-DISTRIBUTER Register successfully",
+            message: "REL-MANAGER Register successfully",
             data: sendData,
         });
     
@@ -258,7 +258,6 @@ module.exports.misOperatorRegister = async (request, response, next) => {
         //CREATING USER IN MONGODB
 
         newUsers = await Admin.create({
-            fromUser: user._id,
             fromAdmin: user._id,
             name: name,
             email: email,
@@ -274,7 +273,7 @@ module.exports.misOperatorRegister = async (request, response, next) => {
 
         return response.json({
             status: true,
-            message: "SUPER-DISTRIBUTER Register successfully",
+            message: "MIS-OPERATOR Register successfully",
             data: sendData,
         });
     

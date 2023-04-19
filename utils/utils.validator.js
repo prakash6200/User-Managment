@@ -1,9 +1,9 @@
 const Joi = require("joi");
 
-module.exports.transferFund = async (request, response, next) => {
+module.exports.regesterComplaint = async (request, response, next) => {
     let rules = Joi.object().keys({
-        recepientId: Joi.string().required(),
-        amount: Joi.number().required(),
+        complaintMessage: Joi.string().required(),
+        userId: Joi.string().required(),
     });
     const { error } = rules.validate(request.body);
     if (error) {

@@ -1,9 +1,9 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../../models/users.model");
+const UserModel = require("../../models/users.model");
 // const Distributer = require("../../models/us")
 const config = require("../../config/config");
-const saltRounds = 10;
+
 
 module.exports.login = async (request, response, next) => {
     try {
@@ -11,15 +11,13 @@ module.exports.login = async (request, response, next) => {
 
         let userData = "";
         if(!mobile){
-            userData = await User.findOne({
+            userData = await UserModel.findOne({
                 email: email,
-                subRole: "SALES",
                 isDeleted: false,
             }).select("+password");
         } else {
-            userData = await User.findOne({
+            userData = await UserModel.findOne({
                 mobile: mobile,
-                subRole: "SALES",
                 isDeleted: false,
             }).select("+password");
         }
@@ -32,7 +30,7 @@ module.exports.login = async (request, response, next) => {
             });
         }
 
-        if(userData.role != "RETAILER"){
+        if(!userData.subRole){
             return response.status(401).json({
                 status: false,
                 message: "You are not authorize",

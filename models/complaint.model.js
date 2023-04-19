@@ -25,7 +25,7 @@ const Complaint = new Schema(
             type: String,
             enum: ["SUCESS", "PENDING", "REJECTED"]
         },
-        complaint :{
+        complaintMessage :{
             type: String,
             require: true,
         },

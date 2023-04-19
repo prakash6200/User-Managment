@@ -61,7 +61,7 @@ module.exports.misOperatorRegister = async (request, response, next) => {
             mobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
             password: Joi.string().required(),
             name: Joi.string().required(),
-            subMisManager: Joi.string().valid("REGIONAL-MIS", "ZONE-MIS", "AREA-MIS").required()
+            subMisManager: Joi.string().valid("RELATIONAL-MIS", "ZONE-MIS", "AREA-MIS").required()
     });
     const { error } = rules.validate(request.body);
     if (error) {
