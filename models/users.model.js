@@ -30,7 +30,7 @@ const Users = new Schema(
             required: true,
             default: 0,
         },
-        availableLicense : {
+        availableBalance : {
             type: Number,
             require: true,
             default: 0,
