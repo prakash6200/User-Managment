@@ -7,11 +7,13 @@ const authController = require("../controller/auth.controller");
 const transactionValidation = require("../../fund_transfer/transaction.validator");
 const transactionController = require("../../fund_transfer/transaction.controller");
 const complaintController = require("../../utils/utils.controller");
+const utilsValidation = require("../../utils/utils.validator");
+const utilsController = require("../../utils/utils.controller");
 
 router.post("/login", authValidation.login, authController.login);
 router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
 router.get("/complaint/view", verifyJWTToken, complaintController.complaintView)
-
+router.post("/make/enqry", utilsValidation.makeEnquiry, verifyJWTToken, utilsController.makeEnquiry)
 
 // router.post("/admin/registration", authValidation.register, verifyJWTToken, authController.register);
 // router.post("/fund/transfer", transactionValidation.transferFund, verifyJWTToken, transactionController.transferFund);

@@ -22,4 +22,6 @@ router.get("/available/balance", verifyJWTToken, transactionController.available
 router.get("/complaint/view", verifyJWTToken, utilsController.complaintView);
 router.post("/revoke/fund", transactionValidation.revokeFund, verifyJWTToken, transactionController.revokeFund)
 router.get("/transaction/view", verifyJWTToken, transactionController.transactionView);
+router.get("/enqury/view", verifyJWTToken, utilsController.enquiryView)
+
 module.exports = router;

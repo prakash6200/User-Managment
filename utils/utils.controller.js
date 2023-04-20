@@ -1,5 +1,6 @@
 const UserModel = require("../models/users.model");
-const ComplaintModel =require("../models/complaint.model");
+const ComplaintModel = require("../models/complaint.model");
+const EnqueryModel = require("../models/enquery.model");
 
 module.exports.regesterComplaint = async(request, response) => {
     
@@ -93,5 +94,59 @@ module.exports.complaintView = async(request, response) => {
             data: null,
         });
     } 
+}
+
+module.exports.makeEnquiry = async(request, response) => {
+    try{
+        const { user,  enquryMessage } = request.body;
+    
+        const enqury = await EnqueryModel.create ({
+            fromUser: user._id,
+            fromAdmin: user.fromAdmin,
+            status: "PENDING",
+            enquryMessage: enquryMessage,
+            timestamp: Math.floor(Date.now() / 1000),
+        });
+          
+        return response.json({
+            status: true,
+            message: "Enqury message submitted successfully",
+            data: enqury,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.enquiryView = async(request, response) => {
+    try{
+        const { user } = request.body;
+     
+        const enqury = await EnqueryModel.find ({
+            fromAdmin: user.fromAdmin?user.fromAdmin:user._id,    
+        });
+          
+        const message = `${enqury.length} Enqury message get successfully`;
+
+        return response.json({
+            status: true,
+            message: message,
+            data: enqury,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
 }
 
