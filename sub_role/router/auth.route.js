@@ -9,5 +9,6 @@ const complaintController = require("../../utils/utils.controller")
 
 router.post("/login", authValidation.login, authController.login);
 router.post("/complaint/registration", complaintValidator.regesterComplaint, verifyJWTToken, complaintController.regesterComplaint);
+router.get("/complaint/view", verifyJWTToken, complaintController.complaintView)
 
 module.exports = router;

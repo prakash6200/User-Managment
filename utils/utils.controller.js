@@ -44,3 +44,54 @@ module.exports.regesterComplaint = async(request, response) => {
     } 
 }
 
+module.exports.complaintView = async(request, response) => {
+    
+    try{
+        const { user } = request.body;
+        const { status } = request.query; 
+
+        const checkUser = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        });
+
+        // console.log(user)
+    
+        if (!checkUser) {
+            return response.status(409).json({
+                status: false,
+                message: "User not found or deleted",
+                data: null,
+            });
+        }
+    
+        const complaint = await ComplaintModel.find ({
+            fromAdmin: user.fromAdmin?user.fromAdmin:user._id,
+            status: status,
+            isDeleted: false,
+        });
+        
+        if(!complaint) {
+            return response.json({
+                status: false,
+                message: "Complaint Not found",
+                data: null,
+            });
+        }
+        const message = `${complaint.length} ${status} Complaint get successfully`
+        return response.json({
+            status: true,
+            message: message,
+            data: complaint,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    } 
+}
+

@@ -23,7 +23,7 @@ const Complaint = new Schema(
         },
         status: {
             type: String,
-            enum: ["SUCESS", "PENDING", "REJECTED"]
+            enum: ["COMPLETED", "PENDING", "REJECTED"]
         },
         complaintMessage :{
             type: String,
