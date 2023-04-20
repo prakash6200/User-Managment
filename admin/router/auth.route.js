@@ -20,5 +20,6 @@ router.post("/mis/operator/registration", teamValidation.misOperatorRegister, ve
 router.post("/fund/transfer", transactionValidation.transferFund, verifyJWTToken, transactionController.transferFund);
 router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
 router.get("/complaint/view", verifyJWTToken, utilsController.complaintView);
+router.post("/revoke/fund", transactionValidation.revokeFund, verifyJWTToken, transactionController.revokeFund)
 
 module.exports = router;

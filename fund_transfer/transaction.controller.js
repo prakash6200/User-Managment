@@ -78,6 +78,79 @@ module.exports.transferFund = async(request, response) => {
     } 
 }
 
+module.exports.revokeFund = async(request, response) => {
+    
+    try{
+        const { user, transactionId } = request.body;
+        
+        const checkUser = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        });
+    
+        if (!checkUser) {
+            return response.status(409).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+        
+    
+        const transaction = await TransactionModel.findOneAndUpdate (
+            {
+                _id: transactionId,
+                fromAdmin: user._id,
+            },
+            {
+                $set: {
+                    isDeleted: true,
+                },
+            }
+        );
+    
+        if (transaction) {
+            const updateBalance = await UserModel.findOneAndUpdate(
+              {
+                _id: transaction.fromUser,
+                isDeleted: false,
+              },
+              {
+                $inc: {
+                  availableBalance: transaction.amount,
+                },
+              }
+            );
+            
+            const updateSenderBalance = await UserModel.findOneAndUpdate(
+              {
+                _id: transaction.toUser,
+                isDeleted: false,
+              },
+              {
+                $inc: {
+                  availableBalance: - transaction.amount,
+                },
+              }
+            );
+        }
+          
+        return response.json({
+            status: true,
+            message: "Fund revoked successfully",
+            data: transaction,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    } 
+}
+
 module.exports.availableBalance = async(request, response) => {
     try {
         const { user } = request.body;
