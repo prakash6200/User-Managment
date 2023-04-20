@@ -151,6 +151,33 @@ module.exports.revokeFund = async(request, response) => {
     } 
 }
 
+module.exports.transactionView = async(request, response) => {
+    try {
+        const { user } = request.body;
+
+        const transaction = await TransactionModel.find ({
+            fromAdmin: user.fromAdmin?user.fromAdmin:user._id,
+            isDeleted: false,
+        });
+
+        const message = `${transaction.length} Transaction get successfully`;
+
+        return response.json({
+            status: true,
+            message: message,
+            data: transaction,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
 module.exports.availableBalance = async(request, response) => {
     try {
         const { user } = request.body;
