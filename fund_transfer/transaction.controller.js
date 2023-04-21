@@ -100,7 +100,8 @@ module.exports.revokeFund = async(request, response) => {
         const transaction = await TransactionModel.findOneAndUpdate (
             {
                 _id: transactionId,
-                fromAdmin: user._id,
+                fromAdmin: user.fromAdmin?user.fromAdmin:user._id,
+                isDeleted: false,
             },
             {
                 $set: {
@@ -108,6 +109,14 @@ module.exports.revokeFund = async(request, response) => {
                 },
             }
         );
+
+        if(!transaction) {
+            return response.status(409).json({
+                status: false,
+                message: "Transaction not found or already Revoked",
+                data: null,
+            });
+        }
     
         if (transaction) {
             const updateBalance = await UserModel.findOneAndUpdate(
