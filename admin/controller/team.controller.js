@@ -2,6 +2,8 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Admin = require("../../models/users.model");
 const config = require("../../config/config");
+const ComissionModel = require("../../models/comission.models");
+const { response } = require("express");
 const saltRounds = 10;
 
 module.exports.salesRegister = async (request, response, next) => {
@@ -286,3 +288,85 @@ module.exports.misOperatorRegister = async (request, response, next) => {
         });
     }
 };
+
+module.exports.setComission = async (request, response) => {
+    try {
+        const { user, admin, superDistributer, distributer, retailer } = request.body;
+
+        if (user.role != "ADMIN") {
+            return response.status(409).json({
+                status: false,
+                message: "You are not authorized",
+                data: null,
+            });
+        }
+
+        const comission = await ComissionModel.findOne ({
+            fromAdmin: user._id,
+            isDeleted: false,
+        })
+
+        if(!comission) {
+             await ComissionModel.create ({
+                fromAdmin: user._id,
+                admin: admin,
+                superDistributer: superDistributer,
+                distributer: distributer,
+                retailer: retailer,
+            })
+        }
+        const updateComission = await ComissionModel.findOneAndUpdate ({
+            admin: admin,
+            superDistributer: superDistributer,
+            distributer: distributer,
+            retailer: retailer,
+        })
+
+        return response.json({
+            status: true,
+            message: "Comission set successfully",
+            data: updateComission,
+        });
+    
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.viewComission = async (request, response) => {
+    
+    try {
+        const { user } = request.body;
+    
+        const comission = await ComissionModel.findOne ({
+            fromAdmin: user.Admin?user.Admin:user._id,
+        })
+    
+        if (!comission) {
+            return response.status(409).json({
+                status: false,
+                message: "Comission not found",
+                data: null,
+            });
+        }
+
+        return response.json({
+            status: true,
+            message: "Comission get successfully",
+            data: comission,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}

@@ -72,3 +72,20 @@ module.exports.misOperatorRegister = async (request, response, next) => {
         return next();
     }
 };
+
+module.exports.setComission = async (request, response, next) => {
+    let rules = Joi.object().keys({
+        admin: Joi.number().required(),
+        superDistributer: Joi.number().required(),
+        distributer: Joi.number().required(),
+        retailer: Joi.number().required(),
+    });
+    const { error } = rules.validate(request.body);
+    if (error) {
+        return response
+            .status(422)
+            .json({ status: false, message: error.message, data: null });
+    } else {
+        return next();
+    }
+};
