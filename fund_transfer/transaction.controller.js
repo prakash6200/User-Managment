@@ -30,7 +30,7 @@ module.exports.transferFund = async(request, response) => {
         const transaction = await TransactionModel.create ({
             fromUser: user._id,
             toUser: recepientId,
-            fromAdmin: user.fromAdmin,
+            fromAdmin: user.fromAdmin?user.fromAdmin:user._id,
             amount: amount,
             status: "SUCESS",
             timestamp: Math.floor(Date.now() / 1000),
@@ -105,7 +105,6 @@ module.exports.revokeFund = async(request, response) => {
             },
             {
                 $set: {
-                    isDeleted: true,
                     status: "REVOKED"
                 },
             }
@@ -164,19 +163,34 @@ module.exports.revokeFund = async(request, response) => {
 module.exports.transactionView = async(request, response) => {
     try {
         const { user } = request.body;
+        const { status } = request.query;
 
-        const transaction = await TransactionModel.find ({
-            fromAdmin: user.fromAdmin?user.fromAdmin:user._id,
-            isDeleted: false,
-        });
+        if(status == "PENDING" || status == "SUCESS" 
+            || status == "FAILED" || status == "REVOKED") {
 
-        const message = `${transaction.length} Transaction get successfully`;
+                const transaction = await TransactionModel.find ({
+                    fromAdmin: user.fromAdmin?user.fromAdmin:user._id,
+                    isDeleted: false,
+                    status: status,
+                });
+        
+                const message = `${transaction.length} Transaction get successfully`;
+        
+                return response.json({
+                    status: true,
+                    message: message,
+                    data: transaction,
+                });
+            
+        } else {
+            return response.status(409).json({
+                status: false,
+                message: "Status can be PENDING, SUCESS, FAILED, REVOKED",
+                data: null,
+            });
+        }
 
-        return response.json({
-            status: true,
-            message: message,
-            data: transaction,
-        });
+        
 
     } catch (e) {
         console.log(e);
