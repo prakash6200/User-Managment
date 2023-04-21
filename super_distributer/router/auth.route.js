@@ -12,7 +12,7 @@ router.post("/login", authValidation.login, authController.login);
 router.post("/distributer/registration", authValidation.register, verifyJWTToken, authController.register);
 router.post("/fund/transfer", transactionValidation.transferFund, verifyJWTToken, transactionController.transferFund);
 router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
-router.get("/complaint/view", verifyJWTToken, complaintController.complaintView)
-router.post("/revoke/fund", transactionValidation.revokeFund, verifyJWTToken, transactionController.revokeFund)
+router.get("/complaint/view", verifyJWTToken, complaintController.complaintView);
+router.post("/revoke/fund", transactionValidation.revokeFund, verifyJWTToken, transactionController.revokeFund);
 
 module.exports = router;

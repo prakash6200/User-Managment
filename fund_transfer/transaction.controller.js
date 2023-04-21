@@ -106,6 +106,7 @@ module.exports.revokeFund = async(request, response) => {
             {
                 $set: {
                     isDeleted: true,
+                    status: "REVOKED"
                 },
             }
         );
