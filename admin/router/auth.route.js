@@ -10,6 +10,7 @@ const transactionValidation = require("../../fund_transfer/transaction.validator
 const transactionController = require("../../fund_transfer/transaction.controller");
 const utilsValidation = require("../../utils/utils.validator");
 const utilsController = require("../../utils/utils.controller");
+const categoryController = require("../../admin/controller/category.controller")
 
 router.post("/login", authValidation.login, authController.login);
 router.post("/super/distributer/registration", authValidation.register, verifyJWTToken, authController.register);
@@ -25,6 +26,7 @@ router.get("/transaction/view", verifyJWTToken, transactionController.transactio
 router.get("/enqury/view", verifyJWTToken, utilsController.enquiryView);
 router.get("/comission/view", verifyJWTToken, teamController.viewComission);
 router.post("/set/comission", teamValidation.setComission, verifyJWTToken, teamController.setComission);
-
+router.post("/create/category", categoryController.createCategory);
+router.get("/get/category", categoryController.getCategory);
 
 module.exports = router;
