@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 require("@mongoosejs/double");
 const mongoosePaginate = require("mongoose-paginate-v2");
 
-const Master = new Schema(
+const Category = new Schema(
     {
         fromAdmin: {
             type: Schema.Types.ObjectId,
@@ -31,6 +31,6 @@ const Master = new Schema(
     },
 );
 
-Master.plugin(mongoosePaginate);
+Category.plugin(mongoosePaginate);
 
-module.exports = mongoose.models.Master || mongoose.model("Master", Master);
+module.exports = mongoose.models.Category || mongoose.model("Category", Category);

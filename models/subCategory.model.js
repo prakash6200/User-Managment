@@ -3,7 +3,7 @@ const { Schema } = mongoose;
 require("@mongoosejs/double");
 const mongoosePaginate = require("mongoose-paginate-v2");
 
-const Master = new Schema(
+const SubCategory = new Schema(
     {
         fromAdmin: {
             type: Schema.Types.ObjectId,
@@ -13,9 +13,12 @@ const Master = new Schema(
             type: Schema.Types.ObjectId,
             require: true,
         },
+        categoryName: {
+            type: String,
+            require: true,
+        },
         subCatogery: {
-            type: [String],
-            default: [],
+            type: String,
         },
         isDeleted: {
             type: Boolean,
@@ -27,6 +30,6 @@ const Master = new Schema(
     },
 );
 
-Master.plugin(mongoosePaginate);
+SubCategory.plugin(mongoosePaginate);
 
-module.exports = mongoose.models.Master || mongoose.model("Master", Master);
+module.exports = mongoose.models.SubCategory || mongoose.model("SubCategory", SubCategory);
