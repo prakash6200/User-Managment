@@ -311,3 +311,38 @@ module.exports.createService = async(request, response) => {
         });
     }
 }
+
+module.exports.getService = async(request, response) => {
+    try {
+        const { user } = request.body;
+        
+        const service = await ServiceModel.find({
+            fromAdmin: user._id,
+            isDeleted: false,
+        })
+
+        if(!service) {
+            return response.status(409).json({
+                status: false,
+                message: "Service not found",
+                data: null,
+            })
+        }
+
+        const message = `${service.length} Service found`;
+
+        return response.json({
+            status: true,
+            message: message,
+            data: service,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}

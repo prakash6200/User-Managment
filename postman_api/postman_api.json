@@ -949,6 +949,34 @@
 					"response": []
 				},
 				{
+					"name": "Get Service",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/get/service",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"get",
+								"service"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get Document",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
