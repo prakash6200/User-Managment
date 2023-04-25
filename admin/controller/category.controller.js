@@ -1,6 +1,7 @@
 const CategoryModel = require("../../models/category.model");
 const SubCategeryModel = require("../../models/subCategory.model");
 const DocumentModel = require("../../models/document.model");
+const ServiceModel = require("../../models/service.model");
 
 module.exports.createCategory = async(request, response) => {
     try {
@@ -223,6 +224,82 @@ module.exports.getDocument = async(request, response) => {
             status: true,
             message: message,
             data: document,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.createService = async(request, response) => {
+    try {
+        const { user, categoryId, subCategoryId, serviceName, description,
+           cahrgableAmount, relationshipCommisionAmount, icon, banner, documentId } = request.body;
+        
+        const isCategory = await CategoryModel.findOne({
+            fromAdmin: user._id,
+            _id: categoryId,
+            isDeleted: false,
+        })
+
+        if(!isCategory) {
+            return response.status(409).json({
+                status: false,
+                message: "Enter valid category ID",
+                data: null,
+            })
+        }
+
+        const isSubCategory = await SubCategeryModel.findOne({
+            fromAdmin: user._id,
+            _id: subCategoryId,
+            isDeleted: false,
+        })
+
+        if(!isSubCategory) {
+            return response.status(409).json({
+                status: false,
+                message: "Enter valid Sub Category ID",
+                data: null,
+            })
+        }
+
+        const isDocument = await DocumentModel.findOne({
+            fromAdmin: user._id,
+            _id: documentId,
+            isDeleted: false,
+        })
+
+        if(!isDocument) {
+            return response.status(409).json({
+                status: false,
+                message: "Enter valid Document ID",
+                data: null,
+            })
+        }
+
+        const service = await ServiceModel.create({
+            fromAdmin: user._id,
+            category: categoryId,
+            subCategory: subCategoryId,
+            document: documentId,
+            cahrgableAmount: cahrgableAmount,
+            serviceName, serviceName,
+            description: description,
+            relationshipCommisionAmount: relationshipCommisionAmount,
+            icon: icon,
+            banner: banner,
+        })
+
+        return response.json({
+            status: true,
+            message: "Service created successfully",
+            data: service,
         });
 
     } catch (e) {

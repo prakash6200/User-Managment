@@ -33,5 +33,6 @@ router.post("/create/sub/category", categoryValidation.createSubCategory, verify
 router.get("/get/sub/category", categoryValidation.getSubCategory, verifyJWTToken, categoryController.getSubCategory);
 router.post("/create/document", categoryValidation.createDocument, verifyJWTToken, categoryController.createDocument);
 router.get("/get/document", verifyJWTToken, categoryController.getDocument);
+router.post("/create/service", categoryValidation.createService, verifyJWTToken, categoryController.createService);
 
 module.exports = router;
