@@ -1,5 +1,5 @@
 const CategoryModel = require("../../models/category.model");
-const SubCatogeryModel = require("../../models/subCategory.model");
+const SubCategeryModel = require("../../models/subCategory.model");
 
 module.exports.createCategory = async(request, response) => {
     try {
@@ -72,7 +72,7 @@ module.exports.createSubCategory = async(request, response) => {
             })
         }
 
-        const subCategory = await SubCatogeryModel.create({
+        const subCategory = await SubCategeryModel.create({
             fromAdmin: user._id,
             category: category._id,
             categoryName: category.catogery,
@@ -83,6 +83,43 @@ module.exports.createSubCategory = async(request, response) => {
         return response.json({
             status: true,
             message: "SubCategory created successfully",
+            data: subCategory,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.getSubCategory = async(request, response) => {
+    try {
+        const { user, categoryId } = request.body;
+        
+        // send data to database
+        const subCategory = await SubCategeryModel.find({
+            fromAdmin: user._id,
+            category: categoryId,
+            isDeleted: false,
+        })
+
+        if(!subCategory) {
+            return response.status(409).json({
+                status: false,
+                message: "Category not found",
+                data: null,
+            })
+        }
+
+        const message = `${subCategory.length} SubCategory found`;
+
+        return response.json({
+            status: true,
+            message: message,
             data: subCategory,
         });
 

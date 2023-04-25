@@ -30,5 +30,6 @@ router.post("/set/comission", teamValidation.setComission, verifyJWTToken, teamC
 router.post("/create/category", categoryValidation.createCategory, verifyJWTToken, categoryController.createCategory);
 router.get("/get/category", verifyJWTToken, categoryController.getCategory);
 router.post("/create/sub/category", categoryValidation.createSubCategory, verifyJWTToken, categoryController.createSubCategory);
+router.get("/get/sub/category", categoryValidation.getSubCategory, verifyJWTToken, categoryController.getSubCategory);
 
 module.exports = router;
