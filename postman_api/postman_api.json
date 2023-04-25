@@ -619,7 +619,7 @@
 								},
 								{
 									"key": "superDistributer",
-									"value": "2.4",
+									"value": "2.47",
 									"type": "text"
 								},
 								{
@@ -696,6 +696,342 @@
 								"auth",
 								"revoke",
 								"fund"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "categoryName",
+									"value": "LLP",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"value": "hello.chl/af",
+									"type": "text"
+								},
+								{
+									"key": "menuType",
+									"value": "For service",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/create/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"create",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create sub category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "categoryId",
+									"value": "64477102c21552ebb73b04aa",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"value": "hello.chl/af",
+									"type": "text"
+								},
+								{
+									"key": "subCategoryName",
+									"value": "SOFTWARE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/create/sub/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"create",
+								"sub",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Document",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "docName",
+									"value": "PAN",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/create/document",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"create",
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Service",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "categoryId",
+									"value": "64477102c21552ebb73b04aa",
+									"type": "text"
+								},
+								{
+									"key": "subCategoryId",
+									"value": "6447711ac21552ebb73b04af",
+									"type": "text"
+								},
+								{
+									"key": "serviceName",
+									"value": "Pay",
+									"type": "text"
+								},
+								{
+									"key": "cahrgableAmount",
+									"value": "58",
+									"type": "text"
+								},
+								{
+									"key": "relationshipCommisionAmount",
+									"value": "53",
+									"type": "text"
+								},
+								{
+									"key": "description",
+									"value": "Hello",
+									"type": "text"
+								},
+								{
+									"key": "documentId",
+									"value": "64477cda5d94b20bfa7b2370",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"value": "hes/asde/s",
+									"type": "text"
+								},
+								{
+									"key": "banner",
+									"value": "lksfase/anl/banner",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/create/service?categoryId=64477102c21552ebb73b04aa",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"create",
+								"service"
+							],
+							"query": [
+								{
+									"key": "categoryId",
+									"value": "64477102c21552ebb73b04aa"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Category",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/get/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"get",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Document",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/get/document",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"get",
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get sub category",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "categoryId",
+									"value": "64477102c21552ebb73b04aa",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"value": "hello.chl/af",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "subCategoryName",
+									"value": "CRYPTO",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/get/sub/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"get",
+								"sub",
+								"category"
 							]
 						}
 					},
