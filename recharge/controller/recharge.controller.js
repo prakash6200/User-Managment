@@ -2,12 +2,12 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/users.model");
 // const Distributer = require("../../models/us")
+const mrbtsBaseUrl = "https://mrobotics.in";
 const config = require("../../config/config");
-const saltRounds = 10;
 
 module.exports.mroboticsRechage = async (request, response, next) => {
     try {
-        const { email, mobile, password } = request.body;
+        const { email, mobile, amount, companyId, is_stv } = request.body;
 
         let userData = "";
         if(!mobile){

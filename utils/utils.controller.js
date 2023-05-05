@@ -213,3 +213,10 @@ module.exports.companyList = async(request, response) => {
         });
     }
 }
+
+module.exports.orderId = async() => {
+    let timestamp = Date.now().toString();
+    let random = Math.floor(Math.random() * 1000).toString(); 
+    let orderId = timestamp + random; 
+    return orderId;      
+}
