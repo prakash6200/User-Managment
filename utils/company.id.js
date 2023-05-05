@@ -1,0 +1,31 @@
+const companyId = {
+    "Vodafone (on)": 1,
+    "Airtel (on)": 2,
+    "Idea (on)": 3,
+    "Bsnl (on)": 4,
+    "Jio (on)": 5,
+    "Dishtv (on)": 6,
+    "TataSky (on)": 7,
+    "--------------- (off)": 8,
+    "AirtelDTH (on)": 9,
+    "TataDocomo (on)": 10,
+    "VideconApp (on)": 11,
+    "SunDirect (on)": 12,
+    "AirtelThanks (on)": 16,
+    "JioPosLite (on)": 17,
+    "------------ (off)": 21,
+    "AeroVoyce (off)": 22,
+    "Airtel Mitra DTH (on)": 24,
+    "DishTV EasyPay (on)": 27,
+    "EzCashSriLanka (on)": 13,
+    "AirtelMoney (on)": 14,
+    "TrueBalance (on)": 15,
+    "Mcash Srilanka (on)": 18,
+    "Dialog hub Srilanka (on)": 19,
+    "Airtel Srilanka (on)": 20,
+    "MConnect Srilanka (on)": 23,
+    "Bsnl Bill Payment (on)": 25,
+    "MConnect Mcash (on)": 26
+}
+
+exports.company = companyId;

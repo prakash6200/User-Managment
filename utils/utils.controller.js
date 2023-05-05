@@ -1,6 +1,8 @@
 const UserModel = require("../models/users.model");
 const ComplaintModel = require("../models/complaint.model");
 const EnqueryModel = require("../models/enquery.model");
+const stateList = require("./state.list")
+const companyList = require("./company.id");
 
 module.exports.regesterComplaint = async(request, response) => {
     
@@ -150,3 +152,64 @@ module.exports.enquiryView = async(request, response) => {
     }
 }
 
+module.exports.stateList = async(request, response) => {
+    try{
+        const { user } = request.body;
+     
+        const userData = await UserModel.findOne({
+            _id: user._id,    
+        });
+
+        if(!userData) {
+            return response.status(409).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+
+        return response.json({
+            status: true,
+            message: "State with code",
+            data: stateList,
+        });
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.companyList = async(request, response) => {
+    try{
+        const { user } = request.body;
+     
+        const userData = await UserModel.findOne({
+            _id: user._id,    
+        });
+
+        if(!userData) {
+            return response.status(409).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+
+        return response.json({
+            status: true,
+            message: "Company with Id",
+            data: companyList,
+        });
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
