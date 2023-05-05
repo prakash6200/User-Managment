@@ -1,38 +1,24 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const User = require("../../models/users.model");
+const uniqueOrderId = require("../../utils/utils.controller")
 // const Distributer = require("../../models/us")
+const axios = require("axios");
 const mrbtsBaseUrl = "https://mrobotics.in";
-const config = require("../../config/config");
+const config = require("../../config/config")
 
 module.exports.mroboticsRechage = async (request, response, next) => {
     try {
-        const { email, mobile, amount, companyId, is_stv } = request.body;
+        const { user, mobile, amount, companyId, is_stv } = request.body;
 
-        let userData = "";
-        if(!mobile){
-            userData = await User.findOne({
-                email: email,
-                role: "RETAILER",
-                isDeleted: false,
-            }).select("+password");
-        } else {
-            userData = await User.findOne({
-                mobile: mobile,
-                role: "RETAILER",
-                isDeleted: false,
-            }).select("+password");
-        }
+        const orderId = uniqueOrderId.orderId();
+                
+        const userData = await User.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
 
         if (!userData) {
-            return response.status(401).json({
-                status: false,
-                message: "User Not Found",
-                data: null,
-            });
-        }
-
-        if(userData.role != "RETAILER"){
             return response.status(401).json({
                 status: false,
                 message: "You are not authorize",
@@ -40,22 +26,39 @@ module.exports.mroboticsRechage = async (request, response, next) => {
             });
         }
 
-        const checkPassword = await bcrypt.compare(password, userData.password);
-        if (!checkPassword) {
+        let data = {
+            'api_token': config.MROBOTICS_APIKEY,
+            'mobile_no': mobile,
+            'amount': amount,
+            'company_id': companyId,
+            'order_id': orderId,
+            'is_stv': is_stv 
+        };
+
+        let axiosConfig = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: mrbtsBaseUrl + '/api/recharge',
+            headers: { 
+              'Content-Type': 'application/x-www-form-urlencoded'
+            },
+            data : data
+        };
+
+        axios.request(axiosConfig)
+        .then((response) => {
+            return response.json({
+                status: true,
+                message: "Recharge successfully",
+                data: JSON.stringify(response.data),
+            });
+        })
+        .catch((error) => {
             return response.status(401).json({
                 status: false,
-                message: "Password Is Not Match",
-                data: null,
+                message: "Transaction faield",
+                data: error,
             });
-        }
-
-        const token = jwt.sign(JSON.stringify(userData), config.JWT_AUTH_TOKEN);
-        const sendData = { userData, token: token };
-
-        return response.json({
-            status: true,
-            message: "Login successfully",
-            data: sendData,
         });
     } catch (e) {
         console.log(
