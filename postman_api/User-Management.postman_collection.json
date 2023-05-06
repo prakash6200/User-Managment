@@ -2073,6 +2073,95 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "Recharge",
+			"item": [
+				{
+					"name": "StateList",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/recharge/auth/state/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recharge",
+								"auth",
+								"state",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Company List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/recharge/auth/company/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recharge",
+								"auth",
+								"company",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Mrobotics Recharge",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/recharge/auth/company/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"recharge",
+								"auth",
+								"company",
+								"list"
+							]
+						}
+					},
+					"response": []
+				}
+			]
 		}
 	]
 }
