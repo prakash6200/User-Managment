@@ -1,4 +1,4 @@
-const User = require("../../models/users.model");
+const UserModel = require("../../models/users.model");
 const uniqueOrderId = require("../../utils/utils.controller")
 const axios = require("axios");
 const config = require("../../config/config");
@@ -8,7 +8,7 @@ module.exports.getServiceCode = async (request, response) => {
     try {
         const { user } = request.body;
                 
-        const userData = await User.findOne({
+        const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
         })
@@ -39,7 +39,7 @@ module.exports.utilityBillInfo = async (request, response) => {
     try {
         const { user, serCode, custNo, refMobile, pinCode, lat, long } = request.body;
                 
-        const userData = await User.findOne({
+        const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
         })
@@ -92,7 +92,7 @@ module.exports.payUtilityBill = async (request, response) => {
     try {
         const { user, serCode, custNo, refMobile, amount, pinCode, lat, long } = request.body;
                 
-        const userData = await User.findOne({
+        const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
         })
@@ -117,7 +117,7 @@ module.exports.payUtilityBill = async (request, response) => {
         .then((res) => {
             return response.json({
                 status: true,
-                message: "Bill Info got successfully",
+                message: "Bill Payment successful",
                 data: res.data,
             });
         })

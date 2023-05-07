@@ -1,6 +1,6 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
-const User = require("../../models/users.model");
+const UserModel = require("../../models/users.model");
 // const Distributer = require("../../models/us")
 const config = require("../../config/config");
 const saltRounds = 10;
@@ -11,13 +11,13 @@ module.exports.login = async (request, response, next) => {
 
         let userData = "";
         if(!mobile){
-            userData = await User.findOne({
+            userData = await UserModel.findOne({
                 email: email,
                 role: "RETAILER",
                 isDeleted: false,
             }).select("+password");
         } else {
-            userData = await User.findOne({
+            userData = await UserModel.findOne({
                 mobile: mobile,
                 role: "RETAILER",
                 isDeleted: false,

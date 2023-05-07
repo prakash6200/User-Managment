@@ -240,3 +240,58 @@ module.exports.reExCompanyCode = async (request, response) => {
         });
     }
 };
+
+module.exports.reExRecharge = async (request, response) => {
+    try {
+        const { user, mobile, amount, operatorCode } = request.body;
+       
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+        
+        const orderId = uniqueOrderId.orderId();
+
+        if (!userData) {
+            return response.status(401).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+
+        let axiosConfig = {
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: `${config.RECHARGE_EXCHANGE_BASE_URL}/API.asmx/Transaction?userid=${config.RECHARGE_EXCHANGE_USERID}&token=${config.RECHARGE_EXCHANGE_TOKEN}&opcode=${operatorCode}&number=${mobile}&amount=${amount}&transid=${orderId}`,
+        };
+        
+        axios.request(axiosConfig)
+        .then((res) => {
+            return response.json({
+                status: true,
+                message: "Recharge successfully",
+                data: res.data,
+            });
+        })
+        .catch((error) => {
+            console.log(error)
+            return response.status(401).json({
+                status: false,
+                message: "Transaction faield",
+                data: error,
+            });
+        });
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
