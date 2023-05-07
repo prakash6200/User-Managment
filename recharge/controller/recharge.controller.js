@@ -4,6 +4,7 @@ const axios = require("axios");
 const config = require("../../config/config")
 const stateList = require("../../utils/state.list");
 const companyCode = require("../../utils/company.id")
+const reCompanyCode = require("../../utils/company.code");
 
 module.exports.stateList = async(request, response) => {
     try{
@@ -189,6 +190,43 @@ module.exports.mrbtsRechageStateWise = async (request, response) => {
                 data: error,
             });
         });
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.reExCompanyCode = async (request, response) => {
+    try {
+        const { user } = request.body;
+                
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+
+        if (!userData) {
+            return response.status(401).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+
+        return response.json({
+            status: true,
+            message: "Recharge successfully",
+            data: reCompanyCode,
+        });
+      
     } catch (e) {
         console.log(
             "%c 🍨 e: ",
