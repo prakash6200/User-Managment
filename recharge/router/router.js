@@ -1,8 +1,10 @@
 const express = require("express");
 const router = express.Router();
 
-const authRouter = require("./auth.route");
+const rechargeRouter = require("./recharge.route");
+const utilityRouter = require("./utility.router");
 
-router.use("/auth", authRouter);
+router.use("/mrbts", rechargeRouter);
+router.use("/utility", utilityRouter);
 
 module.exports = router;

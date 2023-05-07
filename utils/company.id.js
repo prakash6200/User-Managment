@@ -1,31 +1,104 @@
-const companyId = {
-    "Vodafone (on)": 1,
-    "Airtel (on)": 2,
-    "Idea (on)": 3,
-    "Bsnl (on)": 4,
-    "Jio (on)": 5,
-    "Dishtv (on)": 6,
-    "TataSky (on)": 7,
-    "--------------- (off)": 8,
-    "AirtelDTH (on)": 9,
-    "TataDocomo (on)": 10,
-    "VideconApp (on)": 11,
-    "SunDirect (on)": 12,
-    "AirtelThanks (on)": 16,
-    "JioPosLite (on)": 17,
-    "------------ (off)": 21,
-    "AeroVoyce (off)": 22,
-    "Airtel Mitra DTH (on)": 24,
-    "DishTV EasyPay (on)": 27,
-    "EzCashSriLanka (on)": 13,
-    "AirtelMoney (on)": 14,
-    "TrueBalance (on)": 15,
-    "Mcash Srilanka (on)": 18,
-    "Dialog hub Srilanka (on)": 19,
-    "Airtel Srilanka (on)": 20,
-    "MConnect Srilanka (on)": 23,
-    "Bsnl Bill Payment (on)": 25,
-    "MConnect Mcash (on)": 26
-}
+const companyId = [
+  {
+    Company: "Vodafone (on)",
+    Id: 1,
+  },
+  {
+    Company: "Airtel (on)",
+    Id: 2,
+  },
+  {
+    Company: "Idea (on)",
+    Id: 3,
+  },
+  {
+    Company: "Bsnl (on)",
+    Id: 4,
+  },
+  {
+    Company: "Jio (on)",
+    Id: 5,
+  },
+  {
+    Company: "Dishtv (on)",
+    Id: 6,
+  },
+  {
+    Company: "TataSky (on)",
+    Id: 7,
+  },
+  {
+    Company: "AirtelDTH (on)",
+    Id: 9,
+  },
+  {
+    Company: "TataDocomo (on)",
+    Id: 10,
+  },
+  {
+    Company: "VideconApp (on)",
+    Id: 11,
+  },
+  {
+    Company: "SunDirect (on)",
+    Id: 12,
+  },
+  {
+    Company: "AirtelThanks (on)",
+    Id: 16,
+  },
+  {
+    Company: "JioPosLite (on)",
+    Id: 17,
+  },
+  {
+    Company: "AeroVoyce (off)",
+    Id: 22,
+  },
+  {
+    Company: "Airtel Mitra DTH (on)",
+    Id: 24,
+  },
+  {
+    Company: "DishTV EasyPay (on)",
+    Id: 27,
+  },
+  {
+    Company: "EzCashSriLanka (on)",
+    Id: 13,
+  },
+  {
+    Company: "AirtelMoney (on)",
+    Id: 14,
+  },
+  {
+    Company: "TrueBalance (on)",
+    Id: 15,
+  },
+  {
+    Company: "Mcash Srilanka (on)",
+    Id: 18,
+  },
+  {
+    Company: "Dialog hub Srilanka (on)",
+    Id: 19,
+  },
+  {
+    Company: "Airtel Srilanka (on)",
+    Id: 20,
+  },
+  {
+    Company: "MConnect Srilanka (on)",
+    Id: 23,
+  },
+  {
+    Company: "Bsnl Bill Payment (on)",
+    Id: 25,
+  },
+  {
+    Company: "MConnect Mcash (on)",
+    Id: 26,
+  },
+];
 
 exports.company = companyId;

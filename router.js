@@ -16,6 +16,6 @@ router.use("/super/distributer", superDistributerRouter);
 router.use("/distributer", distributerRouter);
 router.use("/retailer", retailerRouter);
 router.use("/sub/role", subRoleRouter);
-router.use("/recharge", rechrgeRouter)
+router.use("/bill&payment", rechrgeRouter)
 
 module.exports = router;
