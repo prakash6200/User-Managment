@@ -106,11 +106,11 @@ module.exports.mrbtsRechage = async (request, response) => {
         };
 
         axios.request(axiosConfig)
-        .then((response) => {
+        .then((res) => {
             return response.json({
                 status: true,
                 message: "Recharge successfully",
-                data: JSON.stringify(response.data),
+                data: JSON.stringify(res.data),
             });
         })
         .catch((error) => {
@@ -175,11 +175,11 @@ module.exports.mrbtsRechageStateWise = async (request, response) => {
         };
 
         axios.request(axiosConfig)
-        .then((response) => {
+        .then((res) => {
             return response.json({
                 status: true,
                 message: "Recharge successfully",
-                data: JSON.stringify(response.data),
+                data: JSON.stringify(res.data),
             });
         })
         .catch((error) => {
