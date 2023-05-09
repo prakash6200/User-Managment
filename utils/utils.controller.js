@@ -1,8 +1,7 @@
 const UserModel = require("../models/users.model");
 const ComplaintModel = require("../models/complaint.model");
 const EnqueryModel = require("../models/enquery.model");
-const stateList = require("./state.list")
-const companyList = require("./company.id");
+const stateWithDistrict = require("../utils/state.district")
 
 module.exports.regesterComplaint = async(request, response) => {
     
@@ -173,6 +172,42 @@ module.exports.profileView = async (request, response, next) => {
             status: true,
             message: "Profile data",
             data: userData,
+        });
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.stateDirstrict = async (request, response, next) => {
+    try {
+        const { user } = request.body;
+
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+        
+        if (!userData) {
+            return response.status(401).json({
+                status: false,
+                message: "User not found",
+                data: null,
+            });
+        }
+
+        return response.json({
+            status: true,
+            message: "State with district",
+            data: stateWithDistrict,
         });
     } catch (e) {
         console.log(

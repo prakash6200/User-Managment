@@ -8,6 +8,7 @@ const transactionValidation = require("../../fund_transfer/transaction.validator
 const transactionController = require("../../fund_transfer/transaction.controller");
 const complaintController = require("../../utils/utils.controller");
 const utilsController = require("../../utils/utils.controller");
+const ststeDistrict = require("../../utils/state.district");
 
 router.post("/login", authValidation.login, authController.login);
 router.post("/distributer/registration", authValidation.register, verifyJWTToken, authController.register);
@@ -15,6 +16,7 @@ router.post("/fund/transfer", transactionValidation.transferFund, verifyJWTToken
 router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
 router.get("/complaint/view", verifyJWTToken, complaintController.complaintView);
 router.get("/profile/view", verifyJWTToken, utilsController.profileView);
+router.get("/statewithdist/view", verifyJWTToken, utilsController.stateDirstrict);
 router.post("/revoke/fund", transactionValidation.revokeFund, verifyJWTToken, transactionController.revokeFund);
 router.get("/transaction/view", verifyJWTToken, transactionController.transactionView);
 
