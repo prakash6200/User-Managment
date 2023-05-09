@@ -13,6 +13,7 @@ const utilsController = require("../../utils/utils.controller");
 router.post("/login", authValidation.login, authController.login);
 router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
 router.get("/complaint/view", verifyJWTToken, complaintController.complaintView)
+router.get("/profile/view", verifyJWTToken, utilsController.profileView);
 router.post("/make/enqry", utilsValidation.makeEnquiry, verifyJWTToken, utilsController.makeEnquiry)
 
 // router.post("/admin/registration", authValidation.register, verifyJWTToken, authController.register);

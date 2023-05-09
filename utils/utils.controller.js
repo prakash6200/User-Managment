@@ -152,6 +152,43 @@ module.exports.enquiryView = async(request, response) => {
     }
 }
 
+module.exports.profileView = async (request, response, next) => {
+    try {
+        const { user } = request.body;
+
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+        
+        if (!userData) {
+            return response.status(401).json({
+                status: false,
+                message: "Faield to get Profile",
+                data: null,
+            });
+        }
+
+        return response.json({
+            status: true,
+            message: "Profile data",
+            data: userData,
+        });
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+
 module.exports.orderId = () => {
     let timestamp = Date.now().toString();
     let random = Math.floor(Math.random() * 100000).toString(); 
