@@ -76,6 +76,18 @@ const Users = new Schema(
                 type: String,
             },
         },
+        bank: {
+            accountNo: {
+                type: String,
+            },
+            ifscCode: {
+                type: String,
+            },
+            district: {
+                type: String,
+                enum: ["SEVING", "CURRENT", "OTHER",]
+            },
+        },
         role: {
             type: String,
             enum: ["SUPER-ADMIN", "ADMIN", "SUPER-DISTRIBUTER",

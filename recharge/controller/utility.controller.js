@@ -55,7 +55,7 @@ module.exports.utilityBillInfo = async (request, response) => {
         let axiosConfig = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `https://www.payoneapi.com/RechargeAPI/RechargeAPI.aspx?MobileNo=${config.PAY_ONE_MOBILE}&APIKey=${config.PAY_ONY_APIKEY}&REQTYPE=BILLINFO&SERCODE=${serCode}&CUSTNO=${custNo}&REFMOBILENO=${refMobile}&AMT=0&STV=0&PCODE=${pinCode}&LAT=${lat}&LONG=${long}&RESPTYPE=JSON`,
+            url: `${config.PAY_ONE_BASE_URL}/RechargeAPI/RechargeAPI.aspx?MobileNo=${config.PAY_ONE_MOBILE}&APIKey=${config.PAY_ONY_APIKEY}&REQTYPE=BILLINFO&SERCODE=${serCode}&CUSTNO=${custNo}&REFMOBILENO=${refMobile}&AMT=0&STV=0&PCODE=${pinCode}&LAT=${lat}&LONG=${long}&RESPTYPE=JSON`,
           };
         
         axios.request(axiosConfig)
@@ -110,7 +110,7 @@ module.exports.payUtilityBill = async (request, response) => {
         let axiosConfig = {
             method: 'get',
             maxBodyLength: Infinity,
-            url: `https://www.payoneapi.com/RechargeAPI/RechargeAPI.aspx?MobileNo=${config.PAY_ONE_MOBILE}&APIKey=${config.PAY_ONY_APIKEY}&REQTYPE=BILLPAY&REFNO=${orderId}&SERCODE=${serCode}&CUSTNO=${custNo}&REFMOBILENO=${refMobile}&AMT=${amount}&STV=0&PCODE=${pinCode}&LAT=${lat}&LONG=${long}&RESPTYPE=JSON`,
+            url: `${config.PAY_ONE_BASE_URL}/RechargeAPI/RechargeAPI.aspx?MobileNo=${config.PAY_ONE_MOBILE}&APIKey=${config.PAY_ONY_APIKEY}&REQTYPE=BILLPAY&REFNO=${orderId}&SERCODE=${serCode}&CUSTNO=${custNo}&REFMOBILENO=${refMobile}&AMT=${amount}&STV=0&PCODE=${pinCode}&LAT=${lat}&LONG=${long}&RESPTYPE=JSON`,
           };
         
         axios.request(axiosConfig)
