@@ -151,7 +151,7 @@ module.exports.enquiryView = async(request, response) => {
     }
 }
 
-module.exports.profileView = async (request, response, next) => {
+module.exports.profileView = async (request, response) => {
     try {
         const { user } = request.body;
 
@@ -187,7 +187,7 @@ module.exports.profileView = async (request, response, next) => {
     }
 };
 
-module.exports.stateDirstrict = async (request, response, next) => {
+module.exports.stateDirstrict = async (request, response) => {
     try {
         const { user } = request.body;
 
@@ -207,6 +207,56 @@ module.exports.stateDirstrict = async (request, response, next) => {
         return response.json({
             status: true,
             message: "State with district",
+            data: stateWithDistrict,
+        });
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.updateKyc = async (request, response) => {
+    try {
+        const { user, otherMobile, panDocument, panDocumentImage, 
+            adharDocument, adharDocumentImage, userSelfie } = request.body;
+
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+        
+        if (!userData) {
+            return response.status(401).json({
+                status: false,
+                message: "User not found",
+                data: null,
+            });
+        }
+
+        const kyc = {
+            otherMobile,
+            panDocument,
+            panDocumentImage,
+            adharDocument,
+            adharDocumentImage,
+            userSelfie
+        }
+
+        userData.kyc = kyc;
+
+        userData.save();
+
+        return response.json({
+            status: true,
+            message: "Kyc updated",
             data: stateWithDistrict,
         });
     } catch (e) {

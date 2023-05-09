@@ -17,6 +17,7 @@ router.get("/complaint/view", verifyJWTToken, complaintController.complaintView)
 router.get("/profile/view", verifyJWTToken, utilsController.profileView);
 router.get("/statewithdist/view", verifyJWTToken, utilsController.stateDirstrict);
 router.post("/revoke/fund", transactionValidation.revokeFund, verifyJWTToken, transactionController.revokeFund);
+router.post("/update/kyc", verifyJWTToken, utilsController.updateKyc);
 router.get("/transaction/view", verifyJWTToken, transactionController.transactionView);
 
 module.exports = router;
