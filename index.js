@@ -14,8 +14,8 @@ app.use("/", router);
 
 app.use(function (req, res) {
     res.type("text/plain");
-    res.status(404);
-    res.send({ success: false, message: "404 Not Found" });
+    res.status(200);
+    res.send({ success: true, message: "API is working" });
 });
 
 app.listen(PORT, () => {
