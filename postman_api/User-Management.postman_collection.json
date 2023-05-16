@@ -1012,6 +1012,41 @@
 					"response": []
 				},
 				{
+					"name": "AEPS",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/get/document",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"get",
+								"document"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Get sub category",
 					"protocolProfileBehavior": {
 						"disableBodyPruning": true
@@ -1150,6 +1185,42 @@
 								"admin",
 								"auth",
 								"profile",
+								"view"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING",
+									"description": "PENDING, COMPLETED, REJECTED",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "State with district view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/statewithdist/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"statewithdist",
 								"view"
 							],
 							"query": [
@@ -1556,6 +1627,42 @@
 					"response": []
 				},
 				{
+					"name": "State with distrit view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMmY0NmMzMDNkZThkZTU4MjJmNTYiLCJmcm9tVXNlciI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJzdXBlci1kaXN0cmlidXRlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDAsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJEhpdWRmMXJnVHA0dlRscXVuZWk2a3VkdjA0VTBWL00uOXZKZkZ4WXdWYllXOGZET0p2Y3gyIiwicm9sZSI6IlNVUEVSLURJU1RSSUJVVEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNTo0ODo1NC44MDZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNTo0ODo1NC44MDZaIiwiX192IjowfQ.qvP0D8rLHyanJODn4nIoc_gc0XvqWAXGsZd7EnkIXN4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/super/distributer/auth/statewithdist/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"super",
+								"distributer",
+								"auth",
+								"statewithdist",
+								"view"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Transaction View",
 					"request": {
 						"method": "GET",
@@ -1876,6 +1983,41 @@
 					"response": []
 				},
 				{
+					"name": "State with district view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMzU5NzY0NDQwNGE5NzlkNTA0MDgiLCJmcm9tVXNlciI6IjY0M2UyZjQ2YzMwM2RlOGRlNTgyMmY1NiIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJkaXN0cmlidXRlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDEsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJExvdmswR1dsMmtQRWI3My4yNHkwemVaUnF3RWNQQ2N1S3dsSXFtMVpHT2ZmTE5tZkhvOFBhIiwicm9sZSI6IkRJU1RSSUJVVEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjoxNTo1MS41MDRaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjoxNTo1MS41MDRaIiwiX192IjowfQ.zwdLvXntcKvt4YY4yigqlew5zecR_j7yk-Vop7sAlos",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/statewithdist/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"statewithdist",
+								"view"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Transaction View",
 					"request": {
 						"method": "GET",
@@ -1915,6 +2057,460 @@
 		{
 			"name": "Retailer",
 			"item": [
+				{
+					"name": "Recharge",
+					"item": [
+						{
+							"name": "Mrobotics StateList",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/bill&payment/recharge/state/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bill&payment",
+										"recharge",
+										"state",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Mrobotics Company List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/bill&payment/recharge/company/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bill&payment",
+										"recharge",
+										"company",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "RechargeExchange Company Code",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/bill&payment/recharge/company/code",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bill&payment",
+										"recharge",
+										"company",
+										"code"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Mrobotics Recharge",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "mobile",
+											"value": "6200134797",
+											"type": "text"
+										},
+										{
+											"key": "amount",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "companyId",
+											"value": "5",
+											"description": "Compay id",
+											"type": "text"
+										},
+										{
+											"key": "isStv",
+											"value": "false",
+											"description": "true/false",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/bill&payment/recharge/recharge",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bill&payment",
+										"recharge",
+										"recharge"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Mrobotics recharge State wise",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "mobile",
+											"value": "9375937593",
+											"type": "text"
+										},
+										{
+											"key": "amount",
+											"value": "49",
+											"type": "text"
+										},
+										{
+											"key": "companyId",
+											"value": "5",
+											"type": "text"
+										},
+										{
+											"key": "isStv",
+											"value": "false",
+											"type": "text"
+										},
+										{
+											"key": "stateCode",
+											"value": "BR",
+											"description": "BR, UP, DL, RJ, PN",
+											"type": "text"
+										},
+										{
+											"key": "noRoaming",
+											"value": "false",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/bill&payment/recharge/recharge/state/wise",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bill&payment",
+										"recharge",
+										"recharge",
+										"state",
+										"wise"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Rechage Exchange recharge",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Content-Type",
+										"value": "application/x-www-form-urlencoded"
+									},
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "mobile",
+											"value": "9708871500",
+											"type": "text"
+										},
+										{
+											"key": "amount",
+											"value": "15",
+											"type": "text"
+										},
+										{
+											"key": "operatorCode",
+											"value": "10",
+											"type": "text"
+										},
+										{
+											"key": "isStv",
+											"value": "false",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "stateCode",
+											"value": "BR",
+											"description": "BR, UP, DL, RJ, PN",
+											"type": "text",
+											"disabled": true
+										},
+										{
+											"key": "noRoaming",
+											"value": "false",
+											"type": "text",
+											"disabled": true
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/bill&payment/recharge/rex/recharge/",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bill&payment",
+										"recharge",
+										"rex",
+										"recharge",
+										""
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Utility",
+					"item": [
+						{
+							"name": "PayOne get service Code",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/bill&payment/utility/service/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bill&payment",
+										"utility",
+										"service",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PayOne Bill Info",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "serCode",
+											"value": "SBPDC",
+											"type": "text"
+										},
+										{
+											"key": "custNo",
+											"value": "22410003510",
+											"type": "text"
+										},
+										{
+											"key": "refMobile",
+											"value": "6200134797",
+											"type": "text"
+										},
+										{
+											"key": "pinCode",
+											"value": "802217",
+											"type": "text"
+										},
+										{
+											"key": "lat",
+											"value": "24.630362",
+											"type": "text"
+										},
+										{
+											"key": "long",
+											"value": "83.920311",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/bill&payment/utility/bill/info",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bill&payment",
+										"utility",
+										"bill",
+										"info"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PayOne Pay Bill",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "serCode",
+											"value": "SBPDC",
+											"type": "text"
+										},
+										{
+											"key": "custNo",
+											"value": "22410003510",
+											"type": "text"
+										},
+										{
+											"key": "refMobile",
+											"value": "6200134797",
+											"type": "text"
+										},
+										{
+											"key": "pinCode",
+											"value": "802217",
+											"type": "text"
+										},
+										{
+											"key": "lat",
+											"value": "24.630362",
+											"type": "text"
+										},
+										{
+											"key": "long",
+											"value": "83.920311",
+											"type": "text"
+										},
+										{
+											"key": "amount",
+											"value": "33",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/bill&payment/utility/bill/pay",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"bill&payment",
+										"utility",
+										"bill",
+										"pay"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
 				{
 					"name": "Retailer-Login",
 					"request": {
@@ -2035,6 +2631,41 @@
 								"retailer",
 								"auth",
 								"profile",
+								"view"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "State with district view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/statewithdist/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"statewithdist",
 								"view"
 							],
 							"query": [
@@ -2209,460 +2840,6 @@
 									"key": "status",
 									"value": "PENDING"
 								}
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Recharge",
-			"item": [
-				{
-					"name": "Mrobotics StateList",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/bill&payment/recharge/state/list",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"bill&payment",
-								"recharge",
-								"state",
-								"list"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Mrobotics Company List",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/bill&payment/recharge/company/list",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"bill&payment",
-								"recharge",
-								"company",
-								"list"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "RechargeExchange Company Code",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/bill&payment/recharge/company/code",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"bill&payment",
-								"recharge",
-								"company",
-								"code"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Mrobotics Recharge",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg"
-							},
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "mobile",
-									"value": "6200134797",
-									"type": "text"
-								},
-								{
-									"key": "amount",
-									"value": "10",
-									"type": "text"
-								},
-								{
-									"key": "companyId",
-									"value": "5",
-									"description": "Compay id",
-									"type": "text"
-								},
-								{
-									"key": "isStv",
-									"value": "false",
-									"description": "true/false",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/bill&payment/recharge/recharge",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"bill&payment",
-								"recharge",
-								"recharge"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Mrobotics recharge State wise",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							},
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "mobile",
-									"value": "9375937593",
-									"type": "text"
-								},
-								{
-									"key": "amount",
-									"value": "49",
-									"type": "text"
-								},
-								{
-									"key": "companyId",
-									"value": "5",
-									"type": "text"
-								},
-								{
-									"key": "isStv",
-									"value": "false",
-									"type": "text"
-								},
-								{
-									"key": "stateCode",
-									"value": "BR",
-									"description": "BR, UP, DL, RJ, PN",
-									"type": "text"
-								},
-								{
-									"key": "noRoaming",
-									"value": "false",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/bill&payment/recharge/recharge/state/wise",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"bill&payment",
-								"recharge",
-								"recharge",
-								"state",
-								"wise"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Rechage Exchange recharge",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Content-Type",
-								"value": "application/x-www-form-urlencoded"
-							},
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "mobile",
-									"value": "9708871500",
-									"type": "text"
-								},
-								{
-									"key": "amount",
-									"value": "15",
-									"type": "text"
-								},
-								{
-									"key": "operatorCode",
-									"value": "10",
-									"type": "text"
-								},
-								{
-									"key": "isStv",
-									"value": "false",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "stateCode",
-									"value": "BR",
-									"description": "BR, UP, DL, RJ, PN",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "noRoaming",
-									"value": "false",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/bill&payment/recharge/rex/recharge/",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"bill&payment",
-								"recharge",
-								"rex",
-								"recharge",
-								""
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Utility",
-			"item": [
-				{
-					"name": "PayOne get service Code",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/bill&payment/utility/service/list",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"bill&payment",
-								"utility",
-								"service",
-								"list"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PayOne Bill Info",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "serCode",
-									"value": "SBPDC",
-									"type": "text"
-								},
-								{
-									"key": "custNo",
-									"value": "22410003510",
-									"type": "text"
-								},
-								{
-									"key": "refMobile",
-									"value": "6200134797",
-									"type": "text"
-								},
-								{
-									"key": "pinCode",
-									"value": "802217",
-									"type": "text"
-								},
-								{
-									"key": "lat",
-									"value": "24.630362",
-									"type": "text"
-								},
-								{
-									"key": "long",
-									"value": "83.920311",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/bill&payment/utility/bill/info",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"bill&payment",
-								"utility",
-								"bill",
-								"info"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "PayOne Pay Bill",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0NTU0ZmQ5NDU3YWQ4OTU4NWFlZDVkYyIsImZyb21TdXBlckFkbWluIjoiNjQ1NTRmZDk0NTdhZDg5NTg1YWVkNWRjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkQWlJbHd0NktsTnJ3dms2M2VxVlJuLi5Gc2ZqYmZCV3c4Qk14dTlhWVZ5cFVtT2tIUnpZWkMiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDU1NGZmMzQ1N2FkODk1ODVhZWQ1ZTAiLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTA1VDE4OjUwOjI3LjkyOVoiLCJfX3YiOjB9.XAonvwSZwwdt9avOfc1yKyXkbR--kUB4Ah9n7PUZOHg",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "serCode",
-									"value": "SBPDC",
-									"type": "text"
-								},
-								{
-									"key": "custNo",
-									"value": "22410003510",
-									"type": "text"
-								},
-								{
-									"key": "refMobile",
-									"value": "6200134797",
-									"type": "text"
-								},
-								{
-									"key": "pinCode",
-									"value": "802217",
-									"type": "text"
-								},
-								{
-									"key": "lat",
-									"value": "24.630362",
-									"type": "text"
-								},
-								{
-									"key": "long",
-									"value": "83.920311",
-									"type": "text"
-								},
-								{
-									"key": "amount",
-									"value": "33",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/bill&payment/utility/bill/pay",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"bill&payment",
-								"utility",
-								"bill",
-								"pay"
 							]
 						}
 					},
