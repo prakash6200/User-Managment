@@ -22,6 +22,7 @@ function generateMD5Hash(password) {
 module.exports.userOnboard = async (request, response) => {
     try {
         const {
+            user,
             username,
             password,
             latitude,
@@ -53,6 +54,18 @@ module.exports.userOnboard = async (request, response) => {
             bankBranchName,
             bankAccountName
         } = request.body;
+
+        const checkAdmin = await UserModel.findOne({
+            _id: user._id,
+        });
+
+        if(!checkAdmin) {
+            return response.status(401).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
 
         const hash = generateHash(config.SUPERMERCHANT_LOGIN_ID, config.SUPERMERCHANT_PASSWORD);
         const passwordHash = generateMD5Hash(password);
@@ -116,14 +129,67 @@ module.exports.userOnboard = async (request, response) => {
         .then((res) => {
             return response.json({
                 status: true,
-                message: "Successfully Registered",
-                data: JSON.stringify(res.data),
+                message: "User Onboarding success",
+                data: res.data,
             });
         })
         .catch((error) => {
+            return response.status(409).json({
+                status: false,
+                message: "Onboarding failed",
+                data: error,
+            });
+        });
+
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.aepsStateList = async (request, response) => {
+    try {
+        const { user } = request.body;
+
+        const checkAdmin = await UserModel.findOne({
+            _id: user._id,
+        });
+
+        if(!checkAdmin) {
+            return response.status(401).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+
+        let axiosConfig = {
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: 'https://fingpayap.tapits.in/fpaepsweb/api/onboarding/getstates',
+            headers: { }
+        };
+          
+        axios.request(axiosConfig)
+        .then((res) => {
             return response.json({
                 status: true,
-                message: "Successfully Registered",
+                message: "User Onboarding success",
+                data: res.data,
+            });
+        })
+        .catch((error) => {
+            return response.status(409).json({
+                status: false,
+                message: "Onboarding failed",
                 data: error,
             });
         });
