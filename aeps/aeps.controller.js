@@ -14,6 +14,11 @@ function generateHash(supermerchantloginid, supermerchantPassword) {
     return base64Hash;
 }
 
+function generateMD5Hash(password) {
+    const hash = crypto.createHash('md5').update(password).digest('hex');
+    return hash;
+  }
+
 module.exports.userOnboard = async (request, response) => {
     try {
         const {
@@ -49,9 +54,12 @@ module.exports.userOnboard = async (request, response) => {
             bankAccountName
         } = request.body;
 
+        const hash = generateHash(config.SUPERMERCHANT_LOGIN_ID, config.SUPERMERCHANT_PASSWORD);
+        const passwordHash = generateMD5Hash(password);
+
         const data = JSON.stringify({
             "username": username,
-            "password": "796c3ee556ac31f3754a38cfd15b8044",
+            "password": passwordHash,
             "supermerchantId": config.SUPERMERCHANT_LOGIN_ID,
             "latitude": latitude,
             "longitude": longitude,
@@ -93,8 +101,6 @@ module.exports.userOnboard = async (request, response) => {
             ]
         });
         
-        const hash = generateHash(config.SUPERMERCHANT_LOGIN_ID, config.SUPERMERCHANT_PASSWORD);
-
         let axiosConfig = {
             method: 'post',
             maxBodyLength: Infinity,
