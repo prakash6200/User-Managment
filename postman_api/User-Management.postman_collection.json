@@ -101,7 +101,7 @@
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjgwODc4NTg5MjA4OGM4NDE5ZjAiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoicHJha2FzaEBnbWFpbC5jb20iLCJtb2JpbGUiOjYyMDAxMzQ3OTcsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJGJJOS44OWliejF4anlEMVFPajU2anV6S2xicXpQZEt0UmRycEZBajc3N2txMUtHa2g3YTY2Iiwicm9sZSI6IlNVUEVSLUFETUlOIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNToxODowMC4yOThaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNToxODowMC4yOThaIiwiX192IjowfQ.WtJI_7YUn_dBjgYvxtnZPerwybLuLO9o_gqfF29OtWE",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDVlOTM0NDZjNWIxNGZmMTc4OTE4NWIiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoicHJha2FzaDJAZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk5LCJhdmFpbGFibGVCYWxhbmNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCRlQWNHMmtKQ2ZyVVBZLlV0ank0N0N1cXFua1JZNy5FZFF5SVhWbzFFYzEuTjlFMngvaFFmNiIsInJvbGUiOiJTVVBFUi1BRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDUtMTJUMTk6Mjg6MDQuMDMzWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDUtMTJUMTk6Mjg6MDQuMDMzWiIsIl9fdiI6MH0.IJbWTBhGuzphWJ5NGnKPxOmWuKydGd2n7uDsh5TzUX8",
 								"type": "text"
 							}
 						],
@@ -115,7 +115,7 @@
 								},
 								{
 									"key": "mobile",
-									"value": "6200134798",
+									"value": "6200134792",
 									"type": "text"
 								},
 								{
@@ -915,6 +915,73 @@
 									"key": "categoryId",
 									"value": "64477102c21552ebb73b04aa"
 								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AEPS User Onboard",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDY1MzBkNDViNTYzZDUyYmI3MWNhMTgiLCJmcm9tVXNlciI6IjY0NWU5MzQ0NmM1YjE0ZmYxNzg5MTg1YiIsImZyb21TdXBlckFkbWluIjoiNjQ1ZTkzNDQ2YzViMTRmZjE3ODkxODViIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5MiwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkYmFkMkZuczE1cm9rTE51T3pkQlY3T1RhcE1wLm56RTdpVjEwcHExN3F1UWlWeHZGanN6YTIiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTE3VDE5OjUzOjU2LjA0OFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTE3VDE5OjUzOjU2LjA0OFoiLCJfX3YiOjB9.vsEXsNZtvqb-y1OJ5bNxVQOEyzvAUIBJh9nLccMaR4c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n    \"username\": \"risingpayd\",\n    \"password\": \"796c3ee556ac31f3754a38cfd15b8044\",\n    \"supermerchantId\": 1069,\n    \"latitude\": \"23.1957998\",\n    \"longitude\": \"88.6248327\",\n    \"merchantLoginId\": \"RP00001\",\n    \"merchantLoginPin\": \"1234589\",\n    \"merchantName\": \"mahasen mondal\",\n    \"merchantPhoneNumber\": \"8945796019\",\n    \"companyLegalName\": \"abc testing\",\n    \"companyMarketingName\": \"abc pay\",\n    \"merchantBranch\": \" \",\n    \"emailId\": \"mhsn033@gmail.com\",\n    \"merchantPinCode\": \"741238\",\n    \"tan\": \" \",\n    \"merchantCityName\": \"KOLKATA\",\n    \"merchantDistrictName\": \"NADIA\",\n    \"cancellationCheckImages\": \" \",\n    \"shopAndPanImage\": \"\",\n    \"ekycDocuments\": \"\",\n    \"merchantAddress\" : \"Adityapur, North 24 Parganas, West Bengal - 743710\",\n    \"merchantState\": \"WEST-Bangal\",\n    \"userPan\": \" CMFPM0227G \",\n    \"aadhaarNumber\": \"218303191304\",\n    \"gstInNumber\": \" \",\n    \"companyOrShopPan\": \" \",\n    \"companyBankAccountNumber\": \"8945879609\",\n    \"bankIfscCode\": \"PYTM0123456\",\n    \"companyBankName\": \"PAYTM BANK\",\n    \"bankBranchName\": \"Maharastha\",\n    \"bankAccountName\": \"MAHASIN MONDAL\"\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/aeps/aeps/user/onboard",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"aeps",
+								"aeps",
+								"user",
+								"onboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "AEPS State list",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDY1MzBkNDViNTYzZDUyYmI3MWNhMTgiLCJmcm9tVXNlciI6IjY0NWU5MzQ0NmM1YjE0ZmYxNzg5MTg1YiIsImZyb21TdXBlckFkbWluIjoiNjQ1ZTkzNDQ2YzViMTRmZjE3ODkxODViIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5MiwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkYmFkMkZuczE1cm9rTE51T3pkQlY3T1RhcE1wLm56RTdpVjEwcHExN3F1UWlWeHZGanN6YTIiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTE3VDE5OjUzOjU2LjA0OFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTE3VDE5OjUzOjU2LjA0OFoiLCJfX3YiOjB9.vsEXsNZtvqb-y1OJ5bNxVQOEyzvAUIBJh9nLccMaR4c",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/admin/aeps/aeps/state/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"aeps",
+								"aeps",
+								"state",
+								"list"
 							]
 						}
 					},
