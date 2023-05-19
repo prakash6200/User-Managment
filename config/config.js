@@ -11,7 +11,10 @@ const config = {
   PAY_ONE_MOBILE: process.env.PAY_ONE_REG_MOBILE,
   MROBOTICS_BASE_URL: "https://mrobotics.in",
   RECHARGE_EXCHANGE_BASE_URL: "https://api.RechargeExchange.com",
-  PAY_ONE_BASE_URL: "https://www.payoneapi.com"
+  PAY_ONE_BASE_URL: "https://www.payoneapi.com",
+  SUPERMERCHANT_LOGIN_ID: process.env.SUPERMERCHANT_LOGIN_ID,
+  SUPERMERCHANT_PASSWORD: process.env.SUPERMERCHANT_PASSWORD,
+  SUPERMERCHANT_PASSWORD_MD5: process.env.SUPERMERCHANT_PASSWORD_MD5,
 };
 
 module.exports = config;

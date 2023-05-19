@@ -12,6 +12,9 @@ const utilsValidation = require("../../utils/utils.validator");
 const utilsController = require("../../utils/utils.controller");
 const categoryController = require("../../admin/controller/category.controller");
 const categoryValidation = require("../../admin/validator/category.validator");
+const aepsValidation = require("../../aeps/aeps.validator");
+const aepsController = require("../../aeps/aeps.controller");
+
 
 router.post("/login", authValidation.login, authController.login);
 router.post("/super/distributer/registration", authValidation.register, verifyJWTToken, authController.register);
@@ -37,6 +40,6 @@ router.post("/create/document", categoryValidation.createDocument, verifyJWTToke
 router.get("/get/document", verifyJWTToken, categoryController.getDocument);
 router.post("/create/service", categoryValidation.createService, verifyJWTToken, categoryController.createService);
 router.get("/get/service", verifyJWTToken, categoryController.getService);
-
+router.post("aeps/")
 
 module.exports = router;
