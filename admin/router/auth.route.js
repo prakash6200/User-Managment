@@ -40,6 +40,6 @@ router.post("/create/document", categoryValidation.createDocument, verifyJWTToke
 router.get("/get/document", verifyJWTToken, categoryController.getDocument);
 router.post("/create/service", categoryValidation.createService, verifyJWTToken, categoryController.createService);
 router.get("/get/service", verifyJWTToken, categoryController.getService);
-router.post("aeps/")
+router.get("/user/list", verifyJWTToken, teamController.userList);
 
 module.exports = router;

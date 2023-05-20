@@ -3,7 +3,6 @@ const jwt = require("jsonwebtoken");
 const Admin = require("../../models/users.model");
 const config = require("../../config/config");
 const ComissionModel = require("../../models/comission.models");
-const { response } = require("express");
 const saltRounds = 10;
 
 module.exports.salesRegister = async (request, response, next) => {
@@ -359,6 +358,47 @@ module.exports.viewComission = async (request, response) => {
             status: true,
             message: "Comission get successfully",
             data: comission,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.userList = async (request, response) => {
+    
+    try {
+        const { user } = request.body;
+
+        const checkAdmin = await Admin.findOne({
+            _id: user._id,
+            isDeleted: false
+        });
+        
+        if (!checkAdmin) {
+            return response.status(401).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+
+        const allUser = await Admin.find({
+            fromUser: checkAdmin._id,
+            isDeleted: false
+        })
+
+        const message = `${allUser.length} user found`;
+
+        return response.json({
+            status: true,
+            message: message,
+            data: allUser,
         });
 
     } catch (e) {
