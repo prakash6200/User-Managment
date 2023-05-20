@@ -410,3 +410,44 @@ module.exports.userList = async (request, response) => {
         });
     }
 }
+
+module.exports.singleUser = async (request, response) => {
+    
+    try {
+        const { user } = request.body;
+        const { id } = request.query;
+
+        const checkAdmin = await Admin.findOne({
+            _id: user._id,
+            isDeleted: false
+        });
+        
+        if (!checkAdmin) {
+            return response.status(401).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+
+        const allUser = await Admin.findOne({
+            fromUser: checkAdmin._id,
+            _id: id,
+            isDeleted: false
+        })
+
+        return response.json({
+            status: true,
+            message: "User found",
+            data: allUser,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
