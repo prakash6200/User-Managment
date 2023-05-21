@@ -273,6 +273,58 @@ module.exports.updateKyc = async (request, response) => {
     }
 };
 
+module.exports.updateBankAcc = async (request, response) => {
+    try {
+        const { user, bankName, branchName, accNo, accType, ifscCode, accHolderName } = request.body;
+
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+
+        console.log(user)
+        
+        if (!userData) {
+            return response.status(401).json({
+                status: false,
+                message: "User not found",
+                data: null,
+            });
+        }
+        const status = "IN-PROCESS"
+        const bank = {
+            bankName,
+            branchName,
+            accNo,
+            ifscCode,
+            accType,
+            accHolderName,
+            status
+        }
+
+        userData.bank = bank;
+       
+        userData.save();
+
+        return response.json({
+            status: true,
+            message: "Kyc updated",
+            data: userData,
+        });
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
 
 module.exports.orderId = () => {
     let timestamp = Date.now().toString();

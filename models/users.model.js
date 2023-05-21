@@ -86,15 +86,24 @@ const Users = new Schema(
             },
         },
         bank: {
-            accountNo: {
+            bankName: {
+                type: String,
+            },
+            branchName: {
+                type: String,
+            },
+            accNo: {
                 type: String,
             },
             ifscCode: {
                 type: String,
             },
-            district: {
+            accType: {
                 type: String,
-                enum: ["SEVING", "CURRENT", "OTHER",]
+                enum: ["SAVING", "CURRENT", "OTHER"]
+            },
+            accHolderName: {
+                type: String,
             },
             status: {
                 type: String,
