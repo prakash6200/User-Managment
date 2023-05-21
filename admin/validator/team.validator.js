@@ -92,11 +92,29 @@ module.exports.setComission = async (request, response, next) => {
 
 module.exports.updateUser = async (request, response, next) => {
     let rules = Joi.object().keys({
-            email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
-            mobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
-            role: Joi.string().valid('SUPER-ADMIN', 'ADMIN', 'SUPER-DISTRIBUTER', 'DISTRIBUTER', 'RETAILER').required(),
-            name: Joi.string().required(),
-            userId: Joi.string().required(),
+        email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
+        mobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
+        role: Joi.string().valid('SUPER-ADMIN', 'ADMIN', 'SUPER-DISTRIBUTER', 'DISTRIBUTER', 'RETAILER').required(),
+        name: Joi.string().required(),
+        userId: Joi.string().required(),
+    });
+    const { error } = rules.validate(request.body);
+    if (error) {
+        return response
+            .status(422)
+            .json({ status: false, message: error.message, data: null });
+    } else {
+        return next();
+    }
+};
+
+module.exports.createUser = async (request, response, next) => {
+    let rules = Joi.object().keys({
+        email: Joi.string().email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } }).required(),
+        mobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
+        role: Joi.string().valid('SUPER-ADMIN', 'ADMIN', 'SUPER-DISTRIBUTER', 'DISTRIBUTER', 'RETAILER').required(),
+        name: Joi.string().required(),
+        password: Joi.string().required(),
     });
     const { error } = rules.validate(request.body);
     if (error) {

@@ -43,5 +43,5 @@ router.get("/get/service", verifyJWTToken, categoryController.getService);
 router.get("/user/list", verifyJWTToken, teamController.userList);
 router.get("/user", verifyJWTToken, teamController.singleUser);
 router.post("/update/user", teamValidation.updateUser, verifyJWTToken, teamController.updateUser);
-
+router.post("/create/user", teamValidation.createUser, verifyJWTToken, teamController.createUser);
 module.exports = router;
