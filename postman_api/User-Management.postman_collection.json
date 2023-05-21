@@ -317,6 +317,64 @@
 					"response": []
 				},
 				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "super-distributer@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Prakash",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9708871500",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/create/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"create",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Sales-Registration",
 					"request": {
 						"method": "POST",
@@ -496,6 +554,71 @@
 					"response": []
 				},
 				{
+					"name": "Update-User Data",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "relmanager1@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "userId",
+									"value": "643e2f46c303de8de5822f56",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Prakash",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9708871512",
+									"type": "text"
+								},
+								{
+									"key": "subRelManager",
+									"value": "REGIONAL-MANAGER",
+									"description": "REGIONAL-MANAGER, ZONE-MANAGER, AREA-MANAGER",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/update/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"update",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Mis-Operator-Registration",
 					"request": {
 						"method": "POST",
@@ -599,7 +722,7 @@
 					"response": []
 				},
 				{
-					"name": "Set comission",
+					"name": "Set and update comission",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -953,6 +1076,108 @@
 								"aeps",
 								"user",
 								"onboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User list",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "categoryId",
+									"value": "64477102c21552ebb73b04aa",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"value": "hello.chl/af",
+									"type": "text"
+								},
+								{
+									"key": "subCategoryName",
+									"value": "SOFTWARE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/user/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"user",
+								"list"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Single User",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "categoryId",
+									"value": "64477102c21552ebb73b04aa",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"value": "hello.chl/af",
+									"type": "text"
+								},
+								{
+									"key": "subCategoryName",
+									"value": "SOFTWARE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/user/list",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"user",
+								"list"
 							]
 						}
 					},
@@ -2125,6 +2350,345 @@
 			"name": "Retailer",
 			"item": [
 				{
+					"name": "Retailer-Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "retailer@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Available Balance",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/available/balance",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"available",
+								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complaint view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/complaint/view?status=PENDING",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"complaint",
+								"view"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Profile view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/profile/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"profile",
+								"view"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "State with district view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/statewithdist/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"statewithdist",
+								"view"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Make enqry erquest",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "enquryMessage",
+									"value": "How to make transaction",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/make/enqry",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"make",
+								"enqry"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Sub-role",
+			"item": [
+				{
+					"name": "Sub Role login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlNjdlZWM0NjFkNzMxOGI1YmNiZTEiLCJmcm9tVXNlciI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJzYWxlc0BnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDQsInBhc3N3b3JkIjoiJDJiJDEwJENWWnc3dGdBQU9lYkFybUZIalI1Wi44TWwuUUhCcEs0RUxBYnhzcUREbkVoZVU4VHJpM2pHIiwic3ViUm9sZSI6IlNBTEVTIiwic3ViU2FsZXMiOiJTQUxFUy1FWEUiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjB9.nWLelxDJ2-3PmOO9psfTt_drN7H5OQxYsn9IYV28txI",
+								"type": "text",
+								"disabled": true
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "sales@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/sub/role/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sub",
+								"role",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complaint registration",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlNjdlZWM0NjFkNzMxOGI1YmNiZTEiLCJmcm9tVXNlciI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJzYWxlc0BnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDQsInBhc3N3b3JkIjoiJDJiJDEwJENWWnc3dGdBQU9lYkFybUZIalI1Wi44TWwuUUhCcEs0RUxBYnhzcUREbkVoZVU4VHJpM2pHIiwic3ViUm9sZSI6IlNBTEVTIiwic3ViU2FsZXMiOiJTQUxFUy1FWEUiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjB9.nWLelxDJ2-3PmOO9psfTt_drN7H5OQxYsn9IYV28txI",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userId",
+									"value": "643fd3d049b7a2b31b3da753",
+									"type": "text"
+								},
+								{
+									"key": "complaintMessage",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/sub/role/auth/complaint/registration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sub",
+								"role",
+								"auth",
+								"complaint",
+								"registration"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complaint view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlNjdlZWM0NjFkNzMxOGI1YmNiZTEiLCJmcm9tVXNlciI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJzYWxlc0BnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDQsInBhc3N3b3JkIjoiJDJiJDEwJENWWnc3dGdBQU9lYkFybUZIalI1Wi44TWwuUUhCcEs0RUxBYnhzcUREbkVoZVU4VHJpM2pHIiwic3ViUm9sZSI6IlNBTEVTIiwic3ViU2FsZXMiOiJTQUxFUy1FWEUiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjB9.nWLelxDJ2-3PmOO9psfTt_drN7H5OQxYsn9IYV28txI",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/sub/role/auth/complaint/view?status=PENDING",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"sub",
+								"role",
+								"auth",
+								"complaint",
+								"view"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "utils",
+			"item": [
+				{
 					"name": "Recharge",
 					"item": [
 						{
@@ -2579,334 +3143,136 @@
 					]
 				},
 				{
-					"name": "Retailer-Login",
+					"name": "Update Bank",
 					"request": {
-						"method": "POST",
-						"header": [],
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJzdXBlci1kaXN0cmlidXRlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDAsImF2YWlsYWJsZUJhbGFuY2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJFlSQ2R1cXJZYzl1TVcuRUNUdzR0ZmUyaUwwZVNtR2pyY3BJZjNTQzIyN1NjZ2JadnZCRXFtIiwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsIl9pZCI6IjY0NmE3ODM2MzMwMDE1ZmM1ODU1MmYzNSIsImNyZWF0ZWRBdCI6IjIwMjMtMDUtMjFUMTk6NTk6NTAuMDI0WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDUtMjFUMTk6NTk6NTAuMDI0WiIsIl9fdiI6MH0.LnQa3e0MiENSSNYwx6tUOjRiJ_ksedNX9cJJPR20zFc",
+								"type": "text"
+							}
+						],
 						"body": {
 							"mode": "urlencoded",
 							"urlencoded": [
 								{
-									"key": "email",
-									"value": "retailer@gmail.com",
+									"key": "bankName",
+									"value": "PNB",
 									"type": "text"
 								},
 								{
-									"key": "password",
-									"value": "123456",
+									"key": "branchName",
+									"value": "Rajpur",
+									"type": "text"
+								},
+								{
+									"key": "accNo",
+									"value": "6485000100100944",
+									"type": "text"
+								},
+								{
+									"key": "ifscCode",
+									"value": "PUNB0648500",
+									"type": "text"
+								},
+								{
+									"key": "accType",
+									"value": "SAVING",
+									"type": "text"
+								},
+								{
+									"key": "accHolderName",
+									"value": "Prakash kumar",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/retailer/auth/login",
+							"raw": "http://localhost:8080/utils/update/bank",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"retailer",
-								"auth",
-								"login"
+								"utils",
+								"update",
+								"bank"
 							]
 						}
 					},
 					"response": []
 				},
 				{
-					"name": "Available Balance",
+					"name": "Update Kyc",
 					"request": {
-						"method": "GET",
+						"method": "PATCH",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJzdXBlci1kaXN0cmlidXRlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDAsImF2YWlsYWJsZUJhbGFuY2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJFlSQ2R1cXJZYzl1TVcuRUNUdzR0ZmUyaUwwZVNtR2pyY3BJZjNTQzIyN1NjZ2JadnZCRXFtIiwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsIl9pZCI6IjY0NmE3ODM2MzMwMDE1ZmM1ODU1MmYzNSIsImNyZWF0ZWRBdCI6IjIwMjMtMDUtMjFUMTk6NTk6NTAuMDI0WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDUtMjFUMTk6NTk6NTAuMDI0WiIsIl9fdiI6MH0.LnQa3e0MiENSSNYwx6tUOjRiJ_ksedNX9cJJPR20zFc",
 								"type": "text"
 							}
 						],
-						"url": {
-							"raw": "http://localhost:8080/retailer/auth/available/balance",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"retailer",
-								"auth",
-								"available",
-								"balance"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Complaint view",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/retailer/auth/complaint/view?status=PENDING",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"retailer",
-								"auth",
-								"complaint",
-								"view"
-							],
-							"query": [
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
 								{
-									"key": "status",
-									"value": "PENDING"
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Profile view",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/retailer/auth/profile/view",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"retailer",
-								"auth",
-								"profile",
-								"view"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "PENDING",
+									"key": "bankName",
+									"value": "PNB",
+									"type": "text",
 									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "State with district view",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/retailer/auth/statewithdist/view",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"retailer",
-								"auth",
-								"statewithdist",
-								"view"
-							],
-							"query": [
+								},
 								{
-									"key": "status",
-									"value": "PENDING",
+									"key": "branchName",
+									"value": "Rajpur",
+									"type": "text",
 									"disabled": true
-								}
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Make enqry erquest",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
+								},
 								{
-									"key": "enquryMessage",
-									"value": "How to make transaction",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/retailer/auth/make/enqry",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"retailer",
-								"auth",
-								"make",
-								"enqry"
-							]
-						}
-					},
-					"response": []
-				}
-			]
-		},
-		{
-			"name": "Sub-role",
-			"item": [
-				{
-					"name": "Sub Role login",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlNjdlZWM0NjFkNzMxOGI1YmNiZTEiLCJmcm9tVXNlciI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJzYWxlc0BnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDQsInBhc3N3b3JkIjoiJDJiJDEwJENWWnc3dGdBQU9lYkFybUZIalI1Wi44TWwuUUhCcEs0RUxBYnhzcUREbkVoZVU4VHJpM2pHIiwic3ViUm9sZSI6IlNBTEVTIiwic3ViU2FsZXMiOiJTQUxFUy1FWEUiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjB9.nWLelxDJ2-3PmOO9psfTt_drN7H5OQxYsn9IYV28txI",
-								"type": "text",
-								"disabled": true
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "email",
-									"value": "sales@gmail.com",
+									"key": "panDocument",
+									"value": "6485000100100944",
 									"type": "text"
 								},
 								{
-									"key": "password",
-									"value": "123456",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/sub/role/auth/login",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"sub",
-								"role",
-								"auth",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Complaint registration",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlNjdlZWM0NjFkNzMxOGI1YmNiZTEiLCJmcm9tVXNlciI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJzYWxlc0BnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDQsInBhc3N3b3JkIjoiJDJiJDEwJENWWnc3dGdBQU9lYkFybUZIalI1Wi44TWwuUUhCcEs0RUxBYnhzcUREbkVoZVU4VHJpM2pHIiwic3ViUm9sZSI6IlNBTEVTIiwic3ViU2FsZXMiOiJTQUxFUy1FWEUiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjB9.nWLelxDJ2-3PmOO9psfTt_drN7H5OQxYsn9IYV28txI",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "userId",
-									"value": "643fd3d049b7a2b31b3da753",
+									"key": "panDocumentImage",
+									"value": "PUNB0648500",
 									"type": "text"
 								},
 								{
-									"key": "complaintMessage",
-									"value": "123456",
+									"key": "otherMobile",
+									"value": "9708871500",
+									"type": "text"
+								},
+								{
+									"key": "adharDocument",
+									"value": "Prakash kumar",
+									"type": "text"
+								},
+								{
+									"key": "adharDocumentImage",
+									"value": "sdfsd",
+									"type": "text"
+								},
+								{
+									"key": "userSelfie",
+									"value": "sdfgghd",
 									"type": "text"
 								}
 							]
 						},
 						"url": {
-							"raw": "http://localhost:8080/sub/role/auth/complaint/registration",
+							"raw": "http://localhost:8080/utils/update/kyc",
 							"protocol": "http",
 							"host": [
 								"localhost"
 							],
 							"port": "8080",
 							"path": [
-								"sub",
-								"role",
-								"auth",
-								"complaint",
-								"registration"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Complaint view",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlNjdlZWM0NjFkNzMxOGI1YmNiZTEiLCJmcm9tVXNlciI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJzYWxlc0BnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDQsInBhc3N3b3JkIjoiJDJiJDEwJENWWnc3dGdBQU9lYkFybUZIalI1Wi44TWwuUUhCcEs0RUxBYnhzcUREbkVoZVU4VHJpM2pHIiwic3ViUm9sZSI6IlNBTEVTIiwic3ViU2FsZXMiOiJTQUxFUy1FWEUiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTE4VDA5OjUwOjM4LjEyOFoiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjB9.nWLelxDJ2-3PmOO9psfTt_drN7H5OQxYsn9IYV28txI",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/sub/role/auth/complaint/view?status=PENDING",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"sub",
-								"role",
-								"auth",
-								"complaint",
-								"view"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "PENDING"
-								}
+								"utils",
+								"update",
+								"kyc"
 							]
 						}
 					},

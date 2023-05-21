@@ -240,6 +240,7 @@ module.exports.updateKyc = async (request, response) => {
                 data: null,
             });
         }
+        const status = "IN-PROGRESS";
 
         const kyc = {
             otherMobile,
@@ -247,7 +248,8 @@ module.exports.updateKyc = async (request, response) => {
             panDocumentImage,
             adharDocument,
             adharDocumentImage,
-            userSelfie
+            userSelfie,
+            status
         }
 
         userData.kyc = kyc;
@@ -256,8 +258,8 @@ module.exports.updateKyc = async (request, response) => {
 
         return response.json({
             status: true,
-            message: "Kyc updated",
-            data: stateWithDistrict,
+            message: "Kyc updated successfully",
+            data: userData.kyc,
         });
     } catch (e) {
         console.log(
@@ -291,6 +293,7 @@ module.exports.updateBankAcc = async (request, response) => {
                 data: null,
             });
         }
+        // const ifsc = ifscCode.toUpperCase();
         const status = "IN-PROCESS"
         const bank = {
             bankName,
@@ -309,7 +312,7 @@ module.exports.updateBankAcc = async (request, response) => {
         return response.json({
             status: true,
             message: "Kyc updated",
-            data: userData,
+            data: userData.bank,
         });
     } catch (e) {
         console.log(

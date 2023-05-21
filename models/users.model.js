@@ -77,7 +77,7 @@ const Users = new Schema(
             },
             status: {
                 type: String,
-                enum: ["APPROVED", "PENDING", "REJECTED", "IN-PROCESS"],
+                enum: ["APPROVED", "PENDING", "REJECTED", "IN-PROGRESS"],
                 default: "PENDING",
             },
             isApprovedBy: {

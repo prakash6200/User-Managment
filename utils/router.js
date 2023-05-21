@@ -7,8 +7,6 @@ const utilsValidation = require("./utils.validator");
 const utilsController = require("./utils.controller");
 
 router.patch("/update/bank", utilsValidation.updateBankAcc, verifyJWTToken,  utilsController.updateBankAcc);
-// router.patch("/update/bank", utilsValidation.updateBankAcc, verifyJWTToken,  utilsValidation.updateBankAcc);
-
-
+router.patch("/update/kyc", utilsValidation.updateKyc, verifyJWTToken,  utilsController.updateKyc);
 
 module.exports = router;

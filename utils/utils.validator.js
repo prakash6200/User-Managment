@@ -29,6 +29,25 @@ module.exports.makeEnquiry = async (request, response, next) => {
     }
 };
 
+module.exports.updateKyc = async (request, response, next) => {
+    let rules = Joi.object().keys({
+        panDocument: Joi.string().required(),
+        panDocumentImage: Joi.string().required(),
+        otherMobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
+        adharDocument: Joi.string().required(),
+        adharDocumentImage: Joi.string().required(),
+        userSelfie: Joi.string().required(),
+    });
+    const { error } = rules.validate(request.body);
+    if (error) {
+        return response
+            .status(422)
+            .json({ status: false, message: error.message, data: null });
+    } else {
+        return next();
+    }
+};
+
 module.exports.updateBankAcc = async (request, response, next) => {
     let rules = Joi.object().keys({
         bankName: Joi.string().required(),
