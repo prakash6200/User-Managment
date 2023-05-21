@@ -75,6 +75,15 @@ const Users = new Schema(
             userSelfie: {
                 type: String,
             },
+            status: {
+                type: String,
+                enum: ["APPROVED", "PENDING", "REJECTED", "IN-PROCESS"],
+                default: "PENDING",
+            },
+            isApprovedBy: {
+                type: Schema.Types.ObjectId,
+                ref: "Users",
+            },
         },
         bank: {
             accountNo: {
@@ -86,6 +95,15 @@ const Users = new Schema(
             district: {
                 type: String,
                 enum: ["SEVING", "CURRENT", "OTHER",]
+            },
+            status: {
+                type: String,
+                enum: ["APPROVED", "PENDING", "REJECTED", "IN-PROCESS"],
+                default: "PENDING",
+            },
+            isApprovedBy: {
+                type: Schema.Types.ObjectId,
+                ref: "Users",
             },
         },
         role: {
