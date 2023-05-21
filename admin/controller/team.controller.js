@@ -306,7 +306,7 @@ module.exports.setComission = async (request, response) => {
         })
 
         if(!comission) {
-             await ComissionModel.create ({
+            await ComissionModel.create ({
                 fromAdmin: user._id,
                 admin: admin,
                 superDistributer: superDistributer,
@@ -314,7 +314,8 @@ module.exports.setComission = async (request, response) => {
                 retailer: retailer,
             })
         }
-        const updateComission = await ComissionModel.findOneAndUpdate ({
+
+        const updateComission = await ComissionModel.findOneAndUpdate({
             admin: admin,
             superDistributer: superDistributer,
             distributer: distributer,
@@ -323,7 +324,7 @@ module.exports.setComission = async (request, response) => {
 
         return response.json({
             status: true,
-            message: "Comission set successfully",
+            message: "Comission set/update successfully",
             data: updateComission,
         });
     
@@ -440,6 +441,60 @@ module.exports.singleUser = async (request, response) => {
             status: true,
             message: "User found",
             data: allUser,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.updateUser = async (request, response) => {
+    
+    try {
+        const { user, userId, name, email, mobile, role } = request.body;
+        
+        const checkAdmin = await Admin.findOne({
+            _id: user._id,
+            isDeleted: false
+        });
+        
+        if (!checkAdmin) {
+            return response.status(401).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        };
+
+        const updateUser = await Admin.findOne({
+            _id: userId,
+            isDeleted: false
+        });
+
+        if (!updateUser) {
+            return response.status(401).json({
+                status: false,
+                message: "User not found",
+                data: null,
+            });
+        };
+
+        updateUser.name = name;
+        updateUser.email = email;
+        updateUser.mobile = mobile;
+        updateUser.role = role;
+
+        updateUser.save();
+
+        return response.json({
+            status: true,
+            message: "User data updated successfully",
+            data: updateUser,
         });
 
     } catch (e) {
