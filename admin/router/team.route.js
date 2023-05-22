@@ -35,5 +35,6 @@ router.get("/user", verifyJWTToken, teamController.singleUser);
 router.post("/update/user", teamValidation.updateUser, verifyJWTToken, teamController.updateUser);
 router.post("/create/user", teamValidation.createUser, verifyJWTToken, teamController.createUser);
 router.patch("/approve/kyc", teamValidation.approveKyc, verifyJWTToken, teamController.approveKyc);
+router.patch("/approve/bank", teamValidation.approveBank, verifyJWTToken, teamController.approveBank);
 
 module.exports = router;

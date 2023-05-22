@@ -622,3 +622,48 @@ module.exports.approveKyc = async (request, response) => {
         });
     }
 }
+
+module.exports.approveBank = async (request, response) => {
+    try {
+        const { user, userId, status } = request.body;
+
+        if (user.role != "ADMIN") {
+            return response.status(409).json({
+                status: false,
+                message: "You are not authorized",
+                data: null,
+            });
+        }
+
+        const userData = await UsersModel.findOne({
+            _id: userId,
+            isDeleted: false
+        });
+
+        if (!userData) {
+            return response.status(409).json({
+                status: false,
+                message: "User not found or deleted",
+                data: null,
+            });
+        }
+
+        userData.bank.status = status;
+        userData.bank.isApprovedBy = user._id;
+        userData.save();
+        
+        return response.json({
+            status: true,
+            message: "Status updated successfully",
+            data: userData.bank,
+        });
+    
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
