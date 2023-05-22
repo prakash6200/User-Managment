@@ -5,6 +5,7 @@ const config = require("../../config/config");
 const ComissionModel = require("../../models/comission.models");
 const UsersModel = require("../../models/users.model");
 const saltRounds = 10;
+const axios = require("axios");
 
 module.exports.salesRegister = async (request, response, next) => {
     try {
@@ -658,6 +659,50 @@ module.exports.approveBank = async (request, response) => {
             data: userData.bank,
         });
     
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.sendMessage = async (request, response) => {
+    try {
+        const { user, mobile } = request.body;
+
+        if (user.role != "ADMIN") {
+            return response.status(409).json({
+                status: false,
+                message: "You are not authorized",
+                data: null,
+            });
+        }
+
+        let axiosConfig = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `https://mdssend.in/api.php?username=${config.SMS_USER_NAME}&apikey=${config.SMS_API_KEY}&senderid=${config.SMS_API_KEY}&route=OTP&mobile=${mobile}&text=Thank you RISINGDOOR TECHNOLOGY PVT LTD. Your OTP for login is {%23var%23}. Do not share with anyone-RNGPAY`,
+            headers: { }
+          };
+          
+          axios.request(axiosConfig)
+          .then((res) => {
+            return response.json({
+                status: true,
+                message: "SMS send successfully",
+                data: res.data,
+            });
+          })
+          .catch((error) => {
+            return response.status(409).json({
+                status: false,
+                message: "Send sms failed",
+                data: error,
+            });
+          });    
     } catch (e) {
         console.log(e);
         return response.status(500).json({

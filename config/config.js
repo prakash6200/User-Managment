@@ -15,6 +15,9 @@ const config = {
   SUPERMERCHANT_LOGIN_ID: process.env.SUPERMERCHANT_LOGIN_ID,
   SUPERMERCHANT_PASSWORD: process.env.SUPERMERCHANT_PASSWORD,
   SUPERMERCHANT_PASSWORD_MD5: process.env.SUPERMERCHANT_PASSWORD_MD5,
+  SMS_USER_NAME: process.env.SMS_USER_NAME,
+  SMS_API_KEY: process.env.SMS_API_KEY,
+  SENDER_ID: process.env.SENDER_ID
 };
 
 module.exports = config;

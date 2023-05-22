@@ -11,7 +11,6 @@ const utilsController = require("../../utils/utils.controller");
 const categoryController = require("../controller/category.controller");
 const categoryValidation = require("../validator/category.validator");
 
-
 router.post("/fund/transfer", transactionValidation.transferFund, verifyJWTToken, transactionController.transferFund);
 router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
 router.get("/complaint/view", verifyJWTToken, utilsController.complaintView);
@@ -36,5 +35,6 @@ router.post("/update/user", teamValidation.updateUser, verifyJWTToken, teamContr
 router.post("/create/user", teamValidation.createUser, verifyJWTToken, teamController.createUser);
 router.patch("/approve/kyc", teamValidation.approveKyc, verifyJWTToken, teamController.approveKyc);
 router.patch("/approve/bank", teamValidation.approveBank, verifyJWTToken, teamController.approveBank);
+router.post("/send/sms", teamValidation.sendMessage, verifyJWTToken, teamController.sendMessage);
 
 module.exports = router;
