@@ -684,7 +684,7 @@ module.exports.sendMessage = async (request, response) => {
         let axiosConfig = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: `https://mdssend.in/api.php?username=${config.SMS_USER_NAME}&apikey=${config.SMS_API_KEY}&senderid=${config.SMS_API_KEY}&route=OTP&mobile=${mobile}&text=Thank you RISINGDOOR TECHNOLOGY PVT LTD. Your OTP for login is {%23var%23}. Do not share with anyone-RNGPAY`,
+            url: `https://mdssend.in/api.php?username=${config.SMS_USER_NAME}&apikey=${config.SMS_API_KEY}&senderid=${config.SENDER_ID}&route=OTP&mobile=${mobile}&text=Thank you RISINGDOOR TECHNOLOGY PVT LTD. Your OTP for login is {%23var%23}. Do not share with anyone-RNGPAY`,
             headers: { }
           };
           
@@ -712,3 +712,4 @@ module.exports.sendMessage = async (request, response) => {
         });
     }
 }
+

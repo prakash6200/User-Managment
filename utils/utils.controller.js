@@ -2,6 +2,7 @@ const UserModel = require("../models/users.model");
 const ComplaintModel = require("../models/complaint.model");
 const EnqueryModel = require("../models/enquery.model");
 const stateWithDistrict = require("../utils/state.district")
+const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 
 module.exports.regesterComplaint = async(request, response) => {
     
@@ -223,57 +224,96 @@ module.exports.stateDirstrict = async (request, response) => {
     }
 };
 
-module.exports.updateKyc = async (request, response) => {
+// Create an S3 client
+const s3Client = new S3Client({
+    region: "YOUR_AWS_REGION",
+    credentials: {
+      accessKeyId: "YOUR_ACCESS_KEY",
+      secretAccessKey: "YOUR_SECRET_ACCESS_KEY",
+    },
+});
+  
+  // Function to upload a file to S3
+const uploadFileToS3 = async (key, file) => {
     try {
-        const { user, otherMobile, panDocument, panDocumentImage, 
-            adharDocument, adharDocumentImage, userSelfie } = request.body;
-
-        const userData = await UserModel.findOne({
-            _id: user._id,
-            isDeleted: false,
-        })
-        
-        if (!userData) {
-            return response.status(401).json({
-                status: false,
-                message: "User not found",
-                data: null,
-            });
-        }
-        const status = "IN-PROGRESS";
-
-        const kyc = {
-            otherMobile,
-            panDocument,
-            panDocumentImage,
-            adharDocument,
-            adharDocumentImage,
-            userSelfie,
-            status
-        }
-
-        userData.kyc = kyc;
-
-        userData.save();
-
-        return response.json({
-            status: true,
-            message: "Kyc updated successfully",
-            data: userData.kyc,
-        });
-    } catch (e) {
-        console.log(
-            "%c 🍨 e: ",
-            "font-size:20px;background-color: #465975;color:#fff;",
-            e,
-        );
-        return response.status(500).json({
-            status: false,
-            message: "Something Went To Wrong",
-            data: null,
-        });
+      const uploadParams = {
+        Bucket: "YOUR_BUCKET_NAME",
+        Key: key,
+        Body: file,
+      };
+  
+      const command = new PutObjectCommand(uploadParams);
+      const response = await s3Client.send(command);
+  
+      if (response.$metadata.httpStatusCode === 200) {
+        return `https://YOUR_BUCKET_NAME.s3.YOUR_AWS_REGION.amazonaws.com/${key}`;
+      } else {
+        throw new Error("File upload failed");
+      }
+    } catch (error) {
+      throw new Error(`File upload failed: ${error.message}`);
     }
 };
+  
+module.exports.updateKyc = async (request, response) => {
+    try {
+      const { user, otherMobile, panNo, panDocumentImage, adharNo, adharDocumentImage, userSelfie } = request.body;
+  
+      const userData = await UserModel.findOne({
+        _id: user._id,
+        isDeleted: false,
+      });
+  
+      if (!userData) {
+        return response.status(401).json({
+          status: false,
+          message: "User not found",
+          data: null,
+        });
+      }
+  
+      const status = "IN-PROGRESS";
+  
+      const kyc = {
+        otherMobile,
+        panDocument,
+        adharDocument,
+        status,
+      };
+  
+      // Upload Aadhar document image
+      if (adharDocumentImage) {
+        const adharDocumentImageKey = `kyc/${user._id}/adharDocumentImage_${Date.now()}`;
+        const adharDocumentImageUrl = await uploadFileToS3(adharDocumentImageKey, adharDocumentImage);
+        kyc.adharDocumentImage = adharDocumentImageUrl;
+      }
+  
+      // Upload user selfie
+      if (userSelfie) {
+        const userSelfieKey = `kyc/${user._id}/userSelfie_${Date.now()}`;
+        const userSelfieUrl = await uploadFileToS3(userSelfieKey, userSelfie);
+        kyc.userSelfie = userSelfieUrl;
+      }
+  
+      userData.kyc = kyc;
+  
+      userData.save();
+  
+      return response.json({
+        status: true,
+        message: "Kyc updated successfully",
+        data: userData.kyc,
+      });
+    } catch (e) {
+      console.log("%c 🍨 e: ", "font-size:20px;background-color: #465975;color:#fff;", e);
+      return response.status(500).json({
+        status: false,
+        message: "Something Went To Wrong",
+        data: null,
+      });
+    }
+};
+
 
 module.exports.updateBankAcc = async (request, response) => {
     try {
