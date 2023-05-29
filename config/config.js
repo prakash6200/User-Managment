@@ -17,7 +17,9 @@ const config = {
   SUPERMERCHANT_PASSWORD_MD5: process.env.SUPERMERCHANT_PASSWORD_MD5,
   SMS_USER_NAME: process.env.SMS_USER_NAME,
   SMS_API_KEY: process.env.SMS_API_KEY,
-  SENDER_ID: process.env.SENDER_ID
+  SENDER_ID: process.env.SENDER_ID,
+  RAZORPAY_AUTH: process.env.RAZORPAY_AUTH,
+  RAZORPAY_ACCOUNT: process.env.RAZORPAY_ACCOUNT
 };
 
 module.exports = config;

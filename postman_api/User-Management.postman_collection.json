@@ -227,6 +227,295 @@
 			"name": "Admin",
 			"item": [
 				{
+					"name": "Composit payout",
+					"item": [
+						{
+							"name": "Bank transfer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"account_number\": \"2323230085763507\",\n  \"amount\": 400,\n  \"currency\": \"INR\",\n  \"mode\": \"NEFT\",\n  \"purpose\": \"refund\",\n  \"fund_account\": {\n    \"account_type\": \"bank_account\",\n    \"bank_account\": {\n      \"name\": \"Prakash Kumar\",\n      \"ifsc\": \"PUNB0648500\",\n      \"account_number\": \"6485000100100944\"\n    },\n    \"contact\": {\n      \"name\": \"Prakash Kumar\",\n      \"email\": \"prakashkumar97068@gmail.com\",\n      \"contact\": \"6200134797\",\n      \"type\": \"employee\",\n      \"reference_id\": \"Acme Contact ID 12345\",\n      \"notes\": {\n        \"notes_key_1\": \"Tea, Earl Grey, Hot\",\n        \"notes_key_2\": \"Tea, Earl Grey… decaf.\"\n      }\n    }\n  },\n  \"queue_if_low_balance\": true,\n  \"reference_id\": \"Acme Transaction ID 12345\",\n  \"narration\": \"Acme Corp Fund Transfer\",\n  \"notes\": {\n    \"notes_key_1\": \"Beam me up Scotty\",\n    \"notes_key_2\": \"Engage\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/payouts/bank/transfer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"payouts",
+										"bank",
+										"transfer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "UPI transfer",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"account_number\": \"2323230085763507\",\n  \"amount\": 100,\n  \"currency\": \"INR\",\n  \"mode\": \"UPI\",\n  \"purpose\": \"refund\",\n  \"fund_account\": {\n    \"account_type\": \"vpa\",\n    \"vpa\": {\n      \"address\": \"6200134797@apl\"\n    },\n    \"contact\": {\n      \"name\": \"Gaurav Kumar\",\n      \"email\": \"gaurav.kumar@example.com\",\n      \"contact\": \"9876543210\",\n      \"type\": \"employee\",\n      \"reference_id\": \"Acme Contact ID 12345\",\n      \"notes\": {\n        \"notes_key_1\": \"Tea, Earl Grey, Hot\",\n        \"notes_key_2\": \"Tea, Earl Grey… decaf.\"\n      }\n    }\n  },\n  \"queue_if_low_balance\": true,\n  \"reference_id\": \"Acme Transaction ID 12345\",\n  \"narration\": \"Acme Corp Fund Transfer\",\n  \"notes\": {\n    \"notes_key_1\": \"Beam me up Scotty\",\n    \"notes_key_2\": \"Engage\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/payouts/upi/transfer",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"payouts",
+										"upi",
+										"transfer"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All payout transaction",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "X-Payout-Idempotency",
+										"value": ""
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									},
+									{
+										"key": "Authorization",
+										"value": "Basic cnpwX3Rlc3RfWVBZR2tScm13QXViQks6eWxtTlBlSTFvc3I3aTNnYnVjMzlVZXQx"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/admin/payouts/all/transaction",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"payouts",
+										"all",
+										"transaction"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Payout links",
+					"item": [
+						{
+							"name": "PayLink by customer id",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"account_number\": \"2323230085763507\",\n  \"contact\": {\n    \"id\": \"cont_LtCpiIkz0VbBj9\"\n  },\n  \"amount\": 100,\n  \"currency\": \"INR\",\n  \"purpose\": \"refund\",\n  \"description\": \"Payout link for Gaurav Kumar\",\n  \"receipt\": \"Receipt No. 1\",\n  \"notes\": {\n    \"random_key_1\": \"Make it so.\",\n    \"random_key_2\": \"Tea. Earl Grey. Hot.\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/payouts/paylink/bycust/id",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"payouts",
+										"paylink",
+										"bycust",
+										"id"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "PayBy customer details",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"account_number\": \"2323230085763507\",\n  \"contact\": {\n    \"name\": \"Prakash Kumar\",\n    \"type\": \"customer\",\n    \"contact\": \"6200134797\",\n    \"email\": \"prakashkr2609@gmail.com\"\n  },\n  \"amount\": 100,\n  \"currency\": \"INR\",\n  \"purpose\": \"payout\",\n  \"description\": \"Payout link for Gaurav Kumar\",\n  \"receipt\": \"Receipt No. 1\",\n  \"notes\": {\n    \"random_key_1\": \"Make it so.\",\n    \"random_key_2\": \"Tea. Earl Grey. Hot.\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/payouts/paylink/bycust/details",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"payouts",
+										"paylink",
+										"bycust",
+										"details"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "cancel payoutlink",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "urlencoded",
+									"urlencoded": [
+										{
+											"key": "payOutId",
+											"value": "poutlk_8QqO20TVa7JZwa",
+											"type": "text"
+										}
+									]
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/payouts/cancel/paylink",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"payouts",
+										"cancel",
+										"paylink"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get All payoutlink",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8080/admin/payouts/all/payoutlink",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"payouts",
+										"all",
+										"payoutlink"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Get payoutlink by id",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/admin/payouts/payoutlink/byid?payoutId=poutlk_8QqO20TVa7JZwa",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"payouts",
+										"payoutlink",
+										"byid"
+									],
+									"query": [
+										{
+											"key": "payoutId",
+											"value": "poutlk_8QqO20TVa7JZwa"
+										}
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Admin-Login",
 					"request": {
 						"method": "POST",
@@ -311,64 +600,6 @@
 								"super",
 								"distributer",
 								"registration"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Create User",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "email",
-									"value": "super-distributer@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "text"
-								},
-								{
-									"key": "name",
-									"value": "Prakash",
-									"type": "text"
-								},
-								{
-									"key": "mobile",
-									"value": "9708871500",
-									"type": "text"
-								},
-								{
-									"key": "role",
-									"value": "ADMIN",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/admin/auth/create/user",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"auth",
-								"create",
-								"user"
 							]
 						}
 					},
@@ -1064,7 +1295,7 @@
 							}
 						},
 						"url": {
-							"raw": "http://localhost:8080/admin/aeps/aeps/user/onboard",
+							"raw": "http://localhost:8080/admin/aeps/user/onboard",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1073,9 +1304,250 @@
 							"path": [
 								"admin",
 								"aeps",
-								"aeps",
 								"user",
 								"onboard"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create User",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "super-ditributer@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Prakash",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9708271509",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "RETAILER",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/create/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"create",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve kyc",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "super-distributer@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "646a7836330015fc58552f35",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "APPROVED",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9708871500",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/team/approve/kyc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"team",
+								"approve",
+								"kyc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Bank",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "super-distributer@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "646a7836330015fc58552f35",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "APPROVED",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9708871500",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/team/approve/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"team",
+								"approve",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send message",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "super-distributer@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "646a7836330015fc58552f35",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "status",
+									"value": "APPROVED",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "mobile",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/team/send/sms",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"team",
+								"send",
+								"sms"
 							]
 						}
 					},
@@ -1195,7 +1667,7 @@
 							}
 						],
 						"url": {
-							"raw": "http://localhost:8080/admin/aeps/aeps/state/list",
+							"raw": "http://localhost:8080/admin/aeps/state/list",
 							"protocol": "http",
 							"host": [
 								"localhost"
@@ -1203,7 +1675,6 @@
 							"port": "8080",
 							"path": [
 								"admin",
-								"aeps",
 								"aeps",
 								"state",
 								"list"
@@ -3279,6 +3750,14 @@
 					"response": []
 				}
 			]
+		},
+		{
+			"name": "New Request",
+			"request": {
+				"method": "GET",
+				"header": []
+			},
+			"response": []
 		}
 	]
 }
