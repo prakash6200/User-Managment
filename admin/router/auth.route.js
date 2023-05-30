@@ -17,6 +17,7 @@ const aepsController = require("../../aeps/aeps.controller");
 
 
 router.post("/login", authValidation.login, authController.login);
+router.put("/upload", authController.uploadFs);
 router.post("/super/distributer/registration", authValidation.register, verifyJWTToken, authController.register);
 router.post("/sales/registration", teamValidation.salesRegister, verifyJWTToken, teamController.salesRegister);
 router.post("/support/desk/registration", teamValidation.supportDeskRegister, verifyJWTToken, teamController.supportDeskRegister);
@@ -44,4 +45,5 @@ router.get("/user/list", verifyJWTToken, teamController.userList);
 router.get("/user", verifyJWTToken, teamController.singleUser);
 router.post("/update/user", teamValidation.updateUser, verifyJWTToken, teamController.updateUser);
 router.post("/create/user", teamValidation.createUser, verifyJWTToken, teamController.createUser);
+
 module.exports = router;

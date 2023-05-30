@@ -19,7 +19,11 @@ const config = {
   SMS_API_KEY: process.env.SMS_API_KEY,
   SENDER_ID: process.env.SENDER_ID,
   RAZORPAY_AUTH: process.env.RAZORPAY_AUTH,
-  RAZORPAY_ACCOUNT: process.env.RAZORPAY_ACCOUNT
+  RAZORPAY_ACCOUNT: process.env.RAZORPAY_ACCOUNT,
+  AWS_S3_ACCESSKEYID: process.env.AWS_S3_ACCESSKEYID,
+  AWS_S3_SECRETKEY: process.env.AWS_S3_SECRETKEY,
+  AWS_S3_REGION: process.env.AWS_S3_REGION,
+  AWS_S3_BUCKET: process.env.AWS_S3_BUCKET,
 };
 
 module.exports = config;

@@ -131,3 +131,52 @@ module.exports.register = async (request, response, next) => {
         });
     }
 };
+
+module.exports.uploadFs = async (request, response, next) => {
+    try {
+        const {
+            mobile, 
+        } = request.body;
+        console.log(mobile);
+        console.log(request.body)
+    
+        // const {
+        //     userSelfie,
+        // } = request.files;
+        // console.log(userSelfie);
+
+        // const fileNameSelfieImage = `user-kyc/${new Date().getTime()}${path.extname(
+        //     userSelfie.name,
+        // )}`;
+        
+        // console.log("file", fileNameSelfieImage);
+
+        // const Uploaded3 = await uploadFileToS3(
+        //     fileName,
+        //     userSelfie.mimetype,
+        //     userSelfie,
+        // );
+
+        // console.log("upload", uploadFileToS3);
+        // if (Uploaded3 === false) {
+        //     return response.status(400).json({
+        //         status: false,
+        //         message: "Error While  image",
+        //         data: null,
+        //     });
+        // }
+
+        return response.json({
+            status: true,
+            message: "user Strategy successfully",
+            // data: userData,
+        });
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
