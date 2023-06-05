@@ -1,8 +1,8 @@
 const Joi = require("joi");
 
-module.exports.sendMessage = async (request, response, next) => {
+module.exports.verifyMobileOtp = async (request, response, next) => {
     let rules = Joi.object().keys({
-        mobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
+        otp: Joi.string().length(6).pattern(/^[0-9]+$/).required(),
     });
     const { error } = rules.validate(request.body);
     if (error) {
