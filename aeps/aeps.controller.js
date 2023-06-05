@@ -1,5 +1,4 @@
-const bcrypt = require("bcrypt");
-const jwt = require("jsonwebtoken");
+
 const UserModel = require("../models/users.model");
 const axios = require("axios");
 const config = require("../config/config");
@@ -211,6 +210,66 @@ module.exports.aepsStateList = async (request, response) => {
 module.exports.userOnboard = async (request, response) => {
     try {
         const { user } = request.body;
+
+        const checkAdmin = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        });
+
+        if(!checkAdmin) {
+            return response.status(401).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+        
+        const hash = generateHash(config.SUPERMERCHANT_LOGIN_ID, config.SUPERMERCHANT_PASSWORD)
+
+        let axiosConfig = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'https://fingpayap.tapits.in/fpaepsweb/api/onboarding/merchant/creation/without/encryption',
+            headers: { 
+                'hash': hash, 
+                'Content-Type': 'application/json'
+            },
+            data : request.body
+        };
+          
+        axios.request(axiosConfig)
+        .then((res) => {
+            return response.json({
+                status: true,
+                message: "User Onboarding success",
+                data: res.data,
+            });
+        })
+        .catch((error) => {
+            return response.status(409).json({
+                status: false,
+                message: "Onboarding failed",
+                data: error,
+            });
+        });
+
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.aepsSendOtp = async (request, response) => {
+    try {
+        const { user } = request.body;
         console.log(request.body)
         const checkAdmin = await UserModel.findOne({
             _id: user._id,
@@ -228,10 +287,12 @@ module.exports.userOnboard = async (request, response) => {
         let axiosConfig = {
             method: 'post',
             maxBodyLength: Infinity,
-            url: 'https://fingpayap.tapits.in/fpaepsweb/api/onboarding/merchant/creation/without/encryption',
+            url: 'https://fpekyc.tapits.in/fpekyc/api/ekyc/merchant/v1/sendotp',
             headers: { 
-                'hash': '8Bip7w7Qn/jV4lwjmOnDEMPT3tLuOJsAKTsgRgJfmfM=', 
-                'Content-Type': 'application/json'
+              'hash': 'nS9LDRJFPDTwHzBvIGO2OeztjX048OS2FWid5sPaY0A=', 
+              'trnTimestamp': '01-06-2023, 15:49:52', 
+              'deviceIMEI': '862531051656388', 
+              'Content-Type': 'application/json'
             },
             data : request.body
         };
