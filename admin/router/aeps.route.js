@@ -6,7 +6,7 @@ const aepsValidation = require("../../aeps/aeps.validator");
 const aepsController = require("../../aeps/aeps.controller");
 
 
-router.post("/user/onboard", aepsValidation.userOnboard, verifyJWTToken, aepsController.userOnboard);
+router.post("/user/onboard", verifyJWTToken, aepsController.userOnboard);
 router.get("/state/list", verifyJWTToken, aepsController.aepsStateList);
 
 module.exports = router;
