@@ -686,23 +686,23 @@ module.exports.sendMessage = async (request, response) => {
             maxBodyLength: Infinity,
             url: `https://mdssend.in/api.php?username=${config.SMS_USER_NAME}&apikey=${config.SMS_API_KEY}&senderid=${config.SENDER_ID}&route=OTP&mobile=${mobile}&text=Thank you RISINGDOOR TECHNOLOGY PVT LTD. Your OTP for login is {%23var%23}. Do not share with anyone-RNGPAY`,
             headers: { }
-          };
-          
-          axios.request(axiosConfig)
-          .then((res) => {
+        };
+        
+        axios.request(axiosConfig)
+        .then((res) => {
             return response.json({
                 status: true,
                 message: "SMS send successfully",
                 data: res.data,
             });
-          })
-          .catch((error) => {
+        })
+        .catch((error) => {
             return response.status(409).json({
                 status: false,
                 message: "Send sms failed",
                 data: error,
             });
-          });    
+        });    
     } catch (e) {
         console.log(e);
         return response.status(500).json({

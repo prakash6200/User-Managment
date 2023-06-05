@@ -30,6 +30,14 @@ const Users = new Schema(
             required: true,
             default: 0,
         },
+        isEmailVerified: {
+            type: Boolean,
+            default: false,
+        },
+        isMobileVerified: {
+            type: Boolean,
+            default: false,
+        },
         availableBalance : {
             type: Number,
             require: true,
@@ -38,6 +46,10 @@ const Users = new Schema(
         password: {
             type: String,
             select: false,
+        },
+        otp: {
+            type: Number,
+            default: 0,
         },
         profileImage: {
             type: String,
