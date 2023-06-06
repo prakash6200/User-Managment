@@ -1,6 +1,7 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const UserModel = require("../../models/users.model");
+const TransactionModel = require("../../models/transaction.model");
 const smsController = require("../../utils/sms/sms.controller");
 const config = require("../../config/config");
 const saltRounds = 10;
@@ -324,6 +325,44 @@ module.exports.setPassword = async (request, response) => {
             status: true,
             message: "Password Changed",
             data: [],
+        });
+    } catch (e) {
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.transactionList = async (request, response) => {
+    try {
+        const { user } = request.body;
+        
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        });
+
+        if(!userData){
+            return response.status(401).json({
+                status: false,
+                message: "User not found or deleted",
+                data: null,
+            });
+        }
+
+        const transaction = await TransactionModel.find({
+            fromAdmin: userData.fromAdmin,
+            fromUser: userData._id,
+        })
+
+        const message = `${transaction.length} transaction found`;
+
+        return response.status(200).json({
+            status: true,
+            message: message,
+            data: transaction,
         });
     } catch (e) {
         return response.status(500).json({

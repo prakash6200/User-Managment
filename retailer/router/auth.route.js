@@ -24,4 +24,6 @@ router.put("/change/password", authValidation.changePassword, verifyJWTToken, au
 router.post("/forgot/password", authValidation.forgotPassword, authController.forgotPassword);
 router.patch("/forgot/password/otp/verify", authValidation.forgotPasswordOtpVerify, authController.forgotPasswordOtpVerify);
 router.put("/set/new/password", authValidation.setPassword, verifyJWTToken, authController.setPassword);
+router.get("/transaction/list", verifyJWTToken, authController.transactionList);
+
 module.exports = router;
