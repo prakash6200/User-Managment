@@ -290,3 +290,46 @@ module.exports.forgotPasswordOtpVerify = async (request, response) => {
     }
 };
 
+module.exports.setPassword = async (request, response) => {
+    try {
+        const { user, newPassword, cnfPassword } = request.body;
+        
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        });
+
+        if(!userData){
+            return response.status(401).json({
+                status: false,
+                message: "User not found",
+                data: null,
+            });
+        }
+
+        if(newPassword == cnfPassword){
+            const passwordSalt = await bcrypt.genSalt(saltRounds);
+            const pass = await bcrypt.hash(newPassword, passwordSalt);
+            userData.password = pass;
+            userData.save();
+        } else {
+            return response.status(400).json({
+                status: false,
+                message: "Confirm password not match",
+                data: null,
+            });
+        }
+
+        return response.status(200).json({
+            status: true,
+            message: "Password Changed",
+            data: [],
+        });
+    } catch (e) {
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
