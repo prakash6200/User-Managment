@@ -22,5 +22,6 @@ router.post("/send/mobile/otp", verifyJWTToken, smsController.sendMobileOtp);
 router.patch("/verify/mobile/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyMobileOtp);
 router.put("/change/password", authValidation.changePassword, verifyJWTToken, authController.changePassword);
 router.post("/forgot/password", authValidation.forgotPassword, authController.forgotPassword);
+router.patch("/forgot/password/otp/verify", authValidation.forgotPasswordOtpVerify, authController.forgotPasswordOtpVerify);
 
 module.exports = router;

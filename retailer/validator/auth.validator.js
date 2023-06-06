@@ -96,7 +96,7 @@ module.exports.forgotPassword = async (request, response, next) => {
     }
 };
 
-module.exports.forgetPasswordOtpVerify = async (request, response, next) => {
+module.exports.forgotPasswordOtpVerify = async (request, response, next) => {
     const rules = Joi.object().keys({
         mobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
         otp: Joi.number().required(),

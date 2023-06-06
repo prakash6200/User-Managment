@@ -215,7 +215,7 @@ module.exports.forgotPassword = async (request, response) => {
         .then((res) => {
             return response.json({
                 status: true,
-                message: "Otp send successfully ",
+                message: "Otp send successfully for forgot password",
                 data: res.data,
             });
         })
@@ -235,7 +235,7 @@ module.exports.forgotPassword = async (request, response) => {
     }
 };
 
-module.exports.forgetPasswordOtpVerify = async (request, response) => {
+module.exports.forgotPasswordOtpVerify = async (request, response) => {
     try {
         const {  mobile, otp } = request.body;
 
@@ -252,79 +252,35 @@ module.exports.forgetPasswordOtpVerify = async (request, response) => {
             });
         }
 
-        await client.verify.v2
-            .services(config.TWILIO_SERVICE_ID)
-            .verificationChecks.create({ to: `+91${userData.mobile}`, code: otp })
-            .then((verification) => {
-                if(verification.status == "approved"){
-                    
-                    delete userData.password;
-                    const token = jwt.sign(JSON.stringify(userData), config.JWT_AUTH_TOKEN);
-                    const sendData = { userData: userData, token: token };
-                    
-                    return response.status(200).json({
-                        status: true,
-                        message: "Use this token for reset password",
-                        data: sendData,
-                    });
-                }
-                return response.status(200).json({
-                    status: false,
-                    message: "Enter valid otp",
-                    data: null,
-                });
-            })
-            .catch((err) => {
-                return response.status(401).json({
-                    status: false,
-                    message: "Verification failed",
-                    data: err,
-                });
-            })
-    } catch (e) {
-        return response.status(500).json({
-            status: false,
-            message: "Something Went To Wrong",
-            data: null,
-        });
-    }
-};
-
-module.exports.setPassword = async (request, response) => {
-    try {
-        const { user, newPassword, cnfPassword } = request.body;
-        
-        const userData = await UserModel.findOne({
-            _id: user._id,
-            isDeleted: false,
-        });
-
-        if(!userData){
+        if(userData.otp == 0){
             return response.status(401).json({
                 status: false,
-                message: "User not found",
+                message: "Please resend otp",
                 data: null,
             });
         }
 
-        if(newPassword == cnfPassword){
-            const passwordSalt = await bcrypt.genSalt(saltRounds);
-            const pass = await bcrypt.hash(newPassword, passwordSalt);
-            userData.password = pass;
+        if(otp == userData.otp){
+            userData.otp = 0;
             userData.save();
+            
+            delete userData.password;
+            const token = jwt.sign(JSON.stringify(userData), config.JWT_AUTH_TOKEN);
+            const sendData = { userData: userData, token: token };
+            
+            return response.status(200).json({
+                status: true,
+                message: "Use this token for reset password",
+                data: sendData,
+            });
         } else {
-            return response.status(400).json({
+            return response.status(401).json({
                 status: false,
-                message: "Confirm password not match",
+                message: "Otp not match",
                 data: null,
             });
         }
-
-        return response.status(200).json({
-            status: true,
-            message: "Password Changed",
-            data: [],
-        });
+        
     } catch (e) {
         return response.status(500).json({
             status: false,
@@ -333,3 +289,4 @@ module.exports.setPassword = async (request, response) => {
         });
     }
 };
+
