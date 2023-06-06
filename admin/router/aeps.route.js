@@ -9,6 +9,7 @@ const aepsController = require("../../aeps/aeps.controller");
 router.post("/user/onboard", verifyJWTToken, aepsController.userOnboard);
 router.get("/state/list", verifyJWTToken, aepsController.aepsStateList);
 router.post("/send/otp", verifyJWTToken, aepsController.aepsSendOtp);
+router.patch("/verify/otp", verifyJWTToken, aepsController.aepsVerifyOtp);
 
 
 module.exports = router;
