@@ -81,16 +81,16 @@ const Users = new Schema(
             otherMobile: {
                 type: String,
             },
-            panDocument: {
+            panNo: {
                 type: String,
             },
-            panDocumentImage: {
+            panImage: {
                 type: String,
             },
-            adharDocument: {
+            adharNo: {
                 type: String,
             },
-            adharDocumentImage: {
+            adharImage: {
                 type: String,
             },
             userSelfie: {

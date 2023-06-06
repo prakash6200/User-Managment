@@ -31,11 +31,11 @@ module.exports.makeEnquiry = async (request, response, next) => {
 
 module.exports.updateKyc = async (request, response, next) => {
     let rules = Joi.object().keys({
-        panNo: Joi.string().required(),
-        panDocumentImage: Joi.string().required(),
         otherMobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
+        panNo: Joi.string().required(),
+        panImage: Joi.string().required(),
         adharNo: Joi.string().required(),
-        adharDocumentImage: Joi.string().required(),
+        adharImage: Joi.string().required(),
         userSelfie: Joi.string().required(),
     });
     const { error } = rules.validate(request.body);

@@ -4,8 +4,6 @@ const EnqueryModel = require("../models/enquery.model");
 const ComissionModel = require("../models/comission.models")
 const stateWithDistrict = require("../utils/state.district")
 
-const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
-
 module.exports.regesterComplaint = async(request, response) => {
     
     try{
@@ -225,41 +223,10 @@ module.exports.stateDirstrict = async (request, response) => {
         });
     }
 };
-
-// Create an S3 client
-const s3Client = new S3Client({
-    region: "YOUR_AWS_REGION",
-    credentials: {
-      accessKeyId: "YOUR_ACCESS_KEY",
-      secretAccessKey: "YOUR_SECRET_ACCESS_KEY",
-    },
-});
-  
-  // Function to upload a file to S3
-const uploadFileToS3 = async (key, file) => {
-    try {
-      const uploadParams = {
-        Bucket: "YOUR_BUCKET_NAME",
-        Key: key,
-        Body: file,
-      };
-  
-      const command = new PutObjectCommand(uploadParams);
-      const response = await s3Client.send(command);
-  
-      if (response.$metadata.httpStatusCode === 200) {
-        return `https://YOUR_BUCKET_NAME.s3.YOUR_AWS_REGION.amazonaws.com/${key}`;
-      } else {
-        throw new Error("File upload failed");
-      }
-    } catch (error) {
-      throw new Error(`File upload failed: ${error.message}`);
-    }
-};
   
 module.exports.updateKyc = async (request, response) => {
     try {
-      const { user, otherMobile, panNo, panDocumentImage, adharNo, adharDocumentImage, userSelfie } = request.body;
+      const { user, otherMobile, panNo, panImage, adharNo, adharImage, userSelfie } = request.body;
   
       const userData = await UserModel.findOne({
         _id: user._id,
@@ -274,28 +241,17 @@ module.exports.updateKyc = async (request, response) => {
         });
       }
   
-      const status = "IN-PROGRESS";
+      const status = "PENDING";
   
       const kyc = {
         otherMobile,
-        panDocument,
-        adharDocument,
-        status,
+        panNo,
+        panImage,
+        adharNo,
+        adharImage,
+        userSelfie,
+        status
       };
-  
-      // Upload Aadhar document image
-      if (adharDocumentImage) {
-        const adharDocumentImageKey = `kyc/${user._id}/adharDocumentImage_${Date.now()}`;
-        const adharDocumentImageUrl = await uploadFileToS3(adharDocumentImageKey, adharDocumentImage);
-        kyc.adharDocumentImage = adharDocumentImageUrl;
-      }
-  
-      // Upload user selfie
-      if (userSelfie) {
-        const userSelfieKey = `kyc/${user._id}/userSelfie_${Date.now()}`;
-        const userSelfieUrl = await uploadFileToS3(userSelfieKey, userSelfie);
-        kyc.userSelfie = userSelfieUrl;
-      }
   
       userData.kyc = kyc;
   
@@ -386,7 +342,7 @@ module.exports.updateAddress = async (request, response) => {
             });
         }
 
-        const status = "IN-PROGRESS"
+        const status = "PENDING"
         const address = {
             country,
             state,
