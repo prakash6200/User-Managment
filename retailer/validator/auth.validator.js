@@ -65,3 +65,18 @@ module.exports.sendMessage = async (request, response, next) => {
         return next();
     }
 };
+
+module.exports.changePassword = async (request, response, next) => {
+    let rules = Joi.object().keys({
+        oldPassword: Joi.string().required(),
+        password: Joi.string().required(),
+    });
+    const { error } = rules.validate(request.body);
+    if (error) {
+        return response
+            .status(422)
+            .json({ status: false, message: error, data: null });
+    } else {
+        return next();
+    }
+};

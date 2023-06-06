@@ -20,7 +20,6 @@ router.get("/statewithdist/view", verifyJWTToken, utilsController.stateDirstrict
 router.post("/make/enqry", utilsValidation.makeEnquiry, verifyJWTToken, utilsController.makeEnquiry)
 router.post("/send/mobile/otp", verifyJWTToken, smsController.sendMobileOtp);
 router.patch("/verify/mobile/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyMobileOtp);
-// router.post("/admin/registration", authValidation.register, verifyJWTToken, authController.register);
-// router.post("/fund/transfer", transactionValidation.transferFund, verifyJWTToken, transactionController.transferFund);
+router.put("/change/password", authValidation.changePassword, verifyJWTToken, authController.changePassword)
 
 module.exports = router;

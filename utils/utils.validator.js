@@ -52,9 +52,9 @@ module.exports.updateBankAcc = async (request, response, next) => {
     let rules = Joi.object().keys({
         bankName: Joi.string().required(),
         branchName: Joi.string().required(),
-        accNo: Joi.number().required(),
-        ifsc: Joi.string().required(),
         accType: Joi.string().valid("SAVING", "CURRENT", "OTHER").required(),
+        ifsc: Joi.string().required(),
+        accNo: Joi.number().required(),
         accHolderName: Joi.string().required(),
     });
     const { error } = rules.validate(request.body);
