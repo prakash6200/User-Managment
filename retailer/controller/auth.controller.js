@@ -1,9 +1,10 @@
 const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const UserModel = require("../../models/users.model");
-// const Distributer = require("../../models/us")
+const smsController = require("../../utils/sms/sms.controller");
 const config = require("../../config/config");
 const saltRounds = 10;
+const axios = require("axios");
 
 module.exports.login = async (request, response, next) => {
     try {
@@ -147,6 +148,177 @@ module.exports.changePassword = async (request, response, next) => {
                 data: null,
             });
         };
+
+        return response.status(200).json({
+            status: true,
+            message: "Password Changed",
+            data: [],
+        });
+    } catch (e) {
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+function generateOTP() {
+    const length = 6;
+    const charset = '0123456789';
+    let otp = '';
+  
+    for (let i = 0; i < length; i++) {
+      const randomIndex = Math.floor(Math.random() * charset.length);
+      otp += charset[randomIndex];
+    }
+    return otp;
+}
+
+module.exports.forgotPassword = async (request, response) => {
+    try {
+        const {  mobile, email } = request.body;
+
+        let userData;
+        if (mobile) {
+            userData = await UserModel.findOne({
+                mobile: mobile,
+                isDeleted: false,
+            });
+        } else {
+            userData = await UserModel.findOne({
+                email: email,
+                isDeleted: false,
+            });
+        }
+
+        if(!userData){
+            return response.status(401).json({
+                status: false,
+                message: "User not found or deleted",
+                data: null,
+            });
+        }
+
+        const otp = generateOTP();
+        userData.otp = otp;
+        userData.save();
+
+        let axiosConfig = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `https://mdssend.in/api.php?username=${config.SMS_USER_NAME}&apikey=${config.SMS_API_KEY}&senderid=${config.SENDER_ID}&route=OTP&mobile=${mobile}&text=Thank you RISINGDOOR TECHNOLOGY PVT LTD. Your OTP for login is ${otp}. Do not share with anyone-RNGPAY`,
+            headers: { }
+        };
+        
+        axios.request(axiosConfig)
+        .then((res) => {
+            return response.json({
+                status: true,
+                message: "Otp send successfully ",
+                data: res.data,
+            });
+        })
+        .catch((error) => {
+            return response.status(409).json({
+                status: false,
+                message: "Faield to send otp",
+                data: error,
+            });
+        }); 
+    } catch (e) {
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.forgetPasswordOtpVerify = async (request, response) => {
+    try {
+        const {  mobile, otp } = request.body;
+
+        const userData = await UserModel.findOne({
+            mobile: mobile,
+            isDeleted: false,
+        });
+        
+        if(!userData){
+            return response.status(401).json({
+                status: false,
+                message: "User not found",
+                data: null,
+            });
+        }
+
+        await client.verify.v2
+            .services(config.TWILIO_SERVICE_ID)
+            .verificationChecks.create({ to: `+91${userData.mobile}`, code: otp })
+            .then((verification) => {
+                if(verification.status == "approved"){
+                    
+                    delete userData.password;
+                    const token = jwt.sign(JSON.stringify(userData), config.JWT_AUTH_TOKEN);
+                    const sendData = { userData: userData, token: token };
+                    
+                    return response.status(200).json({
+                        status: true,
+                        message: "Use this token for reset password",
+                        data: sendData,
+                    });
+                }
+                return response.status(200).json({
+                    status: false,
+                    message: "Enter valid otp",
+                    data: null,
+                });
+            })
+            .catch((err) => {
+                return response.status(401).json({
+                    status: false,
+                    message: "Verification failed",
+                    data: err,
+                });
+            })
+    } catch (e) {
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.setPassword = async (request, response) => {
+    try {
+        const { user, newPassword, cnfPassword } = request.body;
+        
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        });
+
+        if(!userData){
+            return response.status(401).json({
+                status: false,
+                message: "User not found",
+                data: null,
+            });
+        }
+
+        if(newPassword == cnfPassword){
+            const passwordSalt = await bcrypt.genSalt(saltRounds);
+            const pass = await bcrypt.hash(newPassword, passwordSalt);
+            userData.password = pass;
+            userData.save();
+        } else {
+            return response.status(400).json({
+                status: false,
+                message: "Confirm password not match",
+                data: null,
+            });
+        }
 
         return response.status(200).json({
             status: true,

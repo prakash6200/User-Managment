@@ -14,12 +14,13 @@ const smsValidation = require("../../utils/sms/sms.validation");
 
 router.post("/login", authValidation.login, authController.login);
 router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
-router.get("/complaint/view", verifyJWTToken, complaintController.complaintView)
+router.get("/complaint/view", verifyJWTToken, complaintController.complaintView);
 router.get("/profile/view", verifyJWTToken, utilsController.profileView);
 router.get("/statewithdist/view", verifyJWTToken, utilsController.stateDirstrict);
-router.post("/make/enqry", utilsValidation.makeEnquiry, verifyJWTToken, utilsController.makeEnquiry)
+router.post("/make/enqry", utilsValidation.makeEnquiry, verifyJWTToken, utilsController.makeEnquiry);
 router.post("/send/mobile/otp", verifyJWTToken, smsController.sendMobileOtp);
 router.patch("/verify/mobile/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyMobileOtp);
-router.put("/change/password", authValidation.changePassword, verifyJWTToken, authController.changePassword)
+router.put("/change/password", authValidation.changePassword, verifyJWTToken, authController.changePassword);
+router.post("/forgot/password", authValidation.forgotPassword, authController.forgotPassword);
 
 module.exports = router;

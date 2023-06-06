@@ -32,7 +32,7 @@ module.exports.sendMobileOtp = async (request, response) => {
         }
 
         const otp = generateOTP();
-        console.log(otp, userData.mobile)
+
         userData.otp = otp;
         userData.save();
 
@@ -123,3 +123,29 @@ module.exports.verifyMobileOtp = async (request, response) => {
     }
 }
 
+module.exports.forgotPasswordOtp = async(mobile) => {
+
+    const otp = generateOTP();
+
+    let axiosConfig = {
+        method: 'post',
+        maxBodyLength: Infinity,
+        url: `https://mdssend.in/api.php?username=${config.SMS_USER_NAME}&apikey=${config.SMS_API_KEY}&senderid=${config.SENDER_ID}&route=OTP&mobile=${mobile}&text=Thank you RISINGDOOR TECHNOLOGY PVT LTD. Your OTP for login is ${otp}. Do not share with anyone-RNGPAY`,
+        headers: { }
+    };
+    
+    axios.request(axiosConfig)
+    .then((res) => {
+        return response.json({
+            status: true,
+            otp: otp,
+            data: res.data,
+        });
+    })
+    .catch((error) => {
+        return response.status(409).json({
+            status: false,
+            data: error,
+        });
+    });    
+}
