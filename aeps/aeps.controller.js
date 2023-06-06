@@ -1,8 +1,8 @@
-
 const UserModel = require("../models/users.model");
 const axios = require("axios");
 const config = require("../config/config");
 const crypto = require('crypto');
+const req = require("express/lib/request");
 
 function generateHash1(supermerchantloginid, supermerchantPassword) {
     const concatenatedString = `${supermerchantloginid}@${crypto.createHash('md5').update(supermerchantPassword).digest('hex')}`;
@@ -22,11 +22,10 @@ function generateHash(jsonModel, securityKey, timestamp) {
     return base64Hash;
 }
 
-function generateMD5Hash(password) {
-    const hash = crypto.createHash('md5').update(password).digest('hex');
-    return hash;
-}
-
+// function generateMD5Hash(password) {
+//     const hash = crypto.createHash('md5').update(password).digest('hex');
+//     return hash;
+// }
 // module.exports.userOnboard = async (request, response) => {
 //     try {
 //         const {
@@ -293,35 +292,39 @@ module.exports.aepsSendOtp = async (request, response) => {
             });
         }
         
+        const json = JSON.stringify(request.body, null, 2);
+
+        const timestamp = new Date().toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(/\//g, '-');
+        const hash = generateHash(json, config.SUPERMERCHANT_PASSWORD_FINPAY, timestamp);
+        
         let axiosConfig = {
             method: 'post',
             maxBodyLength: Infinity,
             url: 'https://fpekyc.tapits.in/fpekyc/api/ekyc/merchant/v1/sendotp',
             headers: { 
-              'hash': 'nS9LDRJFPDTwHzBvIGO2OeztjX048OS2FWid5sPaY0A=', 
-              'trnTimestamp': '01-06-2023, 15:49:52', 
+              'hash': hash, 
+              'trnTimestamp': timestamp, 
               'deviceIMEI': '862531051656388', 
               'Content-Type': 'application/json'
             },
-            data : request.body
+            data : json
         };
           
         axios.request(axiosConfig)
         .then((res) => {
             return response.json({
                 status: true,
-                message: "User Onboarding success",
+                message: "Otp send successfully",
                 data: res.data,
             });
         })
         .catch((error) => {
             return response.status(409).json({
                 status: false,
-                message: "Onboarding failed",
+                message: "Sending otp failed",
                 data: error,
             });
         });
-
     } catch (e) {
         console.log(
             "%c 🍨 e: ",
