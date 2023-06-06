@@ -1,7 +1,9 @@
 const UserModel = require("../models/users.model");
 const ComplaintModel = require("../models/complaint.model");
 const EnqueryModel = require("../models/enquery.model");
+const ComissionModel = require("../models/comission.models")
 const stateWithDistrict = require("../utils/state.district")
+
 const { S3Client, PutObjectCommand } = require("@aws-sdk/client-s3");
 
 module.exports.regesterComplaint = async(request, response) => {
@@ -314,7 +316,6 @@ module.exports.updateKyc = async (request, response) => {
     }
 };
 
-
 module.exports.updateBankAcc = async (request, response) => {
     try {
         const { user, bankName, branchName, accNo, accType, ifscCode, accHolderName } = request.body;
@@ -368,10 +369,42 @@ module.exports.updateBankAcc = async (request, response) => {
     }
 };
 
-
 module.exports.orderId = () => {
     let timestamp = Date.now().toString();
     let random = Math.floor(Math.random() * 100000).toString(); 
     let orderId = timestamp + random; 
     return orderId;      
+}
+
+module.exports.viewComission = async (request, response) => {
+    
+    try {
+        const { user } = request.body;
+    
+        const comission = await ComissionModel.findOne ({
+            fromAdmin: user.Admin?user.Admin:user._id,
+        })
+    
+        if (!comission) {
+            return response.status(409).json({
+                status: false,
+                message: "Comission not found",
+                data: null,
+            });
+        }
+
+        return response.json({
+            status: true,
+            message: "Comission get successfully",
+            data: comission,
+        });
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
 }

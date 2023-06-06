@@ -4,9 +4,18 @@ const axios = require("axios");
 const config = require("../config/config");
 const crypto = require('crypto');
 
-function generateHash(supermerchantloginid, supermerchantPassword) {
+function generateHash1(supermerchantloginid, supermerchantPassword) {
     const concatenatedString = `${supermerchantloginid}@${crypto.createHash('md5').update(supermerchantPassword).digest('hex')}`;
   
+    const sha256Hash = crypto.createHash('sha256').update(concatenatedString).digest();
+    const base64Hash = Buffer.from(sha256Hash).toString('base64');
+  
+    return base64Hash;
+}
+
+function generateHash(jsonModel, securityKey, timestamp) {
+    const concatenatedString = `${jsonModel}${securityKey}${timestamp}`;
+    console.log("concatenatedString", concatenatedString)
     const sha256Hash = crypto.createHash('sha256').update(concatenatedString).digest();
     const base64Hash = Buffer.from(sha256Hash).toString('base64');
   
@@ -224,7 +233,7 @@ module.exports.userOnboard = async (request, response) => {
             });
         }
         
-        const hash = generateHash(config.SUPERMERCHANT_LOGIN_ID, config.SUPERMERCHANT_PASSWORD)
+        const hash = generateHash1(config.SUPERMERCHANT_LOGIN_ID, config.SUPERMERCHANT_PASSWORD)
 
         let axiosConfig = {
             method: 'post',
@@ -270,7 +279,7 @@ module.exports.userOnboard = async (request, response) => {
 module.exports.aepsSendOtp = async (request, response) => {
     try {
         const { user } = request.body;
-        console.log(request.body)
+
         const checkAdmin = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
@@ -326,3 +335,4 @@ module.exports.aepsSendOtp = async (request, response) => {
         });
     }
 };
+
