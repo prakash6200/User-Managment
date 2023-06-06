@@ -10,6 +10,7 @@ router.post("/user/onboard", verifyJWTToken, aepsController.userOnboard);
 router.get("/state/list", verifyJWTToken, aepsController.aepsStateList);
 router.post("/send/otp", verifyJWTToken, aepsController.aepsSendOtp);
 router.patch("/verify/otp", verifyJWTToken, aepsController.aepsVerifyOtp);
+router.post("/resend/otp", verifyJWTToken, aepsController.aepsResendOtp);
 
 
 module.exports = router;
