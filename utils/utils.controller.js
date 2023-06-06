@@ -274,15 +274,13 @@ module.exports.updateKyc = async (request, response) => {
 
 module.exports.updateBankAcc = async (request, response) => {
     try {
-        const { user, bankName, branchName, accNo, accType, ifscCode, accHolderName } = request.body;
+        const { user, bankName, branchName, accNo, accType, ifsc, accHolderName } = request.body;
 
         const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
         })
 
-        console.log(user)
-        
         if (!userData) {
             return response.status(401).json({
                 status: false,
@@ -290,8 +288,8 @@ module.exports.updateBankAcc = async (request, response) => {
                 data: null,
             });
         }
-        // const ifsc = ifscCode.toUpperCase();
-        const status = "IN-PROCESS"
+        const ifscCode = ifsc.toUpperCase();
+        const status = "PENDING"
         const bank = {
             bankName,
             branchName,

@@ -53,7 +53,7 @@ module.exports.updateBankAcc = async (request, response, next) => {
         bankName: Joi.string().required(),
         branchName: Joi.string().required(),
         accNo: Joi.number().required(),
-        ifscCode: Joi.string().required(),
+        ifsc: Joi.string().required(),
         accType: Joi.string().valid("SAVING", "CURRENT", "OTHER").required(),
         accHolderName: Joi.string().required(),
     });
