@@ -11,6 +11,7 @@ router.get("/state/list", verifyJWTToken, aepsController.aepsStateList);
 router.post("/send/otp", verifyJWTToken, aepsController.aepsSendOtp);
 router.patch("/verify/otp", verifyJWTToken, aepsController.aepsVerifyOtp);
 router.post("/resend/otp", verifyJWTToken, aepsController.aepsResendOtp);
+router.post("/biometric/ekyc", verifyJWTToken, aepsController.aepsBiometricEKYC);
 
 
 module.exports = router;

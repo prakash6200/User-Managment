@@ -516,6 +516,394 @@
 					]
 				},
 				{
+					"name": "Aeps",
+					"item": [
+						{
+							"name": "AEPS User Onboard",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n    \"username\": \"risingpayd\",\n    \"password\": \"796c3ee556ac31f3754a38cfd15b8044\",\n    \"supermerchantId\": 1069,\n    \"latitude\": \"23.1957998\",\n    \"longitude\": \"88.6248327\",\n    \"merchants\": [\n        {\n            \"merchantLoginId\": \"RP00001\",\n            \"merchantLoginPin\": \"1234589\",\n            \"merchantName\": \"mahasen mondal\",\n            \"merchantPhoneNumber\": \"894579609\",\n            \"companyLegalName\": \"abc testing\",\n            \"companyMarketingName\": \"abc pay\",\n            \"merchantBranch\": \" \",\n            \"emailId\": \"mhsn033@gmail.com \",\n            \"merchantPinCode\": \"741238\",\n            \"tan\": \" \",\n            \"merchantCityName\": \"KOLKATA\",\n            \"merchantDistrictName\": \"NADIA\",\n            \"cancellationCheckImages\": \" \",\n   \"shopAndPanImage\": \"\",\n   \"ekycDocuments\": \"\",\n    \"merchantAddress\": {\n                \"merchantAddress\" : \"Adityapur, North 24 Parganas, West Bengal - 743710\",\n    \"merchantState\": \"1\"\n            },\n            \"kyc\": {\n                \"userPan\": \" CMFPM0227G \",\n                \"aadhaarNumber\": \"218303191304\",\n                \"gstInNumber\": \" \",\n                \"companyOrShopPan\": \" \"\n            },\n            \"settlement\": {\n                \"companyBankAccountNumber\": \"8945879609\",\n                \"bankIfscCode\": \"PYTM0123456\",\n                \"companyBankName\": \"PAYTM BANK\",\n                \"bankBranchName\": \"Maharastha\",\n                \"bankAccountName\": \"MAHASIN MONDAL\"\n            }\n        }\n        \n    ]\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/aeps/user/onboard",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"aeps",
+										"user",
+										"onboard"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aeps Send otp",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"superMerchantId\": 1069,\n  \"merchantLoginId\": \"RP00001\",\n  \"transactionType\": \"EKY\",\n  \"mobileNumber\": \"6200134797\",\n  \"aadharNumber\": \"218303191304\",\n  \"panNumber\": \"CMFPM0227G\",\n  \"matmSerialNumber\": \"\",\n  \"latitude\": 23.1957998,\n  \"longitude\": 88.6248327\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/aeps/send/otp",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"aeps",
+										"send",
+										"otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aeps Resend otp",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"superMerchantId\": 1069,\n  \"merchantLoginId\": \"RP00001\", \n  \"primaryKeyId\": \"2800962\",\n  \"encodeFPTxnId\": \"EKYKF5072380070623023543282I\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/aeps/resend/otp",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"aeps",
+										"resend",
+										"otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aeps Biometric EKYC",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"superMerchantId\": 1069,\n  \"merchantLoginId\": \"RP00001\",\n  \"primaryKeyId\": 2800962,\n  \"encodeFPTxnId\": \"EKYKF5072380010623155035558I\",\n  \"requestRemarks\": \"test\",\n  \"cardnumberORUID\": {\n    \"nationalBankIdentificationNumber\":\"\",\n    \"indicatorforUID\": \"0\",\n    \"adhaarNumber\": \"218303191304\"\n  },\n  \"captureResponse\": {\n    \"errCode\": \"0\",\n    \"errInfo\": \"Capture Success\",\n    \"fCount\": \"2\",\n    \"fType\": \"0\",\n    \"iCount\": \"0\",\n    \"iType\": null,\n    \"pCount\": \"0\",\n    \"pType\": \"0\",\n    \"nmPoints\": \"32,32\",\n    \"qScore\": \"69,69\",\n    \"dpID\": \"MANTRA.MSIPL\",\n    \"rdsID\": \"MANTRA.AND.001\",\n    \"rdsVer\": \"1.0.4\",\n    \"dc\": \"855e031a-204c-4544-b2ef-8821b53ed39b\",\n    \"mi\": \"MFS100\",\n    \"mc\": \"MIIEGjCCAwKgAwIBAgIGAXgCQftfMA0GCSqGSIb3DQEBCwUAMIHqMSowKAYDVQQDEyFEUyBNYW50cmEgU29mdGVjaCBJbmRpYSBQdnQgTHRkIDcxQzBBBgNVBDMTOkIgMjAzIFNoYXBhdGggSGV4YSBvcHBvc2l0ZSBHdWphcmF0IEhpZ2ggQ291cnQgUyBHIEhpZ2h3YXkxEjAQBgNVBAkTCUFobWVkYWJhZDEQMA4GA1UECBMHR3VqYXJhdDEdMBsGA1UECxMUVGVjaG5pY2FsIERlcGFydG1lbnQxJTAjBgNVBAoTHE1hbnRyYSBTb2Z0ZWNoIEluZGlhIFB2dCBMdGQxCzAJBgNVBAYTAklOMB4XDTIxMDMwNTExNDQ0N1oXDTIxMDQwNDExNTk0MFowgbAxJDAiBgkqhkiG9w0BCQEWFXN1cHBvcnRAbWFudHJhdGVjLmNvbTELMAkGA1UEBhMCSU4xEDAOBgNVBAgTB0dVSkFSQVQxEjAQBgNVBAcTCUFITUVEQUJBRDEOMAwGA1UEChMFTVNJUEwxHjAcBgNVBAsTFUJpb21ldHJpYyBNYW51ZmFjdHVyZTElMCMGA1UEAxMcTWFudHJhIFNvZnRlY2ggSW5kaWEgUHZ0IEx0ZDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALtwSL3bOCBD\\/5QGd9zd4shrrpb44KUEU22oN52XGWilRVqPNoY8IRBEbMAjaOT83ldgarqYlNp01TeLGxoeERQTrSirWNXn7NXejYxMVtQ\\/d0ygju56BQjEaqd29ZQ8vTyMne8VKaomdCkMyYA3pso\\/V22GFfiwHzGtbzG\\/uHHsr6+Osaq\\/HOa04OcDYKZZhaGUGZmDKFfkhZVdNXuTeAt6Rrhis1zRrLKbhq1dsv3tEFx3UoCSLfv4ELnnCSvG8IQ0V5Q4ZiiymAxeEq8xe\\/U4Nt\\/eQ3KP8AzkonuzPimdlRlN8yoPmO5FAlKSPVB8NtSk27qRq8se\\/s8pwhGmK4cCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAoJSGfUZyXJGNbB7LBjIJ3FsiPNuABHK8KH8FMvblwGZcOyonXvFUoHqEqjgxo5vTXpT4+8XNZbZFOt\\/ny7VuIBj6THRSpS2zbz0jbqX9acELRrFn7UIRuFiFWoM2YtobdOD6ug96+IoC7GGKk+T26FVkxyxyDGRdfsGoWiva12fw59E0vwTsfwW7VXUICT\\/5DYQIjFgipu9YX3aJfJrkH1gRcao7KBNQCHUp96uEbwYIJHU+rrfR42yx3w+YxBD5VN85uc6O33Zj7XUzxWpohOXYYK9WtOOtyt06ZWNsgq07SgnW0w7Y9C+fFBPcgt\\/HuIsM75tFhzBijq8MtCCO3A==\",\n    \"ci\": \"20221021\",\n    \"sessionKey\": \"JT5LBLaDo2C5neOiXMh7tp35ipBEXSl82iHwSynUOn5RsTFqeHksM7B3v0mokCTmt8uAXdIx+fdns44vgWtb+ciZ068kJrACSLZUg3T93dBP+oThiRADQatt3PoG32Q7nDe1Ih8ZDUF9IENYt+1CXa4hR+sUdL7fTzCpDchA3jLHR6+Kw\\/w7Hf2lW9c9XCdgq+5XpA22X8ERXY7DoUpHTnXbsGRi91jIfPTUVY35a\\/0jRJTiT9rvNfJDAaEYuDEqPr2hBZBK1Lr\\/qd8b9bZjClxb+Ry5cQnFn5gmbFoxPV8tVY\\/hxYJg\\/Xjp8IhV\\/DwfBHYYDLf9Ug6n4eq49yFGeg==\",\n    \"hmac\": \"1ZgmHrKxpdKoRV2Wcs1L4BNN4L1ASNhlhtpG2aGFMBQB8VwSS3KEgKiWa90BRkD0\",\n    \"PidDatatype\": \"X\",\n    \"Piddata\": \"MjAyMS0wMy0xMlQxMDozODozNI3cU8eW7JawEh8JzHwSpvYvZmE2hJF9Z0xcUXONsIswOEZE7pC9tUyeAkc+oycAt2Lidni3VfRLbwJf5T90GhQlv93E7SdsJCSXhElhGA2AQBYEca0HgpbyaPw6lmSFCKUbHP7EugFlwJ0U3UbAbOVruO8Xp62yE5B+TMzdTM46KhhSxur1s3+y3dHpAQBUCISz1AM8yh58ul0tbXlsv0Bwkz5nb5Lu11F4xL99aTLf7Wqwp1\\/U+7NJk7RJPyJ5EkaGPTthwMPTap7SsiqM\\/cbv0FgsmolpnYFvpf9uRxCTqDosh32tv3LBwwl7hYwzme0ZBKHDwRKv3CjX33j2nzWmpBenKmvFPD\\/Nb68UkVFgBk\\/EUJQ2G27rcV4f5FaScCIbNg6DvqrdL2agmCMZclkCraHpgzYLJRjPUWdHHp4R5Z2S\\/iE\\/N9lu+e0NUODvkV5kNAPyBIDvByeneL48cfXknstR0w5Y81wa+Ag2zyU1YLLGJJa9Pl2AIs8IxCiaQicW2PaUkMzGeVinBMGG33Z3X4YC0s9+lKPnKWgwkDNOoGhQ4bmsNaKpG3k8KxZemCSAFmkS7O7MwaWM6D\\/Mfugc2uUx2iSCkvL9YHyi3gQIrj2WVaUnxXCE04If6vYq1FCG40xbUC1UHNiyrdbbwaCSadNAeL2AAkv3NbXZg4+hrB5PdOPMkocqfu9UCC4AfjRnwFQIld23lgn7QxblA4MAfbEA1BuBRUawlfnANJPauqJOE+mqjVoMvJ2DllYlO7NzsS2pDBeeCgRPcM5dbY1\\/4avhCkAk3SP9aV4Da34vTf\\/QH74gyQEam3N0MviVq2MYdJ71vl7DCz\\/mO12Gf0he+Jfo7rTu4Wejv2xxIEhQnuCW7uNd+WphoX25Vbrr\\/D+9BgoueFyS98qXOo24OCBKo4+ZhAVX7d1xM1vqG0+t28ofjiR6QzqhB28SZ4azV2k0WIw4coHV0YnETv+SNO\\/U7jQUtpHZiw0nM0IKD0k4xNzmH7QfrRU7ROcIDwqSPE8oL5TTZnu+gdy9r58IjS6o484JyhwYAAjPVJ6KRHwPl4\\/a4XWHZF36aoPFaGUwwhDo\\/RLJ1z6tUTW4mK5J+g93JELBsVM6\\/iAJZTCWCyrboNuSDnfM5fpCqYy3L8PeVZx3I0jE1Erd4w==\"\n  }\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/aeps/biometric/ekyc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"aeps",
+										"biometric",
+										"ekyc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Aeps verify otp",
+							"request": {
+								"method": "PATCH",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI",
+										"type": "text"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"superMerchantId\": 1069,\n  \"merchantLoginId\": \"RP00001\",\n  \"otp\": \"6976485\",\n  \"primaryKeyId\": \"2800962\",\n  \"encodeFPTxnId\": \"EKYKF5072380070623022644726I\"\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8080/admin/aeps/verify/otp",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"aeps",
+										"verify",
+										"otp"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AEPS State list",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDY1MzBkNDViNTYzZDUyYmI3MWNhMTgiLCJmcm9tVXNlciI6IjY0NWU5MzQ0NmM1YjE0ZmYxNzg5MTg1YiIsImZyb21TdXBlckFkbWluIjoiNjQ1ZTkzNDQ2YzViMTRmZjE3ODkxODViIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5MiwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkYmFkMkZuczE1cm9rTE51T3pkQlY3T1RhcE1wLm56RTdpVjEwcHExN3F1UWlWeHZGanN6YTIiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTE3VDE5OjUzOjU2LjA0OFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTE3VDE5OjUzOjU2LjA0OFoiLCJfX3YiOjB9.vsEXsNZtvqb-y1OJ5bNxVQOEyzvAUIBJh9nLccMaR4c",
+										"type": "text"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/admin/aeps/state/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"admin",
+										"aeps",
+										"state",
+										"list"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Approve kyc",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "super-distributer@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "646a7836330015fc58552f35",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "APPROVED",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9708871500",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/team/approve/kyc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"team",
+								"approve",
+								"kyc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Approve Bank",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "super-distributer@gmail.com",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "userId",
+									"value": "646a7836330015fc58552f35",
+									"type": "text"
+								},
+								{
+									"key": "status",
+									"value": "APPROVED",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9708871500",
+									"type": "text",
+									"disabled": true
+								},
+								{
+									"key": "role",
+									"value": "ADMIN",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/team/approve/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"team",
+								"approve",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create category",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "categoryName",
+									"value": "LLP",
+									"type": "text"
+								},
+								{
+									"key": "icon",
+									"value": "hello.chl/af",
+									"type": "text"
+								},
+								{
+									"key": "menuType",
+									"value": "For service",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/auth/create/category",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"auth",
+								"create",
+								"category"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Admin-Login",
 					"request": {
 						"method": "POST",
@@ -1056,54 +1444,6 @@
 					"response": []
 				},
 				{
-					"name": "Create category",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "categoryName",
-									"value": "LLP",
-									"type": "text"
-								},
-								{
-									"key": "icon",
-									"value": "hello.chl/af",
-									"type": "text"
-								},
-								{
-									"key": "menuType",
-									"value": "For service",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/admin/auth/create/category",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"auth",
-								"create",
-								"category"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Create sub category",
 					"request": {
 						"method": "POST",
@@ -1275,43 +1615,6 @@
 					"response": []
 				},
 				{
-					"name": "AEPS User Onboard",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDY1MzBkNDViNTYzZDUyYmI3MWNhMTgiLCJmcm9tVXNlciI6IjY0NWU5MzQ0NmM1YjE0ZmYxNzg5MTg1YiIsImZyb21TdXBlckFkbWluIjoiNjQ1ZTkzNDQ2YzViMTRmZjE3ODkxODViIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5MiwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkYmFkMkZuczE1cm9rTE51T3pkQlY3T1RhcE1wLm56RTdpVjEwcHExN3F1UWlWeHZGanN6YTIiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTE3VDE5OjUzOjU2LjA0OFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTE3VDE5OjUzOjU2LjA0OFoiLCJfX3YiOjB9.vsEXsNZtvqb-y1OJ5bNxVQOEyzvAUIBJh9nLccMaR4c",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "raw",
-							"raw": "{\n    \"username\": \"risingpayd\",\n    \"password\": \"796c3ee556ac31f3754a38cfd15b8044\",\n    \"supermerchantId\": 1069,\n    \"latitude\": \"23.1957998\",\n    \"longitude\": \"88.6248327\",\n    \"merchantLoginId\": \"RP00001\",\n    \"merchantLoginPin\": \"1234589\",\n    \"merchantName\": \"mahasen mondal\",\n    \"merchantPhoneNumber\": \"8945796019\",\n    \"companyLegalName\": \"abc testing\",\n    \"companyMarketingName\": \"abc pay\",\n    \"merchantBranch\": \" \",\n    \"emailId\": \"mhsn033@gmail.com\",\n    \"merchantPinCode\": \"741238\",\n    \"tan\": \" \",\n    \"merchantCityName\": \"KOLKATA\",\n    \"merchantDistrictName\": \"NADIA\",\n    \"cancellationCheckImages\": \" \",\n    \"shopAndPanImage\": \"\",\n    \"ekycDocuments\": \"\",\n    \"merchantAddress\" : \"Adityapur, North 24 Parganas, West Bengal - 743710\",\n    \"merchantState\": \"WEST-Bangal\",\n    \"userPan\": \" CMFPM0227G \",\n    \"aadhaarNumber\": \"218303191304\",\n    \"gstInNumber\": \" \",\n    \"companyOrShopPan\": \" \",\n    \"companyBankAccountNumber\": \"8945879609\",\n    \"bankIfscCode\": \"PYTM0123456\",\n    \"companyBankName\": \"PAYTM BANK\",\n    \"bankBranchName\": \"Maharastha\",\n    \"bankAccountName\": \"MAHASIN MONDAL\"\n}",
-							"options": {
-								"raw": {
-									"language": "json"
-								}
-							}
-						},
-						"url": {
-							"raw": "http://localhost:8080/admin/aeps/user/onboard",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"aeps",
-								"user",
-								"onboard"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Create User",
 					"request": {
 						"method": "POST",
@@ -1364,128 +1667,6 @@
 								"auth",
 								"create",
 								"user"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Approve kyc",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "email",
-									"value": "super-distributer@gmail.com",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "userId",
-									"value": "646a7836330015fc58552f35",
-									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "APPROVED",
-									"type": "text"
-								},
-								{
-									"key": "mobile",
-									"value": "9708871500",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "role",
-									"value": "ADMIN",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/admin/team/approve/kyc",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"team",
-								"approve",
-								"kyc"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Approve Bank",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "email",
-									"value": "super-distributer@gmail.com",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "userId",
-									"value": "646a7836330015fc58552f35",
-									"type": "text"
-								},
-								{
-									"key": "status",
-									"value": "APPROVED",
-									"type": "text"
-								},
-								{
-									"key": "mobile",
-									"value": "9708871500",
-									"type": "text",
-									"disabled": true
-								},
-								{
-									"key": "role",
-									"value": "ADMIN",
-									"type": "text",
-									"disabled": true
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/admin/team/approve/bank",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"team",
-								"approve",
-								"bank"
 							]
 						}
 					},
@@ -1555,38 +1736,15 @@
 				},
 				{
 					"name": "User list",
-					"protocolProfileBehavior": {
-						"disableBodyPruning": true
-					},
 					"request": {
 						"method": "GET",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
 								"type": "text"
 							}
 						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "categoryId",
-									"value": "64477102c21552ebb73b04aa",
-									"type": "text"
-								},
-								{
-									"key": "icon",
-									"value": "hello.chl/af",
-									"type": "text"
-								},
-								{
-									"key": "subCategoryName",
-									"value": "SOFTWARE",
-									"type": "text"
-								}
-							]
-						},
 						"url": {
 							"raw": "http://localhost:8080/admin/auth/user/list",
 							"protocol": "http",
@@ -1649,34 +1807,6 @@
 								"admin",
 								"auth",
 								"user",
-								"list"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "AEPS State list",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDY1MzBkNDViNTYzZDUyYmI3MWNhMTgiLCJmcm9tVXNlciI6IjY0NWU5MzQ0NmM1YjE0ZmYxNzg5MTg1YiIsImZyb21TdXBlckFkbWluIjoiNjQ1ZTkzNDQ2YzViMTRmZjE3ODkxODViIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5MiwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkYmFkMkZuczE1cm9rTE51T3pkQlY3T1RhcE1wLm56RTdpVjEwcHExN3F1UWlWeHZGanN6YTIiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA1LTE3VDE5OjUzOjU2LjA0OFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTE3VDE5OjUzOjU2LjA0OFoiLCJfX3YiOjB9.vsEXsNZtvqb-y1OJ5bNxVQOEyzvAUIBJh9nLccMaR4c",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/admin/aeps/state/list",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"admin",
-								"aeps",
-								"state",
 								"list"
 							]
 						}
@@ -2821,42 +2951,6 @@
 			"name": "Retailer",
 			"item": [
 				{
-					"name": "Retailer-Login",
-					"request": {
-						"method": "POST",
-						"header": [],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "email",
-									"value": "retailer@gmail.com",
-									"type": "text"
-								},
-								{
-									"key": "password",
-									"value": "123456",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/retailer/auth/login",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"retailer",
-								"auth",
-								"login"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Available Balance",
 					"request": {
 						"method": "GET",
@@ -2879,40 +2973,6 @@
 								"auth",
 								"available",
 								"balance"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Complaint view",
-					"request": {
-						"method": "GET",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
-								"type": "text"
-							}
-						],
-						"url": {
-							"raw": "http://localhost:8080/retailer/auth/complaint/view?status=PENDING",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"retailer",
-								"auth",
-								"complaint",
-								"view"
-							],
-							"query": [
-								{
-									"key": "status",
-									"value": "PENDING"
-								}
 							]
 						}
 					},
@@ -2989,6 +3049,300 @@
 					"response": []
 				},
 				{
+					"name": "View comission",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/utils/comission/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"utils",
+								"comission",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Complaint view",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlM2FiYWRhNWVlNDdmMWM2ODlkYzMiLCJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDIsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJDZ1anRqb21jb1N6N2JNTHNyTjBFenVtYkZxajhmQW9Fam11WExsdXBjaDFHS0REN3JsTnJtIiwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjozNzo0Ni4yODZaIiwiX192IjowfQ.TtlfRvJ4g7BOJ9fUhNjLOhvnR7qjIYp-hNouVItwHL8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/complaint/view?status=PENDING",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"complaint",
+								"view"
+							],
+							"query": [
+								{
+									"key": "status",
+									"value": "PENDING"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set new password Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7ImNvdW50cnkiOiJpbmRpYSIsInN0YXRlIjoiYmloYXIiLCJkaXN0cmljdCI6InJvaHRhcyIsImNpdHkiOiJzYXNhcmFtIiwic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsib3RoZXJNb2JpbGUiOiI2MjAwMTM0Nzk3IiwicGFuTm8iOiJKUEswMTg5MDIiLCJwYW5JbWFnZSI6Imphcy9zamQvc2RmOy8iLCJhZGhhck5vIjoiMzkzMTUzMjY0NzM5IiwiYWRoYXJJbWFnZSI6ImxzZi5kc2RqL3NkZmwvIiwidXNlclNlbGZpZSI6InNmL2Rmc3NkL3JzZCIsInN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJiYW5rTmFtZSI6IlBuYiIsImJyYW5jaE5hbWUiOiJBcnJhaCIsImFjY05vIjoiNjQ4NTAwMDEwMDEwMDk0NCIsImlmc2NDb2RlIjoiUFVOQjA2NDg1MDAiLCJhY2NUeXBlIjoiU0FWSU5HIiwiYWNjSG9sZGVyTmFtZSI6IlByYWthc2giLCJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0N2Y3N2RiNjI4Mjg4YmE3YjliNDUxZiIsImZyb21Vc2VyIjoiNjQzZTM1OTc2NDQ0MDRhOTc5ZDUwNDA4IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6InJldGFpbGVyMUBnbWFpbC5jb20iLCJtb2JpbGUiOjYyMDAxMzQ3OTcsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJvdHAiOjAsInJvbGUiOiJSRVRBSUxFUiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDZUMTg6MTU6NTUuMDUwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDZUMTk6NDY6MjAuOTQwWiIsIl9fdiI6MH0.own1YA8gTVx8bewRNNn-nJ1a2GUD1UkOsaNlcZhPj9Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "newPassword",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "cnfPassword",
+									"value": "6200134797",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/set/new/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"set",
+								"new",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify mobile otp",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQ3ZTI1OGQ1NmQ2ZjEwZThlNGY4OTQ2IiwiZnJvbVVzZXIiOiI2NDNlMzU5NzY0NDQwNGE5NzlkNTA0MDgiLCJmcm9tQWRtaW4iOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCIsImVtYWlsIjoicmV0YWlsZXJAZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk3LCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkUWE4Y0FjTU9xWnpLOW1zNXVrYVIxT04xM1U0MnhJbzlsZXJzUmoyUUovS2IuR29qUXdTSDYiLCJvdHAiOjAsInJvbGUiOiJSRVRBSUxFUiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDVUMTg6MTI6MjkuNDcxWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDVUMTg6MTI6MjkuNDcxWiIsIl9fdiI6MH0.YdgXSagulfFYFFKZwbs8X5WPYF-UgA5NOOY7fn-QpR8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "otp",
+									"value": "973805",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/verify/mobile/otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"verify",
+								"mobile",
+								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify mobile otp Copy",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQ3ZTI1OGQ1NmQ2ZjEwZThlNGY4OTQ2IiwiZnJvbVVzZXIiOiI2NDNlMzU5NzY0NDQwNGE5NzlkNTA0MDgiLCJmcm9tQWRtaW4iOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCIsImVtYWlsIjoicmV0YWlsZXJAZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk3LCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkUWE4Y0FjTU9xWnpLOW1zNXVrYVIxT04xM1U0MnhJbzlsZXJzUmoyUUovS2IuR29qUXdTSDYiLCJvdHAiOjAsInJvbGUiOiJSRVRBSUxFUiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDVUMTg6MTI6MjkuNDcxWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDVUMTg6MTI6MjkuNDcxWiIsIl9fdiI6MH0.YdgXSagulfFYFFKZwbs8X5WPYF-UgA5NOOY7fn-QpR8",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "otp",
+									"value": "973805",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/verify/mobile/otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"verify",
+								"mobile",
+								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot password verify otp",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "mobile",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "otp",
+									"value": "903344",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/forgot/password/otp/verify",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"forgot",
+								"password",
+								"otp",
+								"verify"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Retailer-Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "retailer@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send mobile verify otp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQ3ZTI1OGQ1NmQ2ZjEwZThlNGY4OTQ2IiwiZnJvbVVzZXIiOiI2NDNlMzU5NzY0NDQwNGE5NzlkNTA0MDgiLCJmcm9tQWRtaW4iOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCIsImVtYWlsIjoicmV0YWlsZXJAZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk3LCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkUWE4Y0FjTU9xWnpLOW1zNXVrYVIxT04xM1U0MnhJbzlsZXJzUmoyUUovS2IuR29qUXdTSDYiLCJvdHAiOjAsInJvbGUiOiJSRVRBSUxFUiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDVUMTg6MTI6MjkuNDcxWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDVUMTg6MTI6MjkuNDcxWiIsIl9fdiI6MH0.YdgXSagulfFYFFKZwbs8X5WPYF-UgA5NOOY7fn-QpR8",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/send/mobile/otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"send",
+								"mobile",
+								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Make enqry erquest",
 					"request": {
 						"method": "POST",
@@ -3021,6 +3375,316 @@
 								"auth",
 								"make",
 								"enqry"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Forgot password otp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "mobile",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text",
+									"disabled": true
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/forgot/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"forgot",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set new password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7ImNvdW50cnkiOiJpbmRpYSIsInN0YXRlIjoiYmloYXIiLCJkaXN0cmljdCI6InJvaHRhcyIsImNpdHkiOiJzYXNhcmFtIiwic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsib3RoZXJNb2JpbGUiOiI2MjAwMTM0Nzk3IiwicGFuTm8iOiJKUEswMTg5MDIiLCJwYW5JbWFnZSI6Imphcy9zamQvc2RmOy8iLCJhZGhhck5vIjoiMzkzMTUzMjY0NzM5IiwiYWRoYXJJbWFnZSI6ImxzZi5kc2RqL3NkZmwvIiwidXNlclNlbGZpZSI6InNmL2Rmc3NkL3JzZCIsInN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJiYW5rTmFtZSI6IlBuYiIsImJyYW5jaE5hbWUiOiJBcnJhaCIsImFjY05vIjoiNjQ4NTAwMDEwMDEwMDk0NCIsImlmc2NDb2RlIjoiUFVOQjA2NDg1MDAiLCJhY2NUeXBlIjoiU0FWSU5HIiwiYWNjSG9sZGVyTmFtZSI6IlByYWthc2giLCJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0N2Y3N2RiNjI4Mjg4YmE3YjliNDUxZiIsImZyb21Vc2VyIjoiNjQzZTM1OTc2NDQ0MDRhOTc5ZDUwNDA4IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6InJldGFpbGVyMUBnbWFpbC5jb20iLCJtb2JpbGUiOjYyMDAxMzQ3OTcsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJvdHAiOjAsInJvbGUiOiJSRVRBSUxFUiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDZUMTg6MTU6NTUuMDUwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDZUMTk6NDY6MjAuOTQwWiIsIl9fdiI6MH0.own1YA8gTVx8bewRNNn-nJ1a2GUD1UkOsaNlcZhPj9Y",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "newPassword",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "cnfPassword",
+									"value": "6200134797",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/set/new/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"set",
+								"new",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update address",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "country",
+									"value": "india",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "bihar",
+									"type": "text"
+								},
+								{
+									"key": "district",
+									"value": "rohtas",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "sasaram",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/utils/update/address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"utils",
+								"update",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update KYC",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "otherMobile",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "panNo",
+									"value": "JPK018902",
+									"type": "text"
+								},
+								{
+									"key": "panImage",
+									"value": "jas/sjd/sdf;/",
+									"type": "text"
+								},
+								{
+									"key": "adharNo",
+									"value": "393153264739",
+									"type": "text"
+								},
+								{
+									"key": "adharImage",
+									"value": "lsf.dsdj/sdfl/",
+									"type": "text"
+								},
+								{
+									"key": "userSelfie",
+									"value": "sf/dfssd/rsd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/utils/update/kyc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"utils",
+								"update",
+								"kyc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update KYC Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "otherMobile",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "panNo",
+									"value": "JPK018902",
+									"type": "text"
+								},
+								{
+									"key": "panImage",
+									"value": "jas/sjd/sdf;/",
+									"type": "text"
+								},
+								{
+									"key": "adharNo",
+									"value": "393153264739",
+									"type": "text"
+								},
+								{
+									"key": "adharImage",
+									"value": "lsf.dsdj/sdfl/",
+									"type": "text"
+								},
+								{
+									"key": "userSelfie",
+									"value": "sf/dfssd/rsd",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/utils/update/kyc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"utils",
+								"update",
+								"kyc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Change password",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "oldPassword",
+									"value": "123",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/change/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"change",
+								"password"
 							]
 						}
 					},
@@ -3756,6 +4420,82 @@
 			"request": {
 				"method": "GET",
 				"header": []
+			},
+			"response": []
+		},
+		{
+			"name": "upload file on s3",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mobile",
+							"value": "6200134797",
+							"contentType": "dfg",
+							"type": "text"
+						},
+						{
+							"key": "userSelfie",
+							"type": "file",
+							"src": "/Users/prakashkumar/Desktop/Screenshot 2022-10-10 at 10.25.02 PM.png",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/auth/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"auth",
+						"upload"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "upload file on s3 Copy",
+			"request": {
+				"method": "PUT",
+				"header": [],
+				"body": {
+					"mode": "formdata",
+					"formdata": [
+						{
+							"key": "mobile",
+							"value": "6200134797",
+							"contentType": "dfg",
+							"type": "text"
+						},
+						{
+							"key": "userSelfie",
+							"type": "file",
+							"src": "/Users/prakashkumar/Desktop/Screenshot 2022-10-10 at 10.25.02 PM.png",
+							"disabled": true
+						}
+					]
+				},
+				"url": {
+					"raw": "http://localhost:8080/admin/auth/upload",
+					"protocol": "http",
+					"host": [
+						"localhost"
+					],
+					"port": "8080",
+					"path": [
+						"admin",
+						"auth",
+						"upload"
+					]
+				}
 			},
 			"response": []
 		}
