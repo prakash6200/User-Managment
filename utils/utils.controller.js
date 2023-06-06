@@ -369,6 +369,55 @@ module.exports.updateBankAcc = async (request, response) => {
     }
 };
 
+module.exports.updateAddress = async (request, response) => {
+    try {
+        const { user, country, state, district, city } = request.body;
+
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+        
+        if (!userData) {
+            return response.status(401).json({
+                status: false,
+                message: "User not found or deleted",
+                data: null,
+            });
+        }
+
+        const status = "IN-PROGRESS"
+        const address = {
+            country,
+            state,
+            district,
+            city,
+            status
+        }
+
+        userData.address = address;
+       
+        userData.save();
+
+        return response.json({
+            status: true,
+            message: "address updated",
+            data: userData.address,
+        });
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
 module.exports.orderId = () => {
     let timestamp = Date.now().toString();
     let random = Math.floor(Math.random() * 100000).toString(); 

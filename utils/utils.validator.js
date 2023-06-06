@@ -66,3 +66,20 @@ module.exports.updateBankAcc = async (request, response, next) => {
         return next();
     }
 };
+
+module.exports.updateAddress = async (request, response, next) => {
+    let rules = Joi.object().keys({
+        country: Joi.string().required(),
+        state: Joi.string().required(),
+        district: Joi.string().required(),
+        city: Joi.string().required(),
+    });
+    const { error } = rules.validate(request.body);
+    if (error) {
+        return response
+            .status(422)
+            .json({ status: false, message: error.message, data: null });
+    } else {
+        return next();
+    }
+};

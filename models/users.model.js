@@ -67,6 +67,15 @@ const Users = new Schema(
             city: {
                 type: String,
             },
+            status: {
+                type: String,
+                enum: ["APPROVED", "PENDING", "REJECTED", "IN-PROGRESS"],
+                default: "PENDING",
+            },
+            isApprovedBy: {
+                type: Schema.Types.ObjectId,
+                ref: "Users",
+            },
         },
         kyc: {
             otherMobile: {
