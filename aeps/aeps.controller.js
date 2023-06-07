@@ -530,3 +530,120 @@ module.exports.aepsBiometricEKYC = async (request, response) => {
         });
     }
 };
+
+module.exports.aepsBanks = async (request, response) => {
+    try {
+        const { user } = request.body;
+
+        const checkAdmin = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        });
+
+        if(!checkAdmin) {
+            return response.status(401).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+        
+        let axiosConfig = {
+            method: 'get',
+            maxBodyLength: Infinity,
+            url: 'https://fingpayap.tapits.in/fpaepsservice/api/bankdata/bank/details',
+            headers: { }
+        };
+          
+        axios.request(axiosConfig)
+        .then((res) => {
+            return response.json({
+                status: true,
+                message: "Bank list",
+                data: res.data,
+            });
+        })
+        .catch((error) => {
+            return response.status(409).json({
+                status: false,
+                message: "Sending otp failed",
+                data: error,
+            });
+        });
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.aepsMiniStatement = async (request, response) => {
+    try {
+        const { user } = request.body;
+
+        const checkAdmin = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        });
+
+        if(!checkAdmin) {
+            return response.status(401).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        }
+        
+        const json = JSON.stringify(request.body, null, 2);
+
+        const timestamp = new Date().toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(/\//g, '-');
+        const hash = generateHash(json, config.SUPERMERCHANT_PASSWORD_FINPAY, timestamp);
+        
+        let axiosConfig = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: 'https://fingpayap.tapits.in/fpaepsservice/api/miniStatement/merchant/v2/statement',
+            headers: { 
+              'hash': hash, 
+              'trnTimestamp': timestamp, 
+              'deviceIMEI': '862531051656388', 
+              'Content-Type': 'application/json'
+            },
+            data : json
+        };
+          
+        axios.request(axiosConfig)
+        .then((res) => {
+            return response.json({
+                status: true,
+                message: "Statement got successfully",
+                data: res.data,
+            });
+        })
+        .catch((error) => {
+            return response.status(409).json({
+                status: false,
+                message: "Sending otp failed",
+                data: error,
+            });
+        });
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
