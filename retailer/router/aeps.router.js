@@ -9,5 +9,6 @@ router.get("/bank/list", verifyJWTToken, aepsController.aepsBanks);
 router.post("/ministatement", verifyJWTToken, aepsController.aepsMiniStatement);
 router.post("/cash/withdrawal", verifyJWTToken, aepsController.aepsCashWithdrawal);
 router.post("/balance/enquery", verifyJWTToken, aepsController.aepsBalanceEnquery);
+router.post("/adhar/pay", verifyJWTToken, aepsController.aepsPay);
 
 module.exports = router;

@@ -2951,6 +2951,216 @@
 			"name": "Retailer",
 			"item": [
 				{
+					"name": "AEPS",
+					"item": [
+						{
+							"name": "AEPS Biomentric EKYC",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"superMerchantId\": 1069,\n  \"merchantLoginId\": \"RP00001\",\n  \"primaryKeyId\": 2800962,\n  \"encodeFPTxnId\": \"EKYKF5072380010623155035558I\",\n  \"requestRemarks\": \"test\",\n  \"cardnumberORUID\": {\n    \"nationalBankIdentificationNumber\":\"\",\n    \"indicatorforUID\": \"0\",\n    \"adhaarNumber\": \"218303191304\"\n  },\n  \"captureResponse\": {\n    \"errCode\": \"0\",\n    \"errInfo\": \"Capture Success\",\n    \"fCount\": \"2\",\n    \"fType\": \"0\",\n    \"iCount\": \"0\",\n    \"iType\": null,\n    \"pCount\": \"0\",\n    \"pType\": \"0\",\n    \"nmPoints\": \"32,32\",\n    \"qScore\": \"69,69\",\n    \"dpID\": \"MANTRA.MSIPL\",\n    \"rdsID\": \"MANTRA.AND.001\",\n    \"rdsVer\": \"1.0.4\",\n    \"dc\": \"855e031a-204c-4544-b2ef-8821b53ed39b\",\n    \"mi\": \"MFS100\",\n    \"mc\": \"MIIEGjCCAwKgAwIBAgIGAXgCQftfMA0GCSqGSIb3DQEBCwUAMIHqMSowKAYDVQQDEyFEUyBNYW50cmEgU29mdGVjaCBJbmRpYSBQdnQgTHRkIDcxQzBBBgNVBDMTOkIgMjAzIFNoYXBhdGggSGV4YSBvcHBvc2l0ZSBHdWphcmF0IEhpZ2ggQ291cnQgUyBHIEhpZ2h3YXkxEjAQBgNVBAkTCUFobWVkYWJhZDEQMA4GA1UECBMHR3VqYXJhdDEdMBsGA1UECxMUVGVjaG5pY2FsIERlcGFydG1lbnQxJTAjBgNVBAoTHE1hbnRyYSBTb2Z0ZWNoIEluZGlhIFB2dCBMdGQxCzAJBgNVBAYTAklOMB4XDTIxMDMwNTExNDQ0N1oXDTIxMDQwNDExNTk0MFowgbAxJDAiBgkqhkiG9w0BCQEWFXN1cHBvcnRAbWFudHJhdGVjLmNvbTELMAkGA1UEBhMCSU4xEDAOBgNVBAgTB0dVSkFSQVQxEjAQBgNVBAcTCUFITUVEQUJBRDEOMAwGA1UEChMFTVNJUEwxHjAcBgNVBAsTFUJpb21ldHJpYyBNYW51ZmFjdHVyZTElMCMGA1UEAxMcTWFudHJhIFNvZnRlY2ggSW5kaWEgUHZ0IEx0ZDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALtwSL3bOCBD\\/5QGd9zd4shrrpb44KUEU22oN52XGWilRVqPNoY8IRBEbMAjaOT83ldgarqYlNp01TeLGxoeERQTrSirWNXn7NXejYxMVtQ\\/d0ygju56BQjEaqd29ZQ8vTyMne8VKaomdCkMyYA3pso\\/V22GFfiwHzGtbzG\\/uHHsr6+Osaq\\/HOa04OcDYKZZhaGUGZmDKFfkhZVdNXuTeAt6Rrhis1zRrLKbhq1dsv3tEFx3UoCSLfv4ELnnCSvG8IQ0V5Q4ZiiymAxeEq8xe\\/U4Nt\\/eQ3KP8AzkonuzPimdlRlN8yoPmO5FAlKSPVB8NtSk27qRq8se\\/s8pwhGmK4cCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAoJSGfUZyXJGNbB7LBjIJ3FsiPNuABHK8KH8FMvblwGZcOyonXvFUoHqEqjgxo5vTXpT4+8XNZbZFOt\\/ny7VuIBj6THRSpS2zbz0jbqX9acELRrFn7UIRuFiFWoM2YtobdOD6ug96+IoC7GGKk+T26FVkxyxyDGRdfsGoWiva12fw59E0vwTsfwW7VXUICT\\/5DYQIjFgipu9YX3aJfJrkH1gRcao7KBNQCHUp96uEbwYIJHU+rrfR42yx3w+YxBD5VN85uc6O33Zj7XUzxWpohOXYYK9WtOOtyt06ZWNsgq07SgnW0w7Y9C+fFBPcgt\\/HuIsM75tFhzBijq8MtCCO3A==\",\n    \"ci\": \"20221021\",\n    \"sessionKey\": \"JT5LBLaDo2C5neOiXMh7tp35ipBEXSl82iHwSynUOn5RsTFqeHksM7B3v0mokCTmt8uAXdIx+fdns44vgWtb+ciZ068kJrACSLZUg3T93dBP+oThiRADQatt3PoG32Q7nDe1Ih8ZDUF9IENYt+1CXa4hR+sUdL7fTzCpDchA3jLHR6+Kw\\/w7Hf2lW9c9XCdgq+5XpA22X8ERXY7DoUpHTnXbsGRi91jIfPTUVY35a\\/0jRJTiT9rvNfJDAaEYuDEqPr2hBZBK1Lr\\/qd8b9bZjClxb+Ry5cQnFn5gmbFoxPV8tVY\\/hxYJg\\/Xjp8IhV\\/DwfBHYYDLf9Ug6n4eq49yFGeg==\",\n    \"hmac\": \"1ZgmHrKxpdKoRV2Wcs1L4BNN4L1ASNhlhtpG2aGFMBQB8VwSS3KEgKiWa90BRkD0\",\n    \"PidDatatype\": \"X\",\n    \"Piddata\": \"MjAyMS0wMy0xMlQxMDozODozNI3cU8eW7JawEh8JzHwSpvYvZmE2hJF9Z0xcUXONsIswOEZE7pC9tUyeAkc+oycAt2Lidni3VfRLbwJf5T90GhQlv93E7SdsJCSXhElhGA2AQBYEca0HgpbyaPw6lmSFCKUbHP7EugFlwJ0U3UbAbOVruO8Xp62yE5B+TMzdTM46KhhSxur1s3+y3dHpAQBUCISz1AM8yh58ul0tbXlsv0Bwkz5nb5Lu11F4xL99aTLf7Wqwp1\\/U+7NJk7RJPyJ5EkaGPTthwMPTap7SsiqM\\/cbv0FgsmolpnYFvpf9uRxCTqDosh32tv3LBwwl7hYwzme0ZBKHDwRKv3CjX33j2nzWmpBenKmvFPD\\/Nb68UkVFgBk\\/EUJQ2G27rcV4f5FaScCIbNg6DvqrdL2agmCMZclkCraHpgzYLJRjPUWdHHp4R5Z2S\\/iE\\/N9lu+e0NUODvkV5kNAPyBIDvByeneL48cfXknstR0w5Y81wa+Ag2zyU1YLLGJJa9Pl2AIs8IxCiaQicW2PaUkMzGeVinBMGG33Z3X4YC0s9+lKPnKWgwkDNOoGhQ4bmsNaKpG3k8KxZemCSAFmkS7O7MwaWM6D\\/Mfugc2uUx2iSCkvL9YHyi3gQIrj2WVaUnxXCE04If6vYq1FCG40xbUC1UHNiyrdbbwaCSadNAeL2AAkv3NbXZg4+hrB5PdOPMkocqfu9UCC4AfjRnwFQIld23lgn7QxblA4MAfbEA1BuBRUawlfnANJPauqJOE+mqjVoMvJ2DllYlO7NzsS2pDBeeCgRPcM5dbY1\\/4avhCkAk3SP9aV4Da34vTf\\/QH74gyQEam3N0MviVq2MYdJ71vl7DCz\\/mO12Gf0he+Jfo7rTu4Wejv2xxIEhQnuCW7uNd+WphoX25Vbrr\\/D+9BgoueFyS98qXOo24OCBKo4+ZhAVX7d1xM1vqG0+t28ofjiR6QzqhB28SZ4azV2k0WIw4coHV0YnETv+SNO\\/U7jQUtpHZiw0nM0IKD0k4xNzmH7QfrRU7ROcIDwqSPE8oL5TTZnu+gdy9r58IjS6o484JyhwYAAjPVJ6KRHwPl4\\/a4XWHZF36aoPFaGUwwhDo\\/RLJ1z6tUTW4mK5J+g93JELBsVM6\\/iAJZTCWCyrboNuSDnfM5fpCqYy3L8PeVZx3I0jE1Erd4w==\"\n  }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/retailer/aeps/biometric/ekyc",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"retailer",
+										"aeps",
+										"biometric",
+										"ekyc"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AEPS Bank List",
+							"request": {
+								"method": "GET",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"url": {
+									"raw": "http://localhost:8080/retailer/aeps/bank/list",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"retailer",
+										"aeps",
+										"bank",
+										"list"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AEPS Ministatement",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"superMerchantId\": 1069,\n  \"merchantLoginId\": \"RP00001\",\n  \"primaryKeyId\": 2800962,\n  \"encodeFPTxnId\": \"EKYKF5072380010623155035558I\",\n  \"requestRemarks\": \"test\",\n  \"cardnumberORUID\": {\n    \"nationalBankIdentificationNumber\":\"\",\n    \"indicatorforUID\": \"0\",\n    \"adhaarNumber\": \"218303191304\"\n  },\n  \"captureResponse\": {\n    \"errCode\": \"0\",\n    \"errInfo\": \"Capture Success\",\n    \"fCount\": \"2\",\n    \"fType\": \"0\",\n    \"iCount\": \"0\",\n    \"iType\": null,\n    \"pCount\": \"0\",\n    \"pType\": \"0\",\n    \"nmPoints\": \"32,32\",\n    \"qScore\": \"69,69\",\n    \"dpID\": \"MANTRA.MSIPL\",\n    \"rdsID\": \"MANTRA.AND.001\",\n    \"rdsVer\": \"1.0.4\",\n    \"dc\": \"855e031a-204c-4544-b2ef-8821b53ed39b\",\n    \"mi\": \"MFS100\",\n    \"mc\": \"MIIEGjCCAwKgAwIBAgIGAXgCQftfMA0GCSqGSIb3DQEBCwUAMIHqMSowKAYDVQQDEyFEUyBNYW50cmEgU29mdGVjaCBJbmRpYSBQdnQgTHRkIDcxQzBBBgNVBDMTOkIgMjAzIFNoYXBhdGggSGV4YSBvcHBvc2l0ZSBHdWphcmF0IEhpZ2ggQ291cnQgUyBHIEhpZ2h3YXkxEjAQBgNVBAkTCUFobWVkYWJhZDEQMA4GA1UECBMHR3VqYXJhdDEdMBsGA1UECxMUVGVjaG5pY2FsIERlcGFydG1lbnQxJTAjBgNVBAoTHE1hbnRyYSBTb2Z0ZWNoIEluZGlhIFB2dCBMdGQxCzAJBgNVBAYTAklOMB4XDTIxMDMwNTExNDQ0N1oXDTIxMDQwNDExNTk0MFowgbAxJDAiBgkqhkiG9w0BCQEWFXN1cHBvcnRAbWFudHJhdGVjLmNvbTELMAkGA1UEBhMCSU4xEDAOBgNVBAgTB0dVSkFSQVQxEjAQBgNVBAcTCUFITUVEQUJBRDEOMAwGA1UEChMFTVNJUEwxHjAcBgNVBAsTFUJpb21ldHJpYyBNYW51ZmFjdHVyZTElMCMGA1UEAxMcTWFudHJhIFNvZnRlY2ggSW5kaWEgUHZ0IEx0ZDCCASIwDQYJKoZIhvcNAQEBBQADggEPADCCAQoCggEBALtwSL3bOCBD\\/5QGd9zd4shrrpb44KUEU22oN52XGWilRVqPNoY8IRBEbMAjaOT83ldgarqYlNp01TeLGxoeERQTrSirWNXn7NXejYxMVtQ\\/d0ygju56BQjEaqd29ZQ8vTyMne8VKaomdCkMyYA3pso\\/V22GFfiwHzGtbzG\\/uHHsr6+Osaq\\/HOa04OcDYKZZhaGUGZmDKFfkhZVdNXuTeAt6Rrhis1zRrLKbhq1dsv3tEFx3UoCSLfv4ELnnCSvG8IQ0V5Q4ZiiymAxeEq8xe\\/U4Nt\\/eQ3KP8AzkonuzPimdlRlN8yoPmO5FAlKSPVB8NtSk27qRq8se\\/s8pwhGmK4cCAwEAATANBgkqhkiG9w0BAQsFAAOCAQEAoJSGfUZyXJGNbB7LBjIJ3FsiPNuABHK8KH8FMvblwGZcOyonXvFUoHqEqjgxo5vTXpT4+8XNZbZFOt\\/ny7VuIBj6THRSpS2zbz0jbqX9acELRrFn7UIRuFiFWoM2YtobdOD6ug96+IoC7GGKk+T26FVkxyxyDGRdfsGoWiva12fw59E0vwTsfwW7VXUICT\\/5DYQIjFgipu9YX3aJfJrkH1gRcao7KBNQCHUp96uEbwYIJHU+rrfR42yx3w+YxBD5VN85uc6O33Zj7XUzxWpohOXYYK9WtOOtyt06ZWNsgq07SgnW0w7Y9C+fFBPcgt\\/HuIsM75tFhzBijq8MtCCO3A==\",\n    \"ci\": \"20221021\",\n    \"sessionKey\": \"JT5LBLaDo2C5neOiXMh7tp35ipBEXSl82iHwSynUOn5RsTFqeHksM7B3v0mokCTmt8uAXdIx+fdns44vgWtb+ciZ068kJrACSLZUg3T93dBP+oThiRADQatt3PoG32Q7nDe1Ih8ZDUF9IENYt+1CXa4hR+sUdL7fTzCpDchA3jLHR6+Kw\\/w7Hf2lW9c9XCdgq+5XpA22X8ERXY7DoUpHTnXbsGRi91jIfPTUVY35a\\/0jRJTiT9rvNfJDAaEYuDEqPr2hBZBK1Lr\\/qd8b9bZjClxb+Ry5cQnFn5gmbFoxPV8tVY\\/hxYJg\\/Xjp8IhV\\/DwfBHYYDLf9Ug6n4eq49yFGeg==\",\n    \"hmac\": \"1ZgmHrKxpdKoRV2Wcs1L4BNN4L1ASNhlhtpG2aGFMBQB8VwSS3KEgKiWa90BRkD0\",\n    \"PidDatatype\": \"X\",\n    \"Piddata\": \"MjAyMS0wMy0xMlQxMDozODozNI3cU8eW7JawEh8JzHwSpvYvZmE2hJF9Z0xcUXONsIswOEZE7pC9tUyeAkc+oycAt2Lidni3VfRLbwJf5T90GhQlv93E7SdsJCSXhElhGA2AQBYEca0HgpbyaPw6lmSFCKUbHP7EugFlwJ0U3UbAbOVruO8Xp62yE5B+TMzdTM46KhhSxur1s3+y3dHpAQBUCISz1AM8yh58ul0tbXlsv0Bwkz5nb5Lu11F4xL99aTLf7Wqwp1\\/U+7NJk7RJPyJ5EkaGPTthwMPTap7SsiqM\\/cbv0FgsmolpnYFvpf9uRxCTqDosh32tv3LBwwl7hYwzme0ZBKHDwRKv3CjX33j2nzWmpBenKmvFPD\\/Nb68UkVFgBk\\/EUJQ2G27rcV4f5FaScCIbNg6DvqrdL2agmCMZclkCraHpgzYLJRjPUWdHHp4R5Z2S\\/iE\\/N9lu+e0NUODvkV5kNAPyBIDvByeneL48cfXknstR0w5Y81wa+Ag2zyU1YLLGJJa9Pl2AIs8IxCiaQicW2PaUkMzGeVinBMGG33Z3X4YC0s9+lKPnKWgwkDNOoGhQ4bmsNaKpG3k8KxZemCSAFmkS7O7MwaWM6D\\/Mfugc2uUx2iSCkvL9YHyi3gQIrj2WVaUnxXCE04If6vYq1FCG40xbUC1UHNiyrdbbwaCSadNAeL2AAkv3NbXZg4+hrB5PdOPMkocqfu9UCC4AfjRnwFQIld23lgn7QxblA4MAfbEA1BuBRUawlfnANJPauqJOE+mqjVoMvJ2DllYlO7NzsS2pDBeeCgRPcM5dbY1\\/4avhCkAk3SP9aV4Da34vTf\\/QH74gyQEam3N0MviVq2MYdJ71vl7DCz\\/mO12Gf0he+Jfo7rTu4Wejv2xxIEhQnuCW7uNd+WphoX25Vbrr\\/D+9BgoueFyS98qXOo24OCBKo4+ZhAVX7d1xM1vqG0+t28ofjiR6QzqhB28SZ4azV2k0WIw4coHV0YnETv+SNO\\/U7jQUtpHZiw0nM0IKD0k4xNzmH7QfrRU7ROcIDwqSPE8oL5TTZnu+gdy9r58IjS6o484JyhwYAAjPVJ6KRHwPl4\\/a4XWHZF36aoPFaGUwwhDo\\/RLJ1z6tUTW4mK5J+g93JELBsVM6\\/iAJZTCWCyrboNuSDnfM5fpCqYy3L8PeVZx3I0jE1Erd4w==\"\n  }\n}"
+								},
+								"url": {
+									"raw": "http://localhost:8080/retailer/aeps/ministatement",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"retailer",
+										"aeps",
+										"ministatement"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AEPS Cash withdrawal",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"merchantTranId\": \"20171006100425\",\n\n  \"captureResponse\": {\n    \"PidDatatype\": \"X\",\n    \"Piddata\": \"MjAxNy0xMC0wNlQxMDowNTowN3yUurFGz3Je+v4tjj64SRJwfxB5x5sayPZRqOOUX/EL4vzWh6R2XsObiujNTqI2p8upDf7/teQ1LQCJKl8v3AlkIWsXOXOlnCSvsSV2KRudCz0eKgPRxAh13stb3ZSXhkynkZl/qocKOr9BLHIhvgeCWg0cf/GTmgMiJL3KzSM7RRCw0zPkkcp2tT4X+7fqXMu1p6XSqmAC6UPofw1KusKSavufd9CegyUNkK8X2iDUMkPt7DyZKSvEDfN8csOjHgqeFUCVUI40uSoMGsSJGH38qdM8Q3MNPyTqTuObuU9bFQSd0TerXptDmeJMJNx0+F9ll3p40bI1riPUR4I7EwtuFg/JG/NBWeOJfI6Jexz0onK8YYs4eqq550f/WEVgh1AyyV32bsf8zVGKhqmLBWcvlVFdYaaDW+lKCOI7yreHCig3TBe+zbV06Ecsze9xdH5cy1o0gHRB2mAzLir+EyqaIn4aXEQ0dm2pwUjlCKanSOVrYP2A6J7+bncxUMeZRIqB30aLNdrDLOsGNgzrRM7aRRnlEX+aGsMQjKnpo9ZehWnVlXl3x2aMfwLXJ+QpCAelHSd3Q5Aik1ZLnFhRHXsP/qbAnfpelnMRz+AeKGDdbUuGdfJGzsfUhmzn5IstIjFJ0hliQrIlJdGyPL6+pJnKew+OifnPNqi79nF/cAk7WKJr+yAhzPOYu4gsb+tx3d/lzkn+UiXaUpzEikBTfJ+VJ9rG1d+IJTZlmzYrDxOhkDY7ZWB9YSLtTkcaZAnc2IqRvSi+FXmXm/4vsyYUPLrw+rmFRwqQtzMSThEC3lxWZQXlxyA0N5EGujMoGEZIAle6uqfG6RhguDgVJqCbR4BoVlOOYcQipoS7wKMyQdtfhVORkotV4x7hH1bXyyf7eekocfpSzsuRUVzSU+3YAUi89neOdahMcL9jPGncG9AKtL8hVr0wF7iwI+f9OdIh1ubUHkO+29xrCizELa21wdVmmKfLIjVU2YEjFmFDu4Ozl6eTEPTQLaysrJHSSu/DHadWXg4FHTL+j5RaRIba41bbUOR+9caWz5bDOip+vsSUNoGVUC6XBNYgiFy9Kj6Dy1B1zizGEDqd/DkSROnK1lSqOmWnTsUfWX9CwokI5Ho1bqodKZrA1Ng/ozNcpVMNLxVagi3PWztEqbVjAQydGbBJjXaQ6c4HcQ2D5Xqtuml4uZUt8d6XOR2W58mZ9cWk17gCfoT0M3kn8zIbprPTnAoFfvFcR4wOox1dwj4Q1Il/k29ktpVwEMLGVytR1jB+zysbE+IKnRb4/b9PYSQXxURFpyyESZtszM3xwyBBCBgIWspNeysT1xM/KA\\u003d\\u003d\",\n    \"ci\": \"20191230\",\n    \"dc\": \"83017feb-b271-460b-92e8-6e12a3a0189e\",\n    \"dpID\": \"PRECISION.PB\",\n    \"errCode\": \"0\",\n    \"errInfo\": \"Image Capture Success\",\n    \"fCount\": \"1\",\n    \"fType\": \"0\",\n    \"hmac\": \"9ZqjrXUjxGTSQsxgUHDpBYqBhOBNARldRKMrHCq7c+yImlkLOxMkSQBWmihMPrx3\",\n    \"iCount\": \"0\",\n    \"mc\": \"MIIEBDCCAuygAwIBAgIIfc0if0pbK5gwDQYJKoZIhvcNAQELBQAwgdgxNzA1BgNVBAMTLkRTIFByZWNpc2lvbiBCaW9tZXRyaWMgSW5kaWEgUHJpdmF0ZSBMaW1pdGVkIDExIzAhBgNVBDMTGjIyIEhhYmlidWxsYWggUm9hZCBUIE5hZ2FyMRAwDgYDVQQJEwdDaGVubmFpMRIwEAYDVQQIEwlUYW1pbG5hZHUxETAPBgNVBAsTCFNvZnR3YXJlMTIwMAYDVQQKEylQcmVjaXNpb24gQmlvbWV0cmljIEluZGlhIFByaXZhdGUgTGltaXRlZDELMAkGA1UEBhMCSU4wHhcNMTcxMDA1MDkzNDU2WhcNMTcxMTA0MDkzNDU2WjBuMTIwMAYDVQQKDClQcmVjaXNpb24gQmlvbWV0cmljIEluZGlhIFByaXZhdGUgTGltaXRlZDESMBAGA1UECwwJQmlvbWV0cmljMRAwDgYDVQQHDAdDSEVOTkFJMRIwEAYDVQQDDAlQcmVjaXNpb24wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCOGiylA1TyPN3tUU+wx/s4hAT6OHhpJS+61dz3k4ihXlBTgmWJs5NddO4HjpT8FI3z0SQn6aykOMzHgBpiznj2sgv9iiokzGntqZo0LJdBNJ2997cf7mNIEeMaZXdQhMKQU7XFf9pDTo74U/ygJ7OtXqK1jWdb+OhAY0V0sTTXFSiTSUk2YziL3MFWS1aHlLU5N7I6h9CqyztoiGwn5d/1rbTk3/KdrIlwziYUBZZ9CK8PCc/oiJIEBD9oDg/CK2H+KkpKChMsXzOv0B9KvsW12iWvgrLhPYHtU+ni7465EVvYPCsYOxev1qQqs4B2GVeCxo6kyQLqgjx4wIcGLHx5AgMBAAGjOzA5MAkGA1UdEwQCMAAwCwYDVR0PBAQDAgGGMB8GA1UdIwQYMBaAFLU1sKRXC/kwcet03DIXvSIfcyhnMA0GCSqGSIb3DQEBCwUAA4IBAQBFsnoA2UtugIE+kKwY3GdUlKv6bj0oyhbaHFwi8ewR/WI1abdertApefLmk0Aa+5PFya+KaZCWkZlDK0RlJ1J624yXS+Yh3NnbWOieBKfeax31h6peytMgd85adqxhiEowYTHWJ/PkSku+AFGieMlLtzDIcy/CVvs5l4CcHvjLsrhdowwOUIi4v1OS9zKaRgwp/bzhP0ZuDW7JjaqzFIKwwbi+6cs3HLPvTBAGeED5OewFsTxaZnJa0Skqgoi0VQYIurRf50AOG3/bP0Osh6MWylQZRIuNl3A7jxz3sDqsBW+weIq4Qj8A5d97/7ctQNKe6/PGVpNop3W2dgJS9FUt\",\n    \"mi\": \"PB400\",\n    \"nmPoints\": \"46\",\n    \"pCount\": \"0\",\n    \"pType\": \"0\",\n    \"qScore\": \"100\",\n    \"rdsID\": \"PRECISION.AND.101\",\n    \"rdsVer\": \"1.1.0\",\n    \"sessionKey\": \"M1++JGFa/Vp4szTGOFK0G3NNsVqGo0ffD4xnBf5QZOf8TKO02ap9eWN6ZpTcXrkM+VlyJ0DZkQfCcrjIcAlh49Mw9a6wcipIJ0lS+wGN6szA1LH85c7Ciem/HNVGW7GH9u21cfSpnEmXlBKtfd5IULTnOVPF7PfufgFCXC3rSsX8zWOogbEZmKP6eiyw3+gqRb10NyKn90qJGLioBcMaNPt32r5kW2ppne07ATQLuWZqLdhzVX1tHimCTjm5NchQIAFjrjBKWXVGdEIZ44VJEeeyTa+A6J/Fp4n/8whidnYob+XKQ8/PvEsu6oSXRwiL1N7QGP8RP48+S57mzIawLw\\u003d\\u003d\"\n  },\n\n  \"cardnumberORUID\": {\n    \"adhaarNumber\": \"123443211234\",\n    \"indicatorforUID\": 0,\n    \"nationalBankIdentificationNumber\": \"607152\"\n  },\n\n  \"languageCode\": \"en\",\n  \"latitude\": 13.0641367,\n  \"longitude\": 80.2480973,\n  \"mobileNumber\": \"9952396587\",\n  \"paymentType\": \"B\",\n  \"requestRemarks\": \"TN3000CA0006530\",\n  \"timestamp\": \"06/10/2017 10:05:24\",\n  \"transactionAmount\": 1.0,\n  \"transactionType\": \"CW\",\n  \"merchantUserName\": \"sai\",\n  \"merchantPin\": \"81DC9BDB52D04DC20036DBD8313ED055\",\n  \"superMerchantId\": 2\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:8080/retailer/aeps/cash/withdrawal",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"retailer",
+										"aeps",
+										"cash",
+										"withdrawal"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AEPS Balance Enquery",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"merchantTransactionId\": \"20171006100425\",\n\n  \"captureResponse\": {\n    \"PidDatatype\": \"X\",\n    \"Piddata\": \"MjAxNy0xMC0wNlQxMDowNTowN3yUurFGz3Je+v4tjj64SRJwfxB5x5sayPZRqOOUX/EL4vzWh6R2XsObiujNTqI2p8upDf7/teQ1LQCJKl8v3AlkIWsXOXOlnCSvsSV2KRudCz0eKgPRxAh13stb3ZSXhkynkZl/qocKOr9BLHIhvgeCWg0cf/GTmgMiJL3KzSM7RRCw0zPkkcp2tT4X+7fqXMu1p6XSqmAC6UPofw1KusKSavufd9CegyUNkK8X2iDUMkPt7DyZKSvEDfN8csOjHgqeFUCVUI40uSoMGsSJGH38qdM8Q3MNPyTqTuObuU9bFQSd0TerXptDmeJMJNx0+F9ll3p40bI1riPUR4I7EwtuFg/JG/NBWeOJfI6Jexz0onK8YYs4eqq550f/WEVgh1AyyV32bsf8zVGKhqmLBWcvlVFdYaaDW+lKCOI7yreHCig3TBe+zbV06Ecsze9xdH5cy1o0gHRB2mAzLir+EyqaIn4aXEQ0dm2pwUjlCKanSOVrYP2A6J7+bncxUMeZRIqB30aLNdrDLOsGNgzrRM7aRRnlEX+aGsMQjKnpo9ZehWnVlXl3x2aMfwLXJ+QpCAelHSd3Q5Aik1ZLnFhRHXsP/qbAnfpelnMRz+AeKGDdbUuGdfJGzsfUhmzn5IstIjFJ0hliQrIlJdGyPL6+pJnKew+OifnPNqi79nF/cAk7WKJr+yAhzPOYu4gsb+tx3d/lzkn+UiXaUpzEikBTfJ+VJ9rG1d+IJTZlmzYrDxOhkDY7ZWB9YSLtTkcaZAnc2IqRvSi+FXmXm/4vsyYUPLrw+rmFRwqQtzMSThEC3lxWZQXlxyA0N5EGujMoGEZIAle6uqfG6RhguDgVJqCbR4BoVlOOYcQipoS7wKMyQdtfhVORkotV4x7hH1bXyyf7eekocfpSzsuRUVzSU+3YAUi89neOdahMcL9jPGncG9AKtL8hVr0wF7iwI+f9OdIh1ubUHkO+29xrCizELa21wdVmmKfLIjVU2YEjFmFDu4Ozl6eTEPTQLaysrJHSSu/DHadWXg4FHTL+j5RaRIba41bbUOR+9caWz5bDOip+vsSUNoGVUC6XBNYgiFy9Kj6Dy1B1zizGEDqd/DkSROnK1lSqOmWnTsUfWX9CwokI5Ho1bqodKZrA1Ng/ozNcpVMNLxVagi3PWztEqbVjAQydGbBJjXaQ6c4HcQ2D5Xqtuml4uZUt8d6XOR2W58mZ9cWk17gCfoT0M3kn8zIbprPTnAoFfvFcR4wOox1dwj4Q1Il/k29ktpVwEMLGVytR1jB+zysbE+IKnRb4/b9PYSQXxURFpyyESZtszM3xwyBBCBgIWspNeysT1xM/KA\\u003d\\u003d\",\n    \"ci\": \"20191230\",\n    \"dc\": \"83017feb-b271-460b-92e8-6e12a3a0189e\",\n    \"dpID\": \"PRECISION.PB\",\n    \"errCode\": \"0\",\n    \"errInfo\": \"Image Capture Success\",\n    \"fCount\": \"1\",\n    \"fType\": \"0\",\n    \"hmac\": \"9ZqjrXUjxGTSQsxgUHDpBYqBhOBNARldRKMrHCq7c+yImlkLOxMkSQBWmihMPrx3\",\n    \"iCount\": \"0\",\n    \"mc\": \"MIIEBDCCAuygAwIBAgIIfc0if0pbK5gwDQYJKoZIhvcNAQELBQAwgdgxNzA1BgNVBAMTLkRTIFByZWNpc2lvbiBCaW9tZXRyaWMgSW5kaWEgUHJpdmF0ZSBMaW1pdGVkIDExIzAhBgNVBDMTGjIyIEhhYmlidWxsYWggUm9hZCBUIE5hZ2FyMRAwDgYDVQQJEwdDaGVubmFpMRIwEAYDVQQIEwlUYW1pbG5hZHUxETAPBgNVBAsTCFNvZnR3YXJlMTIwMAYDVQQKEylQcmVjaXNpb24gQmlvbWV0cmljIEluZGlhIFByaXZhdGUgTGltaXRlZDELMAkGA1UEBhMCSU4wHhcNMTcxMDA1MDkzNDU2WhcNMTcxMTA0MDkzNDU2WjBuMTIwMAYDVQQKDClQcmVjaXNpb24gQmlvbWV0cmljIEluZGlhIFByaXZhdGUgTGltaXRlZDESMBAGA1UECwwJQmlvbWV0cmljMRAwDgYDVQQHDAdDSEVOTkFJMRIwEAYDVQQDDAlQcmVjaXNpb24wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCOGiylA1TyPN3tUU+wx/s4hAT6OHhpJS+61dz3k4ihXlBTgmWJs5NddO4HjpT8FI3z0SQn6aykOMzHgBpiznj2sgv9iiokzGntqZo0LJdBNJ2997cf7mNIEeMaZXdQhMKQU7XFf9pDTo74U/ygJ7OtXqK1jWdb+OhAY0V0sTTXFSiTSUk2YziL3MFWS1aHlLU5N7I6h9CqyztoiGwn5d/1rbTk3/KdrIlwziYUBZZ9CK8PCc/oiJIEBD9oDg/CK2H+KkpKChMsXzOv0B9KvsW12iWvgrLhPYHtU+ni7465EVvYPCsYOxev1qQqs4B2GVeCxo6kyQLqgjx4wIcGLHx5AgMBAAGjOzA5MAkGA1UdEwQCMAAwCwYDVR0PBAQDAgGGMB8GA1UdIwQYMBaAFLU1sKRXC/kwcet03DIXvSIfcyhnMA0GCSqGSIb3DQEBCwUAA4IBAQBFsnoA2UtugIE+kKwY3GdUlKv6bj0oyhbaHFwi8ewR/WI1abdertApefLmk0Aa+5PFya+KaZCWkZlDK0RlJ1J624yXS+Yh3NnbWOieBKfeax31h6peytMgd85adqxhiEowYTHWJ/PkSku+AFGieMlLtzDIcy/CVvs5l4CcHvjLsrhdowwOUIi4v1OS9zKaRgwp/bzhP0ZuDW7JjaqzFIKwwbi+6cs3HLPvTBAGeED5OewFsTxaZnJa0Skqgoi0VQYIurRf50AOG3/bP0Osh6MWylQZRIuNl3A7jxz3sDqsBW+weIq4Qj8A5d97/7ctQNKe6/PGVpNop3W2dgJS9FUt\",\n    \"mi\": \"PB400\",\n    \"nmPoints\": \"46\",\n    \"pCount\": \"0\",\n    \"pType\": \"0\",\n    \"qScore\": \"100\",\n    \"rdsID\": \"PRECISION.AND.101\",\n    \"rdsVer\": \"1.1.0\",\n    \"sessionKey\": \"M1++JGFa/Vp4szTGOFK0G3NNsVqGo0ffD4xnBf5QZOf8TKO02ap9eWN6ZpTcXrkM+VlyJ0DZkQfCcrjIcAlh49Mw9a6wcipIJ0lS+wGN6szA1LH85c7Ciem/HNVGW7GH9u21cfSpnEmXlBKtfd5IULTnOVPF7PfufgFCXC3rSsX8zWOogbEZmKP6eiyw3+gqRb10NyKn90qJGLioBcMaNPt32r5kW2ppne07ATQLuWZqLdhzVX1tHimCTjm5NchQIAFjrjBKWXVGdEIZ44VJEeeyTa+A6J/Fp4n/8whidnYob+XKQ8/PvEsu6oSXRwiL1N7QGP8RP48+S57mzIawLw\\u003d\\u003d\"\n  },\n\n  \"cardnumberORUID\": {\n    \"adhaarNumber\": \"123443211234\",\n    \"indicatorforUID\": 0,\n    \"nationalBankIdentificationNumber\": \"607152\"\n  },\n\n  \"languageCode\": \"en\",\n  \"latitude\": 13.0641367,\n  \"longitude\": 80.2480973,\n  \"mobileNumber\": \"9952396587\",\n  \"paymentType\": \"B\",\n  \"requestRemarks\": \"TN3000CA0006530\",\n  \"timestamp\": \"06/10/2017 10:05:24\",\n  \"transactionType\": \"BE\",\n  \"merchantUserName\": \"sai\",\n  \"merchantPin\": \"81DC9BDB52D04DC20036DBD8313ED055\",\n  \"superMerchantId\": 2\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:8080/retailer/aeps/balance/enquery",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"retailer",
+										"aeps",
+										"balance",
+										"enquery"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "AEPS Pay",
+							"request": {
+								"method": "POST",
+								"header": [
+									{
+										"key": "Authorization",
+										"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsIm90cCI6MCwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA1LTI1VDE3OjI1OjIzLjQ0N1oiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjI5ODF9.DhW3_VpyZVXUEky_jXMBRIGrDd-j4yd422dGyoZZ7uI"
+									},
+									{
+										"key": "Content-Type",
+										"value": "application/json"
+									}
+								],
+								"body": {
+									"mode": "raw",
+									"raw": "{\n  \"merchantTranId\": \"20171006100425\",\n\n  \"captureResponse\": {\n    \"PidDatatype\": \"X\",\n    \"Piddata\": \"MjAxNy0xMC0wNlQxMDowNTowN3yUurFGz3Je+v4tjj64SRJwfxB5x5sayPZRqOOUX/EL4vzWh6R2XsObiujNTqI2p8upDf7/teQ1LQCJKl8v3AlkIWsXOXOlnCSvsSV2KRudCz0eKgPRxAh13stb3ZSXhkynkZl/qocKOr9BLHIhvgeCWg0cf/GTmgMiJL3KzSM7RRCw0zPkkcp2tT4X+7fqXMu1p6XSqmAC6UPofw1KusKSavufd9CegyUNkK8X2iDUMkPt7DyZKSvEDfN8csOjHgqeFUCVUI40uSoMGsSJGH38qdM8Q3MNPyTqTuObuU9bFQSd0TerXptDmeJMJNx0+F9ll3p40bI1riPUR4I7EwtuFg/JG/NBWeOJfI6Jexz0onK8YYs4eqq550f/WEVgh1AyyV32bsf8zVGKhqmLBWcvlVFdYaaDW+lKCOI7yreHCig3TBe+zbV06Ecsze9xdH5cy1o0gHRB2mAzLir+EyqaIn4aXEQ0dm2pwUjlCKanSOVrYP2A6J7+bncxUMeZRIqB30aLNdrDLOsGNgzrRM7aRRnlEX+aGsMQjKnpo9ZehWnVlXl3x2aMfwLXJ+QpCAelHSd3Q5Aik1ZLnFhRHXsP/qbAnfpelnMRz+AeKGDdbUuGdfJGzsfUhmzn5IstIjFJ0hliQrIlJdGyPL6+pJnKew+OifnPNqi79nF/cAk7WKJr+yAhzPOYu4gsb+tx3d/lzkn+UiXaUpzEikBTfJ+VJ9rG1d+IJTZlmzYrDxOhkDY7ZWB9YSLtTkcaZAnc2IqRvSi+FXmXm/4vsyYUPLrw+rmFRwqQtzMSThEC3lxWZQXlxyA0N5EGujMoGEZIAle6uqfG6RhguDgVJqCbR4BoVlOOYcQipoS7wKMyQdtfhVORkotV4x7hH1bXyyf7eekocfpSzsuRUVzSU+3YAUi89neOdahMcL9jPGncG9AKtL8hVr0wF7iwI+f9OdIh1ubUHkO+29xrCizELa21wdVmmKfLIjVU2YEjFmFDu4Ozl6eTEPTQLaysrJHSSu/DHadWXg4FHTL+j5RaRIba41bbUOR+9caWz5bDOip+vsSUNoGVUC6XBNYgiFy9Kj6Dy1B1zizGEDqd/DkSROnK1lSqOmWnTsUfWX9CwokI5Ho1bqodKZrA1Ng/ozNcpVMNLxVagi3PWztEqbVjAQydGbBJjXaQ6c4HcQ2D5Xqtuml4uZUt8d6XOR2W58mZ9cWk17gCfoT0M3kn8zIbprPTnAoFfvFcR4wOox1dwj4Q1Il/k29ktpVwEMLGVytR1jB+zysbE+IKnRb4/b9PYSQXxURFpyyESZtszM3xwyBBCBgIWspNeysT1xM/KA\\u003d\\u003d\",\n    \"ci\": \"20191230\",\n    \"dc\": \"83017feb-b271-460b-92e8-6e12a3a0189e\",\n    \"dpID\": \"PRECISION.PB\",\n    \"errCode\": \"0\",\n    \"errInfo\": \"Image Capture Success\",\n    \"fCount\": \"1\",\n    \"fType\": \"0\",\n    \"hmac\": \"9ZqjrXUjxGTSQsxgUHDpBYqBhOBNARldRKMrHCq7c+yImlkLOxMkSQBWmihMPrx3\",\n    \"iCount\": \"0\",\n    \"mc\": \"MIIEBDCCAuygAwIBAgIIfc0if0pbK5gwDQYJKoZIhvcNAQELBQAwgdgxNzA1BgNVBAMTLkRTIFByZWNpc2lvbiBCaW9tZXRyaWMgSW5kaWEgUHJpdmF0ZSBMaW1pdGVkIDExIzAhBgNVBDMTGjIyIEhhYmlidWxsYWggUm9hZCBUIE5hZ2FyMRAwDgYDVQQJEwdDaGVubmFpMRIwEAYDVQQIEwlUYW1pbG5hZHUxETAPBgNVBAsTCFNvZnR3YXJlMTIwMAYDVQQKEylQcmVjaXNpb24gQmlvbWV0cmljIEluZGlhIFByaXZhdGUgTGltaXRlZDELMAkGA1UEBhMCSU4wHhcNMTcxMDA1MDkzNDU2WhcNMTcxMTA0MDkzNDU2WjBuMTIwMAYDVQQKDClQcmVjaXNpb24gQmlvbWV0cmljIEluZGlhIFByaXZhdGUgTGltaXRlZDESMBAGA1UECwwJQmlvbWV0cmljMRAwDgYDVQQHDAdDSEVOTkFJMRIwEAYDVQQDDAlQcmVjaXNpb24wggEiMA0GCSqGSIb3DQEBAQUAA4IBDwAwggEKAoIBAQCOGiylA1TyPN3tUU+wx/s4hAT6OHhpJS+61dz3k4ihXlBTgmWJs5NddO4HjpT8FI3z0SQn6aykOMzHgBpiznj2sgv9iiokzGntqZo0LJdBNJ2997cf7mNIEeMaZXdQhMKQU7XFf9pDTo74U/ygJ7OtXqK1jWdb+OhAY0V0sTTXFSiTSUk2YziL3MFWS1aHlLU5N7I6h9CqyztoiGwn5d/1rbTk3/KdrIlwziYUBZZ9CK8PCc/oiJIEBD9oDg/CK2H+KkpKChMsXzOv0B9KvsW12iWvgrLhPYHtU+ni7465EVvYPCsYOxev1qQqs4B2GVeCxo6kyQLqgjx4wIcGLHx5AgMBAAGjOzA5MAkGA1UdEwQCMAAwCwYDVR0PBAQDAgGGMB8GA1UdIwQYMBaAFLU1sKRXC/kwcet03DIXvSIfcyhnMA0GCSqGSIb3DQEBCwUAA4IBAQBFsnoA2UtugIE+kKwY3GdUlKv6bj0oyhbaHFwi8ewR/WI1abdertApefLmk0Aa+5PFya+KaZCWkZlDK0RlJ1J624yXS+Yh3NnbWOieBKfeax31h6peytMgd85adqxhiEowYTHWJ/PkSku+AFGieMlLtzDIcy/CVvs5l4CcHvjLsrhdowwOUIi4v1OS9zKaRgwp/bzhP0ZuDW7JjaqzFIKwwbi+6cs3HLPvTBAGeED5OewFsTxaZnJa0Skqgoi0VQYIurRf50AOG3/bP0Osh6MWylQZRIuNl3A7jxz3sDqsBW+weIq4Qj8A5d97/7ctQNKe6/PGVpNop3W2dgJS9FUt\",\n    \"mi\": \"PB400\",\n    \"nmPoints\": \"46\",\n    \"pCount\": \"0\",\n    \"pType\": \"0\",\n    \"qScore\": \"100\",\n    \"rdsID\": \"PRECISION.AND.101\",\n    \"rdsVer\": \"1.1.0\",\n    \"sessionKey\": \"M1++JGFa/Vp4szTGOFK0G3NNsVqGo0ffD4xnBf5QZOf8TKO02ap9eWN6ZpTcXrkM+VlyJ0DZkQfCcrjIcAlh49Mw9a6wcipIJ0lS+wGN6szA1LH85c7Ciem/HNVGW7GH9u21cfSpnEmXlBKtfd5IULTnOVPF7PfufgFCXC3rSsX8zWOogbEZmKP6eiyw3+gqRb10NyKn90qJGLioBcMaNPt32r5kW2ppne07ATQLuWZqLdhzVX1tHimCTjm5NchQIAFjrjBKWXVGdEIZ44VJEeeyTa+A6J/Fp4n/8whidnYob+XKQ8/PvEsu6oSXRwiL1N7QGP8RP48+S57mzIawLw\\u003d\\u003d\"\n  },\n\n  \"cardnumberORUID\": {\n    \"adhaarNumber\": \"123443211234\",\n    \"indicatorforUID\": 0,\n    \"nationalBankIdentificationNumber\": \"607152\"\n  },\n\n  \"languageCode\": \"en\",\n  \"latitude\": 13.0641367,\n  \"longitude\": 80.2480973,\n  \"mobileNumber\": \"9952396587\",\n  \"paymentType\": \"B\",\n  \"requestRemarks\": \"TN3000CA0006530\",\n  \"timestamp\": \"06/10/2017 10:05:24\",\n  \"transactionAmount\": 1.0,\n  \"transactionType\": \"M\",\n  \"merchantUserName\": \"sai\",\n  \"merchantPin\": \"81DC9BDB52D04DC20036DBD8313ED055\",\n  \"superMerchantId\": 2\n}\n"
+								},
+								"url": {
+									"raw": "http://localhost:8080/retailer/aeps/adhar/pay",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8080",
+									"path": [
+										"retailer",
+										"aeps",
+										"adhar",
+										"pay"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
 					"name": "Available Balance",
 					"request": {
 						"method": "GET",
