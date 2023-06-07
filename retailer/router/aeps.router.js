@@ -6,5 +6,6 @@ const aepsController = require("../../aeps/aeps.controller");
 
 router.post("/biometric/ekyc", verifyJWTToken, aepsController.aepsBiometricEKYC);
 router.get("/bank/list", verifyJWTToken, aepsController.aepsBanks);
+router.post("/ministatement", verifyJWTToken, aepsController.aepsMiniStatement);
 
 module.exports = router;

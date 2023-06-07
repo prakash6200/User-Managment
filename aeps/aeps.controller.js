@@ -623,7 +623,7 @@ module.exports.aepsMiniStatement = async (request, response) => {
         .then((res) => {
             return response.json({
                 status: true,
-                message: "Statement got successfully",
+                // message: "Statement got successfully",
                 data: res.data,
             });
         })
