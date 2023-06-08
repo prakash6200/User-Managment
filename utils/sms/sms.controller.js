@@ -1,6 +1,7 @@
 const UserModel = require("../../models/users.model");
 const config = require("../../config/config");
 const axios = require("axios");
+const nodemailer = require("nodemailer");
 
 function generateOTP() {
     const length = 6;
@@ -113,6 +114,72 @@ module.exports.verifyMobileOtp = async (request, response) => {
                 data: null,
             });
         }
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.sendEmailOtp = async (request, response) => {
+    try {
+        const { user } = request.body;
+
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+
+        if (!userData) {
+            return response.status(401).json({
+                status: false,
+                message: "User not found or deleted",
+                data: null,
+            });
+        }
+
+        const otp = generateOTP();
+
+        userData.emailOtp = otp;
+        userData.save();
+
+        let testAccount = await nodemailer.createTestAccount();
+
+        // create reusable transporter object using the default SMTP transport
+        const transporter = nodemailer.createTransport({
+            host: 'smtp.ethereal.email',
+            port: 587,
+            auth: {
+                user: 'mae82@ethereal.email',
+                pass: 'q9BGRZPz1vCTCW7Bgv'
+            }
+        });
+
+        // send mail with defined transport object
+        transporter.sendMail({
+            from: '"Fred Foo 👻" <prakashkr2609@gmail.com>', // sender address
+            to: "rajakumar97088715@gmail.com", // list of receivers
+            subject: "Email verify OTP ✔", // Subject line
+            text: "OTP", // plain text body
+            html: `<b>Your OTP is ${otp}</b>`, // html body
+        })
+        .then((res) => {
+            return response.json({
+                status: true,
+                message: "Email send successfully",
+                data: res.data,
+            });
+        })
+        .catch((error) => {
+            return response.status(409).json({
+                status: false,
+                message: "Email send failed",
+                data: error,
+            });
+        });    
     } catch (e) {
         console.log(e);
         return response.status(500).json({

@@ -19,6 +19,7 @@ router.get("/profile/view", verifyJWTToken, utilsController.profileView);
 router.get("/statewithdist/view", verifyJWTToken, utilsController.stateDirstrict);
 router.post("/make/enqry", utilsValidation.makeEnquiry, verifyJWTToken, utilsController.makeEnquiry);
 router.post("/send/mobile/otp", verifyJWTToken, smsController.sendMobileOtp);
+router.post("/send/email/otp", verifyJWTToken, smsController.sendEmailOtp);
 router.patch("/verify/mobile/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyMobileOtp);
 router.put("/change/password", authValidation.changePassword, verifyJWTToken, authController.changePassword);
 router.post("/forgot/password", authValidation.forgotPassword, authController.forgotPassword);
