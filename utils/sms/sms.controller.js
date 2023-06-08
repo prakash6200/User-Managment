@@ -110,7 +110,7 @@ module.exports.verifyMobileOtp = async (request, response) => {
         } else {
             return response.status(401).json({
                 status: false,
-                message: "Otp verification faield",
+                message: "Invalid Otp",
                 data: null,
             });
         }
@@ -180,6 +180,57 @@ module.exports.sendEmailOtp = async (request, response) => {
                 data: error,
             });
         });    
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.verifyEmailOtp = async (request, response) => {
+    try {
+        const { user, otp } = request.body;
+
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+
+        if (!userData) {
+            return response.status(401).json({
+                status: false,
+                message: "User not found or deleted",
+                data: null,
+            });
+        }
+
+        if(userData.emailOtp == 0) {
+            return response.status(401).json({
+                status: false,
+                message: "Please resend opt",
+                data: null,
+            });
+        }
+
+        if(userData.emailOtp == otp){
+            userData.emailOtp = 0;
+            userData.save();
+
+            return response.json({
+                status: true,
+                message: "OTP verified successfully",
+                data: null,
+            });
+        } else {
+            return response.status(401).json({
+                status: false,
+                message: "Invalid Otp",
+                data: null,
+            });
+        }
     } catch (e) {
         console.log(e);
         return response.status(500).json({
