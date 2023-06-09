@@ -3,6 +3,7 @@ const ComplaintModel = require("../models/complaint.model");
 const EnqueryModel = require("../models/enquery.model");
 const ComissionModel = require("../models/comission.models")
 const BankModel = require("../models/bank.model");
+const TransactionModel = require("../models/transaction.model");
 const stateWithDistrict = require("../utils/state.district")
 
 module.exports.regesterComplaint = async(request, response) => {
@@ -143,6 +144,40 @@ module.exports.enquiryView = async(request, response) => {
             data: enqury,
         });
 
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+
+module.exports.transactionView = async(request, response) => {
+    try{
+        const { user } = request.body;
+
+        const page = parseInt(request.query.page) || 1;
+        const limit = parseInt(request.query.limit) || 10;
+
+        const options = {
+            page: page,
+            limit: limit,
+            sort: { timestamps: -1 }, // Sort by descending order of timestamps
+        };
+      
+        const query = {
+            $or: [{ fromUser: user._id }, { fromAdmin: user.fromAdmin }],
+        };
+    
+        const transaction = await TransactionModel.paginate(query, options);
+        
+        return response.json({
+            status: true,
+            message: "Transaction found",
+            data: transaction,
+        });
     } catch (e) {
         console.log(e);
         return response.status(500).json({

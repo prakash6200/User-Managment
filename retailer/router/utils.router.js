@@ -12,5 +12,6 @@ router.put("/update/address", utilsValidation.updateAddress, verifyJWTToken, uti
 router.put("/update/kyc", utilsValidation.updateKyc, verifyJWTToken, utilsController.updateKyc)
 router.put("/update/bank", utilsValidation.updateBankAcc, verifyJWTToken, utilsController.updateBankAcc);
 router.get("/company/bank", verifyJWTToken, utilsController.companyBank);
+router.get("/transaction", utilsValidation.transactionView, verifyJWTToken, utilsController.transactionView);
 
 module.exports = router;

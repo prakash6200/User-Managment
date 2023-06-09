@@ -4,7 +4,6 @@ const UserModel = require("../../models/users.model");
 // const Distributer = require("../../models/us")
 const config = require("../../config/config");
 
-
 module.exports.login = async (request, response, next) => {
     try {
         const { email, mobile, password } = request.body;

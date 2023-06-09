@@ -83,3 +83,18 @@ module.exports.updateAddress = async (request, response, next) => {
         return next();
     }
 };
+
+module.exports.transactionView = async (request, response, next) => {
+    let rules = Joi.object().keys({
+        page: Joi.number(),
+        limit: Joi.number(),
+    });
+    const { error } = rules.validate(request.query);
+    if (error) {
+        return response
+            .status(422)
+            .json({ status: false, message: error.message, data: null });
+    } else {
+        return next();
+    }
+};
