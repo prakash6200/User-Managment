@@ -2,6 +2,7 @@ const UserModel = require("../models/users.model");
 const ComplaintModel = require("../models/complaint.model");
 const EnqueryModel = require("../models/enquery.model");
 const ComissionModel = require("../models/comission.models")
+const BankModel = require("../models/bank.model");
 const stateWithDistrict = require("../utils/state.district")
 
 module.exports.regesterComplaint = async(request, response) => {
@@ -411,3 +412,37 @@ module.exports.viewComission = async (request, response) => {
         });
     }
 }
+
+module.exports.companyBank = async (request, response) => {
+    
+    try {
+        const { user } = request.body;
+    
+        const bank = await BankModel.findOne({
+            fromAdmin: user.Admin?user.Admin:user._id,
+            isDeleted: false
+        });
+    
+        if (!bank) {
+            return response.status(409).json({
+                status: false,
+                message: "Bank not found or deleted",
+                data: null,
+            });
+        };
+
+        return response.json({
+            status: true,
+            message: "Company Bank details",
+            data: bank
+        });
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
+

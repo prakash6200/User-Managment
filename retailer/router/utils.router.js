@@ -11,5 +11,6 @@ router.get("/comission/view", verifyJWTToken, utilsController.viewComission);
 router.put("/update/address", utilsValidation.updateAddress, verifyJWTToken, utilsController.updateAddress);
 router.put("/update/kyc", utilsValidation.updateKyc, verifyJWTToken, utilsController.updateKyc)
 router.put("/update/bank", utilsValidation.updateBankAcc, verifyJWTToken, utilsController.updateBankAcc);
+router.get("/company/bank", verifyJWTToken, utilsController.companyBank);
 
 module.exports = router;

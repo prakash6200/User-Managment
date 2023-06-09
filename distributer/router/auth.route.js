@@ -8,6 +8,8 @@ const transactionValidation = require("../../fund_transfer/transaction.validator
 const transactionController = require("../../fund_transfer/transaction.controller");
 const complaintController = require("../../utils/utils.controller");
 const utilsController = require("../../utils/utils.controller");
+const smsController = require("../../utils/sms/sms.controller");
+const smsValidation = require("../../utils/sms/sms.validation");
 
 router.post("/login", authValidation.login, authController.login);
 router.post("/retailer/registration", authValidation.register, verifyJWTToken, authController.register);
@@ -19,5 +21,9 @@ router.get("/statewithdist/view", verifyJWTToken, utilsController.stateDirstrict
 router.post("/revoke/fund", transactionValidation.revokeFund, verifyJWTToken, transactionController.revokeFund);
 router.post("/update/kyc", verifyJWTToken, utilsController.updateKyc);
 router.get("/transaction/view", verifyJWTToken, transactionController.transactionView);
+router.post("/send/mobile/otp", verifyJWTToken, smsController.sendMobileOtp);
+router.post("/send/email/otp", verifyJWTToken, smsController.sendEmailOtp);
+router.patch("/verify/mobile/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyMobileOtp);
+router.patch("/verify/email/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyEmailOtp);
 
 module.exports = router;
