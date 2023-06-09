@@ -37,5 +37,6 @@ router.patch("/approve/kyc", teamValidation.approveKyc, verifyJWTToken, teamCont
 router.patch("/approve/bank", teamValidation.approveBank, verifyJWTToken, teamController.approveBank);
 router.post("/send/sms", teamValidation.sendMessage, verifyJWTToken, teamController.sendMessage);
 router.post("/add/bank", teamValidation.addCompanyBank, verifyJWTToken, teamController.addCompanyBank);
+router.get("/view/bank", verifyJWTToken, teamController.viewCompanyBank);
 
 module.exports = router;

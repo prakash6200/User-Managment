@@ -1673,7 +1673,7 @@
 					"response": []
 				},
 				{
-					"name": "Send message",
+					"name": "Send message Copy",
 					"request": {
 						"method": "POST",
 						"header": [
@@ -1729,6 +1729,97 @@
 								"team",
 								"send",
 								"sms"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Add or update company bank details",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bankName",
+									"value": "PNB",
+									"type": "text"
+								},
+								{
+									"key": "accountNumber",
+									"value": "6485000100100944",
+									"type": "text"
+								},
+								{
+									"key": "accountHolderName",
+									"value": "Prakash kumar",
+									"type": "text"
+								},
+								{
+									"key": "branch",
+									"value": "Rajpur",
+									"type": "text"
+								},
+								{
+									"key": "ifscCode",
+									"value": "punb06485",
+									"type": "text"
+								},
+								{
+									"key": "accountType",
+									"value": "saving",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/admin/team/add/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"team",
+								"add",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "View Company bank details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2gga3VtYXIiLCJlbWFpbCI6ImFkbWluQGdtYWlsLmNvbSIsIm1vYmlsZSI6NjIwMDEzNDc5OCwicGFzc3dvcmQiOiIkMmIkMTAkL0NoUXhuUEFRQmw3Yi5jNWdLZkJWTy52c2dLNmR1cjd1N0hPVzNieXRJemZaUFVQSVlWRDYiLCJyb2xlIjoiQURNSU4iLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA0LTE4VDA1OjIyOjMzLjU3MloiLCJ1cGRhdGVkQXQiOiIyMDIzLTA0LTIxVDA1OjQ1OjU3LjgxNloiLCJfX3YiOjAsImF2YWlsYWJsZUJhbGFuY2UiOjMwMDR9.Fb92Yn1dQNS8jOFsR0UNLxp6fSgGrHQhlButXt9Rl64",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/admin/team/view/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"admin",
+								"team",
+								"view",
+								"bank"
 							]
 						}
 					},
@@ -3321,6 +3412,34 @@
 					"response": []
 				},
 				{
+					"name": "Company Bank details",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/utils/comission/view",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"utils",
+								"comission",
+								"view"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Set new password Copy",
 					"request": {
 						"method": "PUT",
@@ -3366,45 +3485,6 @@
 				},
 				{
 					"name": "Verify mobile otp",
-					"request": {
-						"method": "PATCH",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiX2lkIjoiNjQ3ZTI1OGQ1NmQ2ZjEwZThlNGY4OTQ2IiwiZnJvbVVzZXIiOiI2NDNlMzU5NzY0NDQwNGE5NzlkNTA0MDgiLCJmcm9tQWRtaW4iOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCIsImVtYWlsIjoicmV0YWlsZXJAZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk3LCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkUWE4Y0FjTU9xWnpLOW1zNXVrYVIxT04xM1U0MnhJbzlsZXJzUmoyUUovS2IuR29qUXdTSDYiLCJvdHAiOjAsInJvbGUiOiJSRVRBSUxFUiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDVUMTg6MTI6MjkuNDcxWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDVUMTg6MTI6MjkuNDcxWiIsIl9fdiI6MH0.YdgXSagulfFYFFKZwbs8X5WPYF-UgA5NOOY7fn-QpR8",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "otp",
-									"value": "973805",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/retailer/auth/verify/mobile/otp",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"retailer",
-								"auth",
-								"verify",
-								"mobile",
-								"otp"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Verify mobile otp Copy",
 					"request": {
 						"method": "PATCH",
 						"header": [
@@ -3591,6 +3671,35 @@
 					"response": []
 				},
 				{
+					"name": "Send Email verify otp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0ODIxMjJmMmYwM2JkMGRkMzM2YWVjMyIsImZyb21Vc2VyIjoiNjQzZTM1OTc2NDQ0MDRhOTc5ZDUwNDA4IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6InJldGFpbGVyMkBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDMsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCR0dFcwODgzV2NrZlR2dnZvWjg0UW51dFFxU0dManFjanYxb0gySFJPcVVrZmZaUGd4am1yVyIsIm90cCI6MCwiZW1haWxPdHAiOjAsInJvbGUiOiJSRVRBSUxFUiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDhUMTc6Mzg6NTUuOTMwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDhUMTc6Mzg6NTUuOTMwWiIsIl9fdiI6MH0.4aVggF1scJSWxE0KGPJATVOJzxqWhXC1jIvZjl2B6Ns",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/send/email/otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"send",
+								"email",
+								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Forgot password otp",
 					"request": {
 						"method": "POST",
@@ -3629,6 +3738,35 @@
 								"auth",
 								"forgot",
 								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Email otp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0ODIxMjJmMmYwM2JkMGRkMzM2YWVjMyIsImZyb21Vc2VyIjoiNjQzZTM1OTc2NDQ0MDRhOTc5ZDUwNDA4IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6InJldGFpbGVyMkBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDMsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCR0dFcwODgzV2NrZlR2dnZvWjg0UW51dFFxU0dManFjanYxb0gySFJPcVVrZmZaUGd4am1yVyIsIm90cCI6MCwiZW1haWxPdHAiOjAsInJvbGUiOiJSRVRBSUxFUiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDhUMTc6Mzg6NTUuOTMwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDhUMTc6Mzg6NTUuOTMwWiIsIl9fdiI6MH0.4aVggF1scJSWxE0KGPJATVOJzxqWhXC1jIvZjl2B6Ns",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/send/email/otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"send",
+								"email",
+								"otp"
 							]
 						}
 					},

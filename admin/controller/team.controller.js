@@ -781,3 +781,51 @@ module.exports.addCompanyBank = async (request, response) => {
         });
     }
 }
+
+module.exports.viewCompanyBank = async (request, response) => {
+    
+    try {
+        const { user } = request.body;
+        
+        const checkUser = await Admin.findOne({
+            _id: user._id,
+            isDeleted: false,
+            role: "ADMIN"
+        });
+
+        if (!checkUser) {
+            return response.status(409).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        };
+
+        const bank = await BankModel.findOne({
+            fromAdmin: user._id,
+            isDeleted: false
+        });
+
+        
+        if (!bank) {
+            return response.json({
+                status: true,
+                message: "Company Bank Not found",
+                data: bank
+            });
+        };
+
+        return response.json({
+            status: true,
+            message: "Company Bank",
+            data: bank
+        });
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}
