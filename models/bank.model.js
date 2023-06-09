@@ -23,6 +23,14 @@ const Bank = new Schema(
             type: String,
             required: true,
         },
+        ifscCode: {
+            type: String,
+            required: true,
+        },
+        accountType: {
+            type: String,
+            required: true,
+        },
         isDeleted: {
             type: Boolean,
             default: false,

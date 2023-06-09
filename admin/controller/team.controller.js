@@ -3,7 +3,7 @@ const jwt = require("jsonwebtoken");
 const Admin = require("../../models/users.model");
 const config = require("../../config/config");
 const ComissionModel = require("../../models/comission.models");
-const UsersModel = require("../../models/users.model");
+const BankModel =  require("../../models/bank.model");
 const saltRounds = 10;
 const axios = require("axios");
 
@@ -591,7 +591,7 @@ module.exports.approveKyc = async (request, response) => {
             });
         }
 
-        const userData = await UsersModel.findOne({
+        const userData = await Admin.findOne({
             _id: userId,
             isDeleted: false
         });
@@ -636,7 +636,7 @@ module.exports.approveBank = async (request, response) => {
             });
         }
 
-        const userData = await UsersModel.findOne({
+        const userData = await Admin.findOne({
             _id: userId,
             isDeleted: false
         });
@@ -713,3 +713,71 @@ module.exports.sendMessage = async (request, response) => {
     }
 }
 
+module.exports.addCompanyBank = async (request, response) => {
+    
+    try {
+        const { user, bankName, accountNumber, accountHolderName, branch,
+                ifscCode, accountType } = request.body;
+        
+        const checkUser = await Admin.findOne({
+            _id: user._id,
+            isDeleted: false,
+            role: "ADMIN"
+        });
+
+        if (!checkUser) {
+            return response.status(409).json({
+                status: false,
+                message: "You are not authorize",
+                data: null,
+            });
+        };
+
+        const bank = await BankModel.findOne({
+            fromAdmin: user._id,
+            isDeleted: false
+        });
+
+        let resBank ;
+        if(bank){
+            bank.bankName = bankName;
+            bank.branch = branch;
+            bank.accountType = accountType;
+            bank.ifscCode = ifscCode.toUpperCase();
+            bank.accountNumber = accountNumber;
+            bank.accountHolderName = accountHolderName;
+            bank.save();
+        } else {
+            resBank = await BankModel.create({
+                fromAdmin: user._id,
+                bankName: bankName,
+                branch: branch,
+                accountType: accountType,
+                ifscCode: ifscCode,
+                accountNumber: accountNumber,
+                accountHolderName: accountHolderName
+            });
+        }
+        
+        if (bank) {
+            return response.json({
+                status: true,
+                message: "Company Bank details Updated",
+                data: bank
+            });
+        };
+
+        return response.json({
+            status: true,
+            message: "Company Bank details created",
+            data: resBank
+        });
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+}

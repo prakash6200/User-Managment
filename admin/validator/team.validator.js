@@ -169,3 +169,22 @@ module.exports.sendMessage = async (request, response, next) => {
         return next();
     }
 };
+
+module.exports.addCompanyBank = async (request, response, next) => {
+    let rules = Joi.object().keys({
+        bankName: Joi.string().required(),
+        branch: Joi.string().required(),
+        accountType: Joi.string().valid("saving", "current").required(),
+        ifscCode: Joi.string().required(),
+        accountNumber: Joi.string().required(),
+        accountHolderName: Joi.string().required()
+    });
+    const { error } = rules.validate(request.body);
+    if (error) {
+        return response
+            .status(422)
+            .json({ status: false, message: error.message, data: null });
+    } else {
+        return next();
+    }
+};

@@ -1,6 +1,7 @@
 const UserModel = require("../../models/users.model");
 const axios = require("axios");
 const config = require("../../config/config");
+const bankModel = require("../../models/bank.model");
 
 module.exports.bankTransfer = async(request, response) => {
     try {
