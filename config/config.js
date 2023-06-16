@@ -2,6 +2,7 @@ require("dotenv").config();
 
 const config = {
   PORT: process.env.PORT,
+  SALT_ROUND: process.env.SALT_ROUND,
   DATABASE: process.env.DATABASE_URL,
   JWT_AUTH_TOKEN: process.env.JWT_AUTH_TOKEN,
   MROBOTICS_APIKEY: process.env.MROBOTICS_APIKEY,

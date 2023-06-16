@@ -13,5 +13,6 @@ router.put("/update/kyc", utilsValidation.updateKyc, verifyJWTToken, utilsContro
 router.put("/update/bank", utilsValidation.updateBankAcc, verifyJWTToken, utilsController.updateBankAcc);
 router.get("/company/bank", verifyJWTToken, utilsController.companyBank);
 router.get("/transaction", utilsValidation.transactionView, verifyJWTToken, utilsController.transactionView);
+router.post("/create/transaction/password", utilsValidation.createTransactionPassword, verifyJWTToken, utilsController.createTransactionPassword);
 
 module.exports = router;

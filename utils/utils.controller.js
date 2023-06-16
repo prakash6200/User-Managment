@@ -4,7 +4,9 @@ const EnqueryModel = require("../models/enquery.model");
 const ComissionModel = require("../models/comission.models")
 const BankModel = require("../models/bank.model");
 const TransactionModel = require("../models/transaction.model");
-const stateWithDistrict = require("../utils/state.district")
+const stateWithDistrict = require("../utils/state.district");
+const config = require("../config/config")
+const bcrypt = require("bcrypt");
 
 module.exports.regesterComplaint = async(request, response) => {
     
@@ -166,11 +168,11 @@ module.exports.transactionView = async(request, response) => {
             limit: limit,
             sort: { timestamps: -1 }, // Sort by descending order of timestamps
         };
-      
+        
         const query = {
             $or: [{ fromUser: user._id }, { fromAdmin: user.fromAdmin }],
         };
-    
+        
         const transaction = await TransactionModel.paginate(query, options);
         
         return response.json({
@@ -481,3 +483,57 @@ module.exports.companyBank = async (request, response) => {
     }
 }
 
+module.exports.createTransactionPassword = async (request, response, next) => {
+    try {
+        const { user, password, cnfPassword } = request.body;
+        
+        const checkUser = await UserModel.findOne({
+          _id: user._id,
+          isDeleted: false
+        }).select("+trxPassword");
+    
+        if(!checkUser){
+          return response.status(401).json({
+            status: false,
+            message: "User not found or deleted",
+            data: null,
+          });
+        }
+  
+        if(checkUser.trxPassword){
+          return response.status(401).json({
+            status: false,
+            message: "Already created",
+            data: null,
+          });
+        }
+  
+        if(password != cnfPassword){
+          return response.status(401).json({
+            status: false,
+            message: "Password miss Match",
+            data: null,
+          });
+        }
+  
+        const passwordSalt = await bcrypt.genSalt(Number(config.SALT_ROUND));
+        const pass = await bcrypt.hash(password, passwordSalt);
+    
+        checkUser.trxPassword = pass;
+        checkUser.isTrxPassCreated = true;
+        checkUser.save();
+
+        return response.json({
+            status: true,
+            message: "Transaction password created successfully",
+            data: checkUser,
+        });
+    } catch (e) {
+        console.log("%c 🧀 e", "color:#f5ce50", e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};

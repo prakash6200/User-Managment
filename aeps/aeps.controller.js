@@ -257,7 +257,7 @@ module.exports.userOnboard = async (request, response) => {
             return response.status(409).json({
                 status: false,
                 message: "Onboarding failed",
-                data: error,
+                data: error.message,
             });
         });
 
