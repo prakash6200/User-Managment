@@ -83,6 +83,9 @@ const Users = new Schema(
             city: {
                 type: String,
             },
+            zipCode: {
+                type: Number,
+            },
             status: {
                 type: String,
                 enum: ["APPROVED", "PENDING", "REJECTED", "IN-PROGRESS"],

@@ -538,6 +538,61 @@ module.exports.setTrxPin = async (request, response, next) => {
     }
 };
 
+module.exports.setTrxPin = async (request, response, next) => {
+    try {
+        const { user, mPin, pin, cnfPin } = request.body;
+        
+        const checkUser = await UserModel.findOne({
+          _id: user._id,
+          isDeleted: false
+        }).select("+mPin");
+
+        if(!checkUser){
+          return response.status(401).json({
+            status: false,
+            message: "User not found or deleted",
+            data: null,
+          });
+        }
+  
+        if(pin != cnfPin){
+          return response.status(401).json({
+            status: false,
+            message: "Pin not match with cnfPin",
+            data: null,
+          });
+        };
+
+        const checkMPin = await bcrypt.compare(mPin, checkUser.mPin);
+        if (!checkMPin) {
+            return response.status(401).json({
+                status: false,
+                message: "Password Is Not Match",
+                data: null,
+            });
+        }
+  
+        const pinSalt = await bcrypt.genSalt(Number(config.SALT_ROUND));
+        const pinHash = await bcrypt.hash(pin, pinSalt);
+    
+        checkUser.trxPin = pinHash;
+        checkUser.save();
+
+        return response.json({
+            status: true,
+            message: "Transaction Pin set successfull",
+            data: checkUser,
+        });
+    } catch (e) {
+        console.log("%c 🧀 e", "color:#f5ce50", e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
 module.exports.availableUser = async (request, response, next) => {
     try {
         const { user,  } = request.body;

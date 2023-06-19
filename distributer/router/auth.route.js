@@ -26,7 +26,11 @@ router.post("/send/mobile/otp", verifyJWTToken, smsController.sendMobileOtp);
 router.post("/send/email/otp", verifyJWTToken, smsController.sendEmailOtp);
 router.patch("/verify/mobile/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyMobileOtp);
 router.patch("/verify/email/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyEmailOtp);
+router.post("/forgot/password", verifyJWTToken, smsController.forgotPasswordOtp);
+
 router.get("/available/user", verifyJWTToken, utilsController.availableUser);
 router.post("/transfer/user", utilsValidation.transferUser, verifyJWTToken, utilsController.transferUser);
+
+
 
 module.exports = router;

@@ -241,29 +241,52 @@ module.exports.verifyEmailOtp = async (request, response) => {
     }
 }
 
-module.exports.forgotPasswordOtp = async(mobile) => {
-
-    const otp = generateOTP();
-
-    let axiosConfig = {
-        method: 'post',
-        maxBodyLength: Infinity,
-        url: `https://mdssend.in/api.php?username=${config.SMS_USER_NAME}&apikey=${config.SMS_API_KEY}&senderid=${config.SENDER_ID}&route=OTP&mobile=${mobile}&text=Thank you RISINGDOOR TECHNOLOGY PVT LTD. Your OTP for login is ${otp}. Do not share with anyone-RNGPAY`,
-        headers: { }
-    };
+module.exports.forgotPasswordOtp = async(request, response) => {
+    try{
+        const { user } = request.body;
+        const otp = generateOTP();
     
-    axios.request(axiosConfig)
-    .then((res) => {
-        return response.json({
-            status: true,
-            otp: otp,
-            data: res.data,
-        });
-    })
-    .catch((error) => {
-        return response.status(409).json({
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+    
+        if(!userData){
+            return response.status(401).json({
+                status: false,
+                message: "User not found or deleted",
+                data: null,
+            });
+        };
+    
+        let axiosConfig = {
+            method: 'post',
+            maxBodyLength: Infinity,
+            url: `https://mdssend.in/api.php?username=${config.SMS_USER_NAME}&apikey=${config.SMS_API_KEY}&senderid=${config.SENDER_ID}&route=OTP&mobile=${userData.mobile}&text=Thank you RISINGDOOR TECHNOLOGY PVT LTD. Your OTP for login is ${otp}. Do not share with anyone-RNGPAY`,
+            headers: { }
+        };
+        
+        axios.request(axiosConfig)
+            .then((res) => {
+                return response.json({
+                    status: true,
+                    otp: otp,
+                    data: res.data,
+                });
+            })
+            .catch((error) => {
+                return response.status(409).json({
+                    status: false,
+                    data: error,
+                });
+            }); 
+
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
             status: false,
-            data: error,
+            message: "Something Went To Wrong",
+            data: null,
         });
-    });    
+    }
 }
