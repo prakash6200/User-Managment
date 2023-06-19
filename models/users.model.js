@@ -55,6 +55,10 @@ const Users = new Schema(
             type: Number,
             default: 0,
         },
+        availableUser: {
+            type: Number,
+            default: 0,
+        },
         profileImage: {
             type: String,
         },

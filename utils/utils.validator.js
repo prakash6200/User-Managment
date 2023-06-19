@@ -114,3 +114,18 @@ module.exports.setTrxPin = (request, response, next) => {
         next();
     }
 };
+
+module.exports.transferUser = (request, response, next) => {
+    let rules = Joi.object().keys({
+        userId: Joi.string().required(),
+        noOfUser: Joi.number().required(),
+    });
+    const { error } = rules.validate(request.body);
+    if (error) {
+        return response
+            .status(422)
+            .json({ status: false, message: error.message, data: null });
+    } else {
+        next();
+    }
+};

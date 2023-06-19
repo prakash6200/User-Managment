@@ -506,8 +506,8 @@ module.exports.setTrxPin = async (request, response, next) => {
             message: "Pin not match with cnfPin",
             data: null,
           });
-        }
-  
+        };
+
         const checkMPin = await bcrypt.compare(mPin, checkUser.mPin);
         if (!checkMPin) {
             return response.status(401).json({
@@ -528,6 +528,90 @@ module.exports.setTrxPin = async (request, response, next) => {
             message: "Transaction Pin set successfull",
             data: checkUser,
         });
+    } catch (e) {
+        console.log("%c 🧀 e", "color:#f5ce50", e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.availableUser = async (request, response, next) => {
+    try {
+        const { user,  } = request.body;
+        
+        const checkUser = await UserModel.findOne({
+          _id: user._id,
+          isDeleted: false
+        });
+
+        if(!checkUser){
+          return response.status(401).json({
+            status: false,
+            message: "User not found or deleted",
+            data: null,
+          });
+        }
+
+        return response.json({
+            status: true,
+            message: "Available user is",
+            data: checkUser.availableUser,
+        });
+    } catch (e) {
+        console.log("%c 🧀 e", "color:#f5ce50", e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
+module.exports.transferUser = async (request, response, next) => {
+    try {
+        const { user, userId, noOfUser  } = request.body;
+
+        const checkUser = await UserModel.findOne({
+          _id: user._id,
+          isDeleted: false
+        });
+
+        if(!checkUser){
+          return response.status(401).json({
+            status: false,
+            message: "User not found or deleted",
+            data: null,
+          });
+        }
+
+        const checkRecepient = await UserModel.findOne({
+            _id: userId,
+            isDeleted: false,
+        });
+
+        if(!checkRecepient){
+            return response.status(401).json({
+              status: false,
+              message: "Recepient not found or deleted",
+              data: null,
+            });
+        };
+
+        checkRecepient.availableUser = noOfUser;
+        checkRecepient.save();
+
+        checkUser.availableUser -= noOfUser;
+        checkUser.save();
+
+        return response.json({
+            status: true,
+            message: "User transaferred",
+            data: checkRecepient,
+        });
+
     } catch (e) {
         console.log("%c 🧀 e", "color:#f5ce50", e);
         return response.status(500).json({

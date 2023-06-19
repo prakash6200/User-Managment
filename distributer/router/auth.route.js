@@ -7,6 +7,7 @@ const authValidation = require("../validator/auth.validator");
 const transactionValidation = require("../../fund_transfer/transaction.validator");
 const transactionController = require("../../fund_transfer/transaction.controller");
 const complaintController = require("../../utils/utils.controller");
+const utilsValidation = require("../../utils/utils.validator");
 const utilsController = require("../../utils/utils.controller");
 const smsController = require("../../utils/sms/sms.controller");
 const smsValidation = require("../../utils/sms/sms.validation");
@@ -25,5 +26,7 @@ router.post("/send/mobile/otp", verifyJWTToken, smsController.sendMobileOtp);
 router.post("/send/email/otp", verifyJWTToken, smsController.sendEmailOtp);
 router.patch("/verify/mobile/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyMobileOtp);
 router.patch("/verify/email/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyEmailOtp);
+router.get("/available/user", verifyJWTToken, utilsController.availableUser);
+router.post("/transfer/user", utilsValidation.transferUser, verifyJWTToken, utilsController.transferUser);
 
 module.exports = router;
