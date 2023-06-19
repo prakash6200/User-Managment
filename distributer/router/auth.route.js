@@ -26,7 +26,8 @@ router.post("/send/mobile/otp", verifyJWTToken, smsController.sendMobileOtp);
 router.post("/send/email/otp", verifyJWTToken, smsController.sendEmailOtp);
 router.patch("/verify/mobile/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyMobileOtp);
 router.patch("/verify/email/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyEmailOtp);
-router.post("/forgot/password", verifyJWTToken, smsController.forgotPasswordOtp);
+router.post("/forgot/password", smsValidation.forgotPassword, verifyJWTToken, smsController.forgotPassword);
+router.patch("/verify/forgot/password/otp", smsValidation.forgotPasswordOtpVerify, verifyJWTToken, smsController.forgotPasswordOtpVerify);
 
 router.get("/available/user", verifyJWTToken, utilsController.availableUser);
 router.post("/transfer/user", utilsValidation.transferUser, verifyJWTToken, utilsController.transferUser);
