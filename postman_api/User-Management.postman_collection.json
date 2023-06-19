@@ -2739,7 +2739,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "retailer@gmail.com",
+									"value": "retailer3@gmail.com",
 									"type": "text"
 								},
 								{
@@ -2754,7 +2754,12 @@
 								},
 								{
 									"key": "mobile",
-									"value": "9708871502",
+									"value": "9708871613",
+									"type": "text"
+								},
+								{
+									"key": "mPin",
+									"value": "123456",
 									"type": "text"
 								}
 							]
@@ -2870,6 +2875,137 @@
 					"response": []
 				},
 				{
+					"name": "Forgot password send otp",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0OTA5OTM0MDY3NjI5ZTFiZTJjZTQ4YSIsImZyb21Vc2VyIjoiNjQzZTJmNDZjMzAzZGU4ZGU1ODIyZjU2IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6ImRpc3RyaWJ1dGVyMUBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDI4NzE1MDEsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCRjeTBqZllWMkdhSXVwL2xLa1pEcHBlbDR5YWx1R2d6ckgzWWRiYUNwVGZ6MzJ2c2NZMC8udSIsIm90cCI6MCwiZW1haWxPdHAiOjAsImF2YWlsYWJsZVVzZXIiOjUwLCJyb2xlIjoiRElTVFJJQlVURVIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJfX3YiOjB9.QuZcDMdiQkCiHyPoHdY3BUJui9Ao4YaVrfaoLFeZYjE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "mobile",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "email",
+									"value": "prakashkumar@gmail.com",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/forgot/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"forgot",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify forgot password otp",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0OTA5OTM0MDY3NjI5ZTFiZTJjZTQ4YSIsImZyb21Vc2VyIjoiNjQzZTJmNDZjMzAzZGU4ZGU1ODIyZjU2IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6ImRpc3RyaWJ1dGVyMUBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDI4NzE1MDEsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCRjeTBqZllWMkdhSXVwL2xLa1pEcHBlbDR5YWx1R2d6ckgzWWRiYUNwVGZ6MzJ2c2NZMC8udSIsIm90cCI6MCwiZW1haWxPdHAiOjAsImF2YWlsYWJsZVVzZXIiOjUwLCJyb2xlIjoiRElTVFJJQlVURVIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJfX3YiOjB9.QuZcDMdiQkCiHyPoHdY3BUJui9Ao4YaVrfaoLFeZYjE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "mobile",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "otp",
+									"value": "167435",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/verify/forgot/password/otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"verify",
+								"forgot",
+								"password",
+								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify forgot password otp Copy",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0OTA5OTM0MDY3NjI5ZTFiZTJjZTQ4YSIsImZyb21Vc2VyIjoiNjQzZTJmNDZjMzAzZGU4ZGU1ODIyZjU2IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6ImRpc3RyaWJ1dGVyMUBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDI4NzE1MDEsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCRjeTBqZllWMkdhSXVwL2xLa1pEcHBlbDR5YWx1R2d6ckgzWWRiYUNwVGZ6MzJ2c2NZMC8udSIsIm90cCI6MCwiZW1haWxPdHAiOjAsImF2YWlsYWJsZVVzZXIiOjUwLCJyb2xlIjoiRElTVFJJQlVURVIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJfX3YiOjB9.QuZcDMdiQkCiHyPoHdY3BUJui9Ao4YaVrfaoLFeZYjE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "newPassword",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "cnfPassword",
+									"value": "6200134797",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/set/password",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"set",
+								"password"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Available Balance",
 					"request": {
 						"method": "GET",
@@ -2892,6 +3028,49 @@
 								"auth",
 								"available",
 								"balance"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transafer user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0OTA5OTM0MDY3NjI5ZTFiZTJjZTQ4YSIsImZyb21Vc2VyIjoiNjQzZTJmNDZjMzAzZGU4ZGU1ODIyZjU2IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6ImRpc3RyaWJ1dGVyMUBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDI4NzE1MDEsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCRjeTBqZllWMkdhSXVwL2xLa1pEcHBlbDR5YWx1R2d6ckgzWWRiYUNwVGZ6MzJ2c2NZMC8udSIsIm90cCI6MCwiZW1haWxPdHAiOjAsImF2YWlsYWJsZVVzZXIiOjUwLCJyb2xlIjoiRElTVFJJQlVURVIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJfX3YiOjB9.QuZcDMdiQkCiHyPoHdY3BUJui9Ao4YaVrfaoLFeZYjE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userId",
+									"value": "6490937acef8d0262b604642",
+									"type": "text"
+								},
+								{
+									"key": "noOfUser",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/transfer/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"transfer",
+								"user"
 							]
 						}
 					},
@@ -3423,6 +3602,62 @@
 							}
 						],
 						"url": {
+							"raw": "http://localhost:8080/retailer/utils/company/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"utils",
+								"company",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transaction List",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:8080/retailer/utils/company/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"utils",
+								"company",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Set transaction PIn by Mpin",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMjkxOTc4NTg5MjA4OGM4NDE5ZmMiLCJuYW1lIjoiUHJha2FzaCBrdW1hciIsImVtYWlsIjoiYWRtaW5AZ21haWwuY29tIiwibW9iaWxlIjo2MjAwMTM0Nzk4LCJhdmFpbGFibGVMaWNlbnNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCQvQ2hReG5QQVFCbDdiLmM1Z0tmQlZPLnZzZ0s2ZHVyN3U3SE9XM2J5dEl6ZlpQVVBJWVZENiIsInJvbGUiOiJBRE1JTiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDQtMThUMDU6MjI6MzMuNTcyWiIsIl9fdiI6MH0.o7fxzgO5sYJWC7PyST-dgWH1dQuzPhwNJyQeduWFuw4",
+								"type": "text"
+							}
+						],
+						"url": {
 							"raw": "http://localhost:8080/retailer/utils/comission/view",
 							"protocol": "http",
 							"host": [
@@ -3434,50 +3669,6 @@
 								"utils",
 								"comission",
 								"view"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Set new password Copy",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7ImNvdW50cnkiOiJpbmRpYSIsInN0YXRlIjoiYmloYXIiLCJkaXN0cmljdCI6InJvaHRhcyIsImNpdHkiOiJzYXNhcmFtIiwic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsib3RoZXJNb2JpbGUiOiI2MjAwMTM0Nzk3IiwicGFuTm8iOiJKUEswMTg5MDIiLCJwYW5JbWFnZSI6Imphcy9zamQvc2RmOy8iLCJhZGhhck5vIjoiMzkzMTUzMjY0NzM5IiwiYWRoYXJJbWFnZSI6ImxzZi5kc2RqL3NkZmwvIiwidXNlclNlbGZpZSI6InNmL2Rmc3NkL3JzZCIsInN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJiYW5rTmFtZSI6IlBuYiIsImJyYW5jaE5hbWUiOiJBcnJhaCIsImFjY05vIjoiNjQ4NTAwMDEwMDEwMDk0NCIsImlmc2NDb2RlIjoiUFVOQjA2NDg1MDAiLCJhY2NUeXBlIjoiU0FWSU5HIiwiYWNjSG9sZGVyTmFtZSI6IlByYWthc2giLCJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0N2Y3N2RiNjI4Mjg4YmE3YjliNDUxZiIsImZyb21Vc2VyIjoiNjQzZTM1OTc2NDQ0MDRhOTc5ZDUwNDA4IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6InJldGFpbGVyMUBnbWFpbC5jb20iLCJtb2JpbGUiOjYyMDAxMzQ3OTcsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJvdHAiOjAsInJvbGUiOiJSRVRBSUxFUiIsImlzRGVsZXRlZCI6ZmFsc2UsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMDZUMTg6MTU6NTUuMDUwWiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMDZUMTk6NDY6MjAuOTQwWiIsIl9fdiI6MH0.own1YA8gTVx8bewRNNn-nJ1a2GUD1UkOsaNlcZhPj9Y",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "newPassword",
-									"value": "6200134797",
-									"type": "text"
-								},
-								{
-									"key": "cnfPassword",
-									"value": "6200134797",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/retailer/auth/set/new/password",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"retailer",
-								"auth",
-								"set",
-								"new",
-								"password"
 							]
 						}
 					},

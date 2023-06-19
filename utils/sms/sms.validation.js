@@ -30,6 +30,21 @@ module.exports.forgotPasswordOtpVerify = async (request, response, next) => {
     }
 };
 
+module.exports.setPassword = async (request, response, next) => {
+    let rules = Joi.object().keys({
+        newPassword: Joi.string().required(),
+        cnfPassword: Joi.string().required(),
+    });
+    const { error } = rules.validate(request.body);
+    if (error) {
+        return response
+            .status(422)
+            .json({ status: false, message: error, data: null });
+    } else {
+        return next();
+    }
+};
+
 module.exports.verifyMobileOtp = async (request, response, next) => {
     let rules = Joi.object().keys({
         otp: Joi.string().length(6).pattern(/^[0-9]+$/).required(),
