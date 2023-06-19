@@ -6,6 +6,7 @@ module.exports.register = async (request, response, next) => {
             mobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
             password: Joi.string().required(),
             name: Joi.string().required(),
+            mPin: Joi.number().integer().required().min(100000).max(999999),
     });
     const { error } = rules.validate(request.body);
     if (error) {

@@ -2,7 +2,6 @@ const bcrypt = require("bcrypt");
 const jwt = require("jsonwebtoken");
 const Admin = require("../../models/users.model");
 const config = require("../../config/config");
-const saltRounds = 10;
 
 module.exports.login = async (request, response, next) => {
     try {
@@ -72,7 +71,7 @@ module.exports.login = async (request, response, next) => {
 
 module.exports.register = async (request, response, next) => {
     try {
-        const {user, name, email, mobile, password } = request.body;
+        const {user, name, email, mobile, password, mPin } = request.body;
         
         if (user.role != "DISTRIBUTER") {
             return response.status(409).json({
@@ -105,9 +104,9 @@ module.exports.register = async (request, response, next) => {
         }
 
         //GENERATING PASSWORD
-        const passwordSalt = await bcrypt.genSalt(saltRounds);
+        const passwordSalt = await bcrypt.genSalt(Number(config.SALT_ROUND));
         const pass = await bcrypt.hash(password, passwordSalt);
-
+        const mPinHash = await bcrypt.hash(mPin, passwordSalt);
         //CREATING USER IN MONGODB
 
         newUsers = await Admin.create({
@@ -118,6 +117,7 @@ module.exports.register = async (request, response, next) => {
             mobile: mobile,
             role: "RETAILER",
             password: pass,
+            mPin: mPinHash,
         });
 
         //jwt token

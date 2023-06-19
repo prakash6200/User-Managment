@@ -58,13 +58,13 @@ const Users = new Schema(
         profileImage: {
             type: String,
         },
-        trxPassword: {
+        mPin: {
             type: String,
             select: false,
         },
-        isTrxPassCreated: {
-            type: Boolean,
-            default: false,
+        trxPin: {
+            type: String,
+            select: false,
         },
         address: {
             country: {

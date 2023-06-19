@@ -99,10 +99,11 @@ module.exports.transactionView = async (request, response, next) => {
     }
 };
 
-module.exports.createTransactionPassword = (request, response, next) => {
+module.exports.setTrxPin = (request, response, next) => {
     let rules = Joi.object().keys({
-        password: Joi.string().required(),
-        cnfPassword: Joi.string().required(),
+        mPin: Joi.number().integer().required().min(100000).max(999999),
+        pin: Joi.number().integer().required().min(100000).max(999999),
+        cnfPin: Joi.number().integer().required().min(100000).max(999999),
     });
     const { error } = rules.validate(request.body);
     if (error) {

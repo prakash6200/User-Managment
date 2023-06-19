@@ -483,15 +483,15 @@ module.exports.companyBank = async (request, response) => {
     }
 }
 
-module.exports.createTransactionPassword = async (request, response, next) => {
+module.exports.setTrxPin = async (request, response, next) => {
     try {
-        const { user, password, cnfPassword } = request.body;
+        const { user, mPin, pin, cnfPin } = request.body;
         
         const checkUser = await UserModel.findOne({
           _id: user._id,
           isDeleted: false
-        }).select("+trxPassword");
-    
+        }).select("+mPin");
+
         if(!checkUser){
           return response.status(401).json({
             status: false,
@@ -500,32 +500,32 @@ module.exports.createTransactionPassword = async (request, response, next) => {
           });
         }
   
-        if(checkUser.trxPassword){
+        if(pin != cnfPin){
           return response.status(401).json({
             status: false,
-            message: "Already created",
+            message: "Pin not match with cnfPin",
             data: null,
           });
         }
   
-        if(password != cnfPassword){
-          return response.status(401).json({
-            status: false,
-            message: "Password miss Match",
-            data: null,
-          });
+        const checkMPin = await bcrypt.compare(mPin, checkUser.mPin);
+        if (!checkMPin) {
+            return response.status(401).json({
+                status: false,
+                message: "Password Is Not Match",
+                data: null,
+            });
         }
   
-        const passwordSalt = await bcrypt.genSalt(Number(config.SALT_ROUND));
-        const pass = await bcrypt.hash(password, passwordSalt);
+        const pinSalt = await bcrypt.genSalt(Number(config.SALT_ROUND));
+        const pinHash = await bcrypt.hash(pin, pinSalt);
     
-        checkUser.trxPassword = pass;
-        checkUser.isTrxPassCreated = true;
+        checkUser.trxPin = pinHash;
         checkUser.save();
 
         return response.json({
             status: true,
-            message: "Transaction password created successfully",
+            message: "Transaction Pin set successfull",
             data: checkUser,
         });
     } catch (e) {
