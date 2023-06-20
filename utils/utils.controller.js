@@ -408,7 +408,8 @@ module.exports.updateBankAcc = async (request, response) => {
 
 module.exports.updateAddress = async (request, response) => {
     try {
-        const { user, country, state, district, city } = request.body;
+        const { user, country, state, district, city, zipCode, 
+            areaType, blockName, wardNo } = request.body;
 
         const userData = await UserModel.findOne({
             _id: user._id,
@@ -429,6 +430,10 @@ module.exports.updateAddress = async (request, response) => {
             state,
             district,
             city,
+            zipCode, 
+            areaType,
+            blockName,
+            wardNo,
             status
         }
 

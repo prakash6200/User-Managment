@@ -93,6 +93,10 @@ module.exports.updateAddress = async (request, response, next) => {
         state: Joi.string().required(),
         district: Joi.string().required(),
         city: Joi.string().required(),
+        zipCode: Joi.number().integer().min(100000).max(999999).required(),
+        areaType: Joi.string().valid("RULER", "URBAN").required(),
+        blockName: Joi.string().required(),
+        wardNo: Joi.number().required(),
     });
     const { error } = rules.validate(request.body);
     if (error) {
