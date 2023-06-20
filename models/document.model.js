@@ -9,6 +9,10 @@ const Document = new Schema(
             type: Schema.Types.ObjectId,
             require: true,
         },
+        user: {
+            type: Schema.Types.ObjectId,
+            require: true,
+        },
         document: {
             type: String,
             require: true,

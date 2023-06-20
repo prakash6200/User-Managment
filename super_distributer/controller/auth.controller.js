@@ -104,6 +104,7 @@ module.exports.register = async (request, response, next) => {
         const checkUserMobile = await Admin.findOne({
             mobile: mobile,
         });
+        
         if (checkUserMobile) {
             return response.status(409).json({
                 status: false,

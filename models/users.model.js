@@ -30,6 +30,53 @@ const Users = new Schema(
             required: true,
             default: 0,
         },
+        Gender: {
+            type: String,
+            enum: ["MALE", "FEMALE", "OTHERS"],
+        },
+        entetyType: {
+            type: String,
+            enum: ["INDIVIDUAL", "LLP", "BOI", "PUBLIC", "TRUST"],
+        },
+        storeDetails: {
+            storeName: {
+                type: String,
+            },
+            storeTime: {
+                start_time: {
+                  type: Date,
+                },
+                end_time: {
+                  type: Date,
+                },
+            },
+            storeWorkingDay: {
+                type: String,
+                enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
+            },
+            storePhoto: {
+                type: String,
+            },
+            pinCode: {
+                type: Number,
+            },
+            areaType: {
+                type: String,
+                enum: ["RULER", "URBAN"],
+            },
+            blockName: {
+                type: String,
+            },
+            wardNo: {
+                type: Number,
+            },
+            storeDocument: {
+                type: Array,
+            }
+        },
+        dateOfBirth: {
+            type: Date,
+        },
         isEmailVerified: {
             type: Boolean,
             default: false,
