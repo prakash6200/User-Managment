@@ -264,13 +264,13 @@ module.exports.stateDirstrict = async (request, response) => {
   
 module.exports.updateKyc = async (request, response) => {
     try {
-      const { user, otherMobile, panNo, panImage, adharNo, adharImage, userSelfie } = request.body;
+      const { user, otherMobile, panNo, panImage, adharNo, adharImage, userSelfie, gender, dateOfBirth } = request.body;
   
       const userData = await UserModel.findOne({
         _id: user._id,
         isDeleted: false,
       });
-  
+
       if (!userData) {
         return response.status(401).json({
           status: false,
@@ -280,15 +280,17 @@ module.exports.updateKyc = async (request, response) => {
       }
   
       const status = "PENDING";
-  
+      console.log(userData)
       const kyc = {
         otherMobile,
+        gender,
+        dateOfBirth,
         panNo,
         panImage,
         adharNo,
         adharImage,
         userSelfie,
-        status
+        status,
       };
   
       userData.kyc = kyc;
@@ -676,3 +678,42 @@ module.exports.transferUser = async (request, response, next) => {
         });
     }
 };
+
+// module.exports.updateProfile = async (request, response, next) => {
+//     try {
+//         const { user, gender, dob, entityType } = request.body;
+
+//         const checkUser = await UserModel.findOne({
+//           _id: user._id,
+//           isDeleted: false
+//         });
+
+//         if(!checkUser){
+//           return response.status(401).json({
+//             status: false,
+//             message: "User not found or deleted",
+//             data: null,
+//           });
+//         }
+
+//         checkUser.gender = gender;
+//         checkUser.dateOfBirth = dob;
+//         checkUser.entityType = entityType;
+
+//         checkUser.save();
+
+//         return response.json({
+//             status: true,
+//             message: "User transaferred",
+//             data: checkRecepient,
+//         });
+
+//     } catch (e) {
+//         console.log("%c 🧀 e", "color:#f5ce50", e);
+//         return response.status(500).json({
+//             status: false,
+//             message: "Something Went To Wrong",
+//             data: null,
+//         });
+//     }
+// };

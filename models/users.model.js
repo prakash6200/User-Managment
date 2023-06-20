@@ -30,11 +30,7 @@ const Users = new Schema(
             required: true,
             default: 0,
         },
-        Gender: {
-            type: String,
-            enum: ["MALE", "FEMALE", "OTHERS"],
-        },
-        entetyType: {
+        entityType: {
             type: String,
             enum: ["INDIVIDUAL", "LLP", "BOI", "PUBLIC", "TRUST"],
         },
@@ -73,9 +69,6 @@ const Users = new Schema(
             storeDocument: {
                 type: Array,
             }
-        },
-        dateOfBirth: {
-            type: Date,
         },
         isEmailVerified: {
             type: Boolean,
@@ -146,6 +139,13 @@ const Users = new Schema(
         kyc: {
             otherMobile: {
                 type: String,
+            },
+            gender: {
+                type: String,
+                enum: ["MALE", "FEMALE", "OTHERS"],
+            },
+            dateOfBirth: {
+                type: Date,
             },
             panNo: {
                 type: String,

@@ -30,6 +30,7 @@ router.post("/forgot/password", smsValidation.forgotPassword, verifyJWTToken, sm
 router.patch("/verify/forgot/password/otp", smsValidation.forgotPasswordOtpVerify, verifyJWTToken, smsController.forgotPasswordOtpVerify);
 router.put("/set/password", smsValidation.setPassword, verifyJWTToken, smsController.setPassword)
 router.post("/self/register", authValidation.selfRegister, authController.selfRegistration);
+router.post("/update/profile", )
 
 router.get("/available/user", verifyJWTToken, utilsController.availableUser);
 router.post("/transfer/user", utilsValidation.transferUser, verifyJWTToken, utilsController.transferUser);

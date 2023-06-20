@@ -37,6 +37,8 @@ module.exports.updateKyc = async (request, response, next) => {
         adharNo: Joi.string().required(),
         adharImage: Joi.string().required(),
         userSelfie: Joi.string().required(),
+        dateOfBirth: Joi.date().required(),
+        gender: Joi.string().valid('MALE', 'FEMALE', 'OTHER').required()
     });
     const { error } = rules.validate(request.body);
     if (error) {
