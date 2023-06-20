@@ -262,6 +262,49 @@ module.exports.stateDirstrict = async (request, response) => {
     }
 };
   
+module.exports.updateStoreDetails = async (request, response) => {
+    try {
+      const { user, storeName, startTime, endTime, wrokingDays, storeImage } = request.body;
+  
+      const userData = await UserModel.findOne({
+        _id: user._id,
+        isDeleted: false,
+      });
+
+      if (!userData) {
+        return response.status(401).json({
+          status: false,
+          message: "User not found",
+          data: null,
+        });
+      }
+
+      const store = {
+        storeName,
+        startTime, 
+        endTime, 
+        wrokingDays, 
+        storeImage
+      };
+  
+      userData.storeDetails = store;
+      userData.save();
+  
+      return response.json({
+        status: true,
+        message: "Store details updated successfully",
+        data: userData.storeDetails,
+      });
+    } catch (e) {
+      console.log("%c 🍨 e: ", "font-size:20px;background-color: #465975;color:#fff;", e);
+      return response.status(500).json({
+        status: false,
+        message: "Something Went To Wrong",
+        data: null,
+      });
+    }
+};
+
 module.exports.updateKyc = async (request, response) => {
     try {
       const { user, otherMobile, panNo, panImage, adharNo, adharImage, userSelfie, gender, dateOfBirth } = request.body;
@@ -280,7 +323,7 @@ module.exports.updateKyc = async (request, response) => {
       }
   
       const status = "PENDING";
-      console.log(userData)
+
       const kyc = {
         otherMobile,
         gender,

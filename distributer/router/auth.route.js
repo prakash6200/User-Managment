@@ -20,7 +20,7 @@ router.get("/complaint/view", verifyJWTToken, complaintController.complaintView)
 router.get("/profile/view", verifyJWTToken, utilsController.profileView);
 router.get("/statewithdist/view", verifyJWTToken, utilsController.stateDirstrict);
 router.post("/revoke/fund", transactionValidation.revokeFund, verifyJWTToken, transactionController.revokeFund);
-router.post("/update/kyc", utilsValidation.updateKyc, verifyJWTToken, utilsController.updateKyc);
+router.put("/update/kyc", utilsValidation.updateKyc, verifyJWTToken, utilsController.updateKyc);
 router.get("/transaction/view", verifyJWTToken, transactionController.transactionView);
 router.post("/send/mobile/otp", verifyJWTToken, smsController.sendMobileOtp);
 router.post("/send/email/otp", verifyJWTToken, smsController.sendEmailOtp);
@@ -28,9 +28,9 @@ router.patch("/verify/mobile/otp", smsValidation.verifyMobileOtp, verifyJWTToken
 router.patch("/verify/email/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyEmailOtp);
 router.post("/forgot/password", smsValidation.forgotPassword, verifyJWTToken, smsController.forgotPassword);
 router.patch("/verify/forgot/password/otp", smsValidation.forgotPasswordOtpVerify, verifyJWTToken, smsController.forgotPasswordOtpVerify);
-router.put("/set/password", smsValidation.setPassword, verifyJWTToken, smsController.setPassword)
+router.put("/set/password", smsValidation.setPassword, verifyJWTToken, smsController.setPassword);
 router.post("/self/register", authValidation.selfRegister, authController.selfRegistration);
-router.post("/update/profile", )
+router.put("/update/store", utilsValidation.updateStoreDetails, verifyJWTToken, utilsController.updateStoreDetails);
 
 router.get("/available/user", verifyJWTToken, utilsController.availableUser);
 router.post("/transfer/user", utilsValidation.transferUser, verifyJWTToken, utilsController.transferUser);

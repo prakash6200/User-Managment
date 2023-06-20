@@ -34,42 +34,6 @@ const Users = new Schema(
             type: String,
             enum: ["INDIVIDUAL", "LLP", "BOI", "PUBLIC", "TRUST"],
         },
-        storeDetails: {
-            storeName: {
-                type: String,
-            },
-            storeTime: {
-                start_time: {
-                  type: Date,
-                },
-                end_time: {
-                  type: Date,
-                },
-            },
-            storeWorkingDay: {
-                type: String,
-                enum: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday', 'Saturday', 'Sunday'],
-            },
-            storePhoto: {
-                type: String,
-            },
-            pinCode: {
-                type: Number,
-            },
-            areaType: {
-                type: String,
-                enum: ["RULER", "URBAN"],
-            },
-            blockName: {
-                type: String,
-            },
-            wardNo: {
-                type: Number,
-            },
-            storeDocument: {
-                type: Array,
-            }
-        },
         isEmailVerified: {
             type: Boolean,
             default: false,
@@ -110,6 +74,23 @@ const Users = new Schema(
             type: String,
             select: false,
         },
+        storeDetails: {
+            storeName: {
+                type: String,
+            },
+            startTime: {
+                type: Date,
+            },
+            endTime: {
+                type: Date,
+            },
+            storeWorkingDays: {
+                type: Array,
+            },
+            storePhoto: {
+                type: String,
+            },
+        },
         address: {
             country: {
                 type: String,
@@ -124,6 +105,16 @@ const Users = new Schema(
                 type: String,
             },
             zipCode: {
+                type: Number,
+            },
+            areaType: {
+                type: String,
+                enum: ["RULER", "URBAN"],
+            },
+            blockName: {
+                type: String,
+            },
+            wardNo: {
                 type: Number,
             },
             status: {

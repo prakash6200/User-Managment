@@ -29,6 +29,24 @@ module.exports.makeEnquiry = async (request, response, next) => {
     }
 };
 
+module.exports.updateStoreDetails = async (request, response, next) => {
+    let rules = Joi.object().keys({
+        storeName: Joi.string().required(),
+        startTime: Joi.date().required(),
+        endTime: Joi.date().required(),
+        wrokingDays: Joi.array().required(),
+        storeImage: Joi.string().required()
+    });
+    const { error } = rules.validate(request.body);
+    if (error) {
+        return response
+            .status(422)
+            .json({ status: false, message: error.message, data: null });
+    } else {
+        return next();
+    }
+};
+
 module.exports.updateKyc = async (request, response, next) => {
     let rules = Joi.object().keys({
         otherMobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
