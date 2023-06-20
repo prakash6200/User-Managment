@@ -2782,6 +2782,64 @@
 					"response": []
 				},
 				{
+					"name": "Self Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMzU5NzY0NDQwNGE5NzlkNTA0MDgiLCJmcm9tVXNlciI6IjY0M2UyZjQ2YzMwM2RlOGRlNTgyMmY1NiIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJkaXN0cmlidXRlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDEsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJExvdmswR1dsMmtQRWI3My4yNHkwemVaUnF3RWNQQ2N1S3dsSXFtMVpHT2ZmTE5tZkhvOFBhIiwicm9sZSI6IkRJU1RSSUJVVEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjoxNTo1MS41MDRaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjoxNTo1MS41MDRaIiwiX192IjowfQ.zwdLvXntcKvt4YY4yigqlew5zecR_j7yk-Vop7sAlos",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "distributer13@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								},
+								{
+									"key": "name",
+									"value": "Prakash",
+									"type": "text"
+								},
+								{
+									"key": "mobile",
+									"value": "9708871614",
+									"type": "text"
+								},
+								{
+									"key": "superDistributerId",
+									"value": "643e2f46c303de8de5822f56",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/self/register",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"self",
+								"register"
+							]
+						}
+					},
+					"response": []
+				},
+				{
 					"name": "Fund-transfer",
 					"request": {
 						"method": "POST",
@@ -2819,6 +2877,439 @@
 								"auth",
 								"fund",
 								"transfer"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Transafer user",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0OTA5OTM0MDY3NjI5ZTFiZTJjZTQ4YSIsImZyb21Vc2VyIjoiNjQzZTJmNDZjMzAzZGU4ZGU1ODIyZjU2IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6ImRpc3RyaWJ1dGVyMUBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDI4NzE1MDEsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCRjeTBqZllWMkdhSXVwL2xLa1pEcHBlbDR5YWx1R2d6ckgzWWRiYUNwVGZ6MzJ2c2NZMC8udSIsIm90cCI6MCwiZW1haWxPdHAiOjAsImF2YWlsYWJsZVVzZXIiOjUwLCJyb2xlIjoiRElTVFJJQlVURVIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJfX3YiOjB9.QuZcDMdiQkCiHyPoHdY3BUJui9Ao4YaVrfaoLFeZYjE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "userId",
+									"value": "6490937acef8d0262b604642",
+									"type": "text"
+								},
+								{
+									"key": "noOfUser",
+									"value": "5",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/transfer/user",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"transfer",
+								"user"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update KYC",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UyZjQ2YzMwM2RlOGRlNTgyMmY1NiIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJkaXN0cmlidXRlcjEzQGdtYWlsLmNvbSIsIm1vYmlsZSI6OTcwODg3MTYxNCwic3RvcmVEZXRhaWxzIjp7InN0b3JlRG9jdW1lbnQiOltdfSwiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsImF2YWlsYWJsZUJhbGFuY2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJC9vVFdIa1V0Z0JKcHNGVDkxQk5UdHVBcXIzN2xKWnEvL0Q4aC5lZUVMRnhjYzNZYnY4WXF1Iiwib3RwIjowLCJlbWFpbE90cCI6MCwiYXZhaWxhYmxlVXNlciI6MCwiYWRkcmVzcyI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sImt5YyI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sImJhbmsiOnsic3RhdHVzIjoiUEVORElORyJ9LCJyb2xlIjoiRElTVFJJQlVURVIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDkxZmNkMTEyNWY2NzVkNmQwMzk5NTQiLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIwVDE5OjI0OjAxLjg1NVoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTIwVDE5OjI0OjAxLjg1NVoiLCJfX3YiOjB9.sXrO6ZfEtU9rzC7sLCA12aAfkB48B6AROoRHv0ag8wE",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "otherMobile",
+									"value": "6200134797",
+									"type": "text"
+								},
+								{
+									"key": "panNo",
+									"value": "JPK018902",
+									"type": "text"
+								},
+								{
+									"key": "panImage",
+									"value": "jas/sjd/sdf;/",
+									"type": "text"
+								},
+								{
+									"key": "adharNo",
+									"value": "393153264739",
+									"type": "text"
+								},
+								{
+									"key": "adharImage",
+									"value": "lsf.dsdj/sdfl/",
+									"type": "text"
+								},
+								{
+									"key": "userSelfie",
+									"value": "sf/dfssd/rsd",
+									"type": "text"
+								},
+								{
+									"key": "dateOfBirth",
+									"value": "2001-09-25",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "MALE",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/update/kyc",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"update",
+								"kyc"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update store details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UyZjQ2YzMwM2RlOGRlNTgyMmY1NiIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJkaXN0cmlidXRlcjNAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNjE1LCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkdzA2YXNEbUFPcTZKeDRBOVVuQ3IxLnpxNGRqNElVeDdQLjFOeTZ5LmNaM0w4WWt1TUE1ekMiLCJvdHAiOjAsImVtYWlsT3RwIjowLCJhdmFpbGFibGVVc2VyIjowLCJzdG9yZURldGFpbHMiOnsic3RvcmVXb3JraW5nRGF5cyI6W119LCJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sInJvbGUiOiJESVNUUklCVVRFUiIsImlzRGVsZXRlZCI6ZmFsc2UsIl9pZCI6IjY0OTIwOGVjOWU5ODQ3MDNjMjU4MjNhNCIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMjA6MTU6NDAuODU3WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMjBUMjA6MTU6NDAuODU3WiIsIl9fdiI6MH0.pEtQnGf4Qdc6sWENSffOOqPOtnA6LSE3tnYIRehTL8c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"storeName\": \"dfgsdh\",\n        \"startTime\": \"2023-01-23\",\n        \"endTime\": \"2023-01-23\",\n        \"wrokingDays\": [\"s\", \"fd\"],\n        \"storeImage\": \"gdff\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/update/store",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"update",
+								"store"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update store Address",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UyZjQ2YzMwM2RlOGRlNTgyMmY1NiIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJkaXN0cmlidXRlcjNAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNjE1LCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkdzA2YXNEbUFPcTZKeDRBOVVuQ3IxLnpxNGRqNElVeDdQLjFOeTZ5LmNaM0w4WWt1TUE1ekMiLCJvdHAiOjAsImVtYWlsT3RwIjowLCJhdmFpbGFibGVVc2VyIjowLCJzdG9yZURldGFpbHMiOnsic3RvcmVXb3JraW5nRGF5cyI6W119LCJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sInJvbGUiOiJESVNUUklCVVRFUiIsImlzRGVsZXRlZCI6ZmFsc2UsIl9pZCI6IjY0OTIwOGVjOWU5ODQ3MDNjMjU4MjNhNCIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMjA6MTU6NDAuODU3WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMjBUMjA6MTU6NDAuODU3WiIsIl9fdiI6MH0.pEtQnGf4Qdc6sWENSffOOqPOtnA6LSE3tnYIRehTL8c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "country",
+									"value": "sdf",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "xdfgsd",
+									"type": "text"
+								},
+								{
+									"key": "district",
+									"value": "gsdfg",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "dfh",
+									"type": "text"
+								},
+								{
+									"key": "zipCode",
+									"value": "20584",
+									"type": "text"
+								},
+								{
+									"key": "areaType",
+									"value": "RULER",
+									"type": "text"
+								},
+								{
+									"key": "blockName",
+									"value": "jhfgh",
+									"type": "text"
+								},
+								{
+									"key": "wardNo",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/update/address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"update",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update Bank account",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UyZjQ2YzMwM2RlOGRlNTgyMmY1NiIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJkaXN0cmlidXRlcjNAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNjE1LCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkdzA2YXNEbUFPcTZKeDRBOVVuQ3IxLnpxNGRqNElVeDdQLjFOeTZ5LmNaM0w4WWt1TUE1ekMiLCJvdHAiOjAsImVtYWlsT3RwIjowLCJhdmFpbGFibGVVc2VyIjowLCJzdG9yZURldGFpbHMiOnsic3RvcmVXb3JraW5nRGF5cyI6W119LCJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sInJvbGUiOiJESVNUUklCVVRFUiIsImlzRGVsZXRlZCI6ZmFsc2UsIl9pZCI6IjY0OTIwOGVjOWU5ODQ3MDNjMjU4MjNhNCIsImNyZWF0ZWRBdCI6IjIwMjMtMDYtMjBUMjA6MTU6NDAuODU3WiIsInVwZGF0ZWRBdCI6IjIwMjMtMDYtMjBUMjA6MTU6NDAuODU3WiIsIl9fdiI6MH0.pEtQnGf4Qdc6sWENSffOOqPOtnA6LSE3tnYIRehTL8c",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "bankName",
+									"value": "sdf",
+									"type": "text"
+								},
+								{
+									"key": "branchName",
+									"value": "xdfgsd",
+									"type": "text"
+								},
+								{
+									"key": "accType",
+									"value": "SAVING",
+									"type": "text"
+								},
+								{
+									"key": "ifsc",
+									"value": "dalsdf",
+									"type": "text"
+								},
+								{
+									"key": "accNo",
+									"value": "20584",
+									"type": "text"
+								},
+								{
+									"key": "accHolderName",
+									"value": "RULER",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/update/bank",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"update",
+								"bank"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Email OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/send/email/otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"send",
+								"email",
+								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Send Mobile OTP",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": []
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/send/mobile/otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"send",
+								"mobile",
+								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify mobile OTP",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "otp",
+									"value": "254893",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/verify/mobile/otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"verify",
+								"mobile",
+								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Verify Email OTP",
+					"request": {
+						"method": "PATCH",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "otp",
+									"value": "254893",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/distributer/auth/verify/email/otp",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"distributer",
+								"auth",
+								"verify",
+								"email",
+								"otp"
 							]
 						}
 					},
@@ -3028,49 +3519,6 @@
 								"auth",
 								"available",
 								"balance"
-							]
-						}
-					},
-					"response": []
-				},
-				{
-					"name": "Transafer user",
-					"request": {
-						"method": "POST",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0OTA5OTM0MDY3NjI5ZTFiZTJjZTQ4YSIsImZyb21Vc2VyIjoiNjQzZTJmNDZjMzAzZGU4ZGU1ODIyZjU2IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6ImRpc3RyaWJ1dGVyMUBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDI4NzE1MDEsImlzRW1haWxWZXJpZmllZCI6ZmFsc2UsImlzTW9iaWxlVmVyaWZpZWQiOmZhbHNlLCJhdmFpbGFibGVCYWxhbmNlIjowLCJwYXNzd29yZCI6IiQyYiQxMCRjeTBqZllWMkdhSXVwL2xLa1pEcHBlbDR5YWx1R2d6ckgzWWRiYUNwVGZ6MzJ2c2NZMC8udSIsIm90cCI6MCwiZW1haWxPdHAiOjAsImF2YWlsYWJsZVVzZXIiOjUwLCJyb2xlIjoiRElTVFJJQlVURVIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTE5VDE4OjA2OjQ0LjM2NFoiLCJfX3YiOjB9.QuZcDMdiQkCiHyPoHdY3BUJui9Ao4YaVrfaoLFeZYjE",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "userId",
-									"value": "6490937acef8d0262b604642",
-									"type": "text"
-								},
-								{
-									"key": "noOfUser",
-									"value": "5",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/distributer/auth/transfer/user",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"distributer",
-								"auth",
-								"transfer",
-								"user"
 							]
 						}
 					},

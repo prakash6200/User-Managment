@@ -32,6 +32,7 @@ router.put("/set/password", smsValidation.setPassword, verifyJWTToken, smsContro
 router.post("/self/register", authValidation.selfRegister, authController.selfRegistration);
 router.put("/update/store", utilsValidation.updateStoreDetails, verifyJWTToken, utilsController.updateStoreDetails);
 router.put("/update/address", utilsValidation.updateAddress, verifyJWTToken, utilsController.updateAddress);
+router.put("/update/bank", utilsValidation.updateBankAcc, verifyJWTToken, utilsController.updateBankAcc);
 
 router.get("/available/user", verifyJWTToken, utilsController.availableUser);
 router.post("/transfer/user", utilsValidation.transferUser, verifyJWTToken, utilsController.transferUser);

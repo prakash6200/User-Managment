@@ -389,7 +389,7 @@ module.exports.updateBankAcc = async (request, response) => {
 
         return response.json({
             status: true,
-            message: "Kyc updated",
+            message: "Bank details updated",
             data: userData.bank,
         });
     } catch (e) {
