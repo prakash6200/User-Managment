@@ -13,6 +13,7 @@ const smsController = require("../../utils/sms/sms.controller");
 const smsValidation = require("../../utils/sms/sms.validation");
 
 router.post("/login", authValidation.login, authController.login);
+router.post("/self/register", authValidation.selfRegister, authController.selfRegistration);
 router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
 router.get("/complaint/view", verifyJWTToken, complaintController.complaintView);
 router.get("/profile/view", verifyJWTToken, utilsController.profileView);

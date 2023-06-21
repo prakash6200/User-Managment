@@ -7,6 +7,82 @@ const config = require("../../config/config");
 const saltRounds = 10;
 const axios = require("axios");
 
+module.exports.selfRegistration = async (request, response, next) => {
+    try {
+        const { name, email, mobile, distributerId, password } = request.body;
+
+        // check if user is exists
+        const checkUser = await UserModel.findOne({
+            email: email,
+        });
+        if (checkUser) {
+            return response.status(401).json({
+                status: false,
+                message: "Email Is Already Registered",
+                data: null,
+            });
+        }
+
+        const checkUserMobile = await UserModel.findOne({
+            mobile: mobile,
+        });
+        if (checkUserMobile) {
+            return response.status(401).json({
+                status: false,
+                message: "Mobile Is Already Registered",
+                data: null,
+            });
+        }
+
+        const checkSuperDistributer = await UserModel.findOne({
+            _id: distributerId,
+            role: "DISTRIBUTER",
+            isDeleted: false,
+        });
+
+        if (!checkSuperDistributer) {
+            return response.status(401).json({
+                status: false,
+                message: "Enter valid Super distributer id",
+                data: null,
+            });
+        }
+
+        //GENERATING PASSWORD
+        const passwordSalt = await bcrypt.genSalt(Number(config.SALT_ROUND));
+        const pass = await bcrypt.hash(password, passwordSalt);
+        //CREATING USER IN MONGODB
+
+        newUsers = await UserModel.create({
+            fromUser: checkSuperDistributer._id,
+            fromAdmin: checkSuperDistributer.fromAdmin,
+            name: name,
+            email: email,
+            mobile: mobile,
+            role: "RETAILER",
+            password: pass,
+        });
+
+        //jwt token
+        const token = jwt.sign(JSON.stringify(newUsers), config.JWT_AUTH_TOKEN);
+        const sendData = { userData: newUsers, token: token };
+
+        return response.json({
+            status: true,
+            message: "RETAILER Register successfully",
+            data: sendData,
+        });
+        
+    } catch (e) {
+        console.log(e);
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
 module.exports.login = async (request, response, next) => {
     try {
         const { email, mobile, password } = request.body;
