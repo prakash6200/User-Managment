@@ -2789,7 +2789,8 @@
 							{
 								"key": "Authorization",
 								"value": "eyJhbGciOiJIUzI1NiJ9.eyJfaWQiOiI2NDNlMzU5NzY0NDQwNGE5NzlkNTA0MDgiLCJmcm9tVXNlciI6IjY0M2UyZjQ2YzMwM2RlOGRlNTgyMmY1NiIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJkaXN0cmlidXRlckBnbWFpbC5jb20iLCJtb2JpbGUiOjk3MDg4NzE1MDEsImF2YWlsYWJsZUxpY2Vuc2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJExvdmswR1dsMmtQRWI3My4yNHkwemVaUnF3RWNQQ2N1S3dsSXFtMVpHT2ZmTE5tZkhvOFBhIiwicm9sZSI6IkRJU1RSSUJVVEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiY3JlYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjoxNTo1MS41MDRaIiwidXBkYXRlZEF0IjoiMjAyMy0wNC0xOFQwNjoxNTo1MS41MDRaIiwiX192IjowfQ.zwdLvXntcKvt4YY4yigqlew5zecR_j7yk-Vop7sAlos",
-								"type": "text"
+								"type": "text",
+								"disabled": true
 							}
 						],
 						"body": {
@@ -2797,7 +2798,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "distributer13@gmail.com",
+									"value": "distributer3@gmail.com",
 									"type": "text"
 								},
 								{
@@ -2812,7 +2813,7 @@
 								},
 								{
 									"key": "mobile",
-									"value": "9708871614",
+									"value": "9708871615",
 									"type": "text"
 								},
 								{
@@ -4216,7 +4217,7 @@
 							"urlencoded": [
 								{
 									"key": "email",
-									"value": "retailer@gmail.com",
+									"value": "retailer3@gmail.com",
 									"type": "text"
 								},
 								{
@@ -4266,6 +4267,153 @@
 								"send",
 								"mobile",
 								"otp"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update store Address",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdG9yZURldGFpbHMiOnsic3RvcmVXb3JraW5nRGF5cyI6W119LCJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0OTM1Y2EzMGJjYTZjOWM5ZDBkNDQxZCIsImZyb21Vc2VyIjoiNjQzZTM1OTc2NDQ0MDRhOTc5ZDUwNDA4IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6InJldGFpbGVyMjRAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNjE3LCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkYkpqZlB3YmQ1N0xzQ25ROENzakxETzJ2UFRiRkVXVGhrcmFjc0lqWENGaW1SODFWdFk4LnEiLCJvdHAiOjAsImVtYWlsT3RwIjowLCJhdmFpbGFibGVVc2VyIjowLCJyb2xlIjoiUkVUQUlMRVIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIxVDIwOjI1OjA3LjMwM1oiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTIxVDIwOjI1OjA3LjMwM1oiLCJfX3YiOjB9.xoYZ1UccAAxuNmPFu0CQsMBNEXI2tDHk0Uquxi08HzU",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "country",
+									"value": "sdf",
+									"type": "text"
+								},
+								{
+									"key": "state",
+									"value": "xdfgsd",
+									"type": "text"
+								},
+								{
+									"key": "district",
+									"value": "gsdfg",
+									"type": "text"
+								},
+								{
+									"key": "city",
+									"value": "dfh",
+									"type": "text"
+								},
+								{
+									"key": "zipCode",
+									"value": "205841",
+									"type": "text"
+								},
+								{
+									"key": "areaType",
+									"value": "RULER",
+									"type": "text"
+								},
+								{
+									"key": "blockName",
+									"value": "jhfgh",
+									"type": "text"
+								},
+								{
+									"key": "wardNo",
+									"value": "2",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/utils/update/address",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"utils",
+								"update",
+								"address"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Update store details",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjI0QGdtYWlsLmNvbSIsIm1vYmlsZSI6OTcwODg3MTYxNywiaXNFbWFpbFZlcmlmaWVkIjpmYWxzZSwiaXNNb2JpbGVWZXJpZmllZCI6ZmFsc2UsImF2YWlsYWJsZUJhbGFuY2UiOjAsInBhc3N3b3JkIjoiJDJiJDEwJGJKamZQd2JkNTdMc0NuUThDc2pMRE8ydlBUYkZFV1Roa3JhY3NJalhDRmltUjgxVnRZOC5xIiwib3RwIjowLCJlbWFpbE90cCI6MCwiYXZhaWxhYmxlVXNlciI6MCwic3RvcmVEZXRhaWxzIjp7InN0b3JlV29ya2luZ0RheXMiOltdfSwiYWRkcmVzcyI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sImt5YyI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sImJhbmsiOnsic3RhdHVzIjoiUEVORElORyJ9LCJyb2xlIjoiUkVUQUlMRVIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJfaWQiOiI2NDkzNWNhMzBiY2E2YzljOWQwZDQ0MWQiLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIxVDIwOjI1OjA3LjMwM1oiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTIxVDIwOjI1OjA3LjMwM1oiLCJfX3YiOjB9.tG_CW6w8TRCeKxj33sScr82ssQtVc8b30lkPVSx1n-0",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\n        \"storeName\": \"jaipur\",\n        \"startTime\": \"2023-01-23\",\n        \"endTime\": \"2023-01-23\",\n        \"wrokingDays\": [\"s\", \"fd\"],\n        \"storeImage\": \"gdff\"\n    }",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/utils/update/store/details",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"utils",
+								"update",
+								"store",
+								"details"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Self register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "retailer3@gmail.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "123456",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "http://localhost:8080/retailer/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8080",
+							"path": [
+								"retailer",
+								"auth",
+								"login"
 							]
 						}
 					},
@@ -4456,66 +4604,13 @@
 					"response": []
 				},
 				{
-					"name": "Update address",
-					"request": {
-						"method": "PUT",
-						"header": [
-							{
-								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
-								"type": "text"
-							}
-						],
-						"body": {
-							"mode": "urlencoded",
-							"urlencoded": [
-								{
-									"key": "country",
-									"value": "india",
-									"type": "text"
-								},
-								{
-									"key": "state",
-									"value": "bihar",
-									"type": "text"
-								},
-								{
-									"key": "district",
-									"value": "rohtas",
-									"type": "text"
-								},
-								{
-									"key": "city",
-									"value": "sasaram",
-									"type": "text"
-								}
-							]
-						},
-						"url": {
-							"raw": "http://localhost:8080/retailer/utils/update/address",
-							"protocol": "http",
-							"host": [
-								"localhost"
-							],
-							"port": "8080",
-							"path": [
-								"retailer",
-								"utils",
-								"update",
-								"address"
-							]
-						}
-					},
-					"response": []
-				},
-				{
 					"name": "Update KYC",
 					"request": {
 						"method": "PUT",
 						"header": [
 							{
 								"key": "Authorization",
-								"value": "eyJhbGciOiJIUzI1NiJ9.eyJmcm9tVXNlciI6IjY0M2UzNTk3NjQ0NDA0YTk3OWQ1MDQwOCIsImZyb21BZG1pbiI6IjY0M2UyOTE5Nzg1ODkyMDg4Yzg0MTlmYyIsIm5hbWUiOiJQcmFrYXNoIiwiZW1haWwiOiJyZXRhaWxlcjFAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNTAzLCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkekV4OWpFZ1paS3B0cnAybXdrbnNQdWxhSm1VVFpPdnBPVUxCcXpNRmZ2TUtzWXRmYkFXdjYiLCJvdHAiOjAsImFkZHJlc3MiOnsic3RhdHVzIjoiUEVORElORyJ9LCJreWMiOnsic3RhdHVzIjoiUEVORElORyJ9LCJiYW5rIjp7InN0YXR1cyI6IlBFTkRJTkcifSwicm9sZSI6IlJFVEFJTEVSIiwiaXNEZWxldGVkIjpmYWxzZSwiX2lkIjoiNjQ3Zjc3ZGI2MjgyODhiYTdiOWI0NTFmIiwiY3JlYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwidXBkYXRlZEF0IjoiMjAyMy0wNi0wNlQxODoxNTo1NS4wNTBaIiwiX192IjowfQ.jIX9DoNhDS3HlEdRhDpBN5eQQUC3MJqAa-9QZw9fe-o",
+								"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdG9yZURldGFpbHMiOnsic3RvcmVXb3JraW5nRGF5cyI6W119LCJhZGRyZXNzIjp7InN0YXR1cyI6IlBFTkRJTkcifSwia3ljIjp7InN0YXR1cyI6IlBFTkRJTkcifSwiYmFuayI6eyJzdGF0dXMiOiJQRU5ESU5HIn0sIl9pZCI6IjY0OTM1Y2EzMGJjYTZjOWM5ZDBkNDQxZCIsImZyb21Vc2VyIjoiNjQzZTM1OTc2NDQ0MDRhOTc5ZDUwNDA4IiwiZnJvbUFkbWluIjoiNjQzZTI5MTk3ODU4OTIwODhjODQxOWZjIiwibmFtZSI6IlByYWthc2giLCJlbWFpbCI6InJldGFpbGVyMjRAZ21haWwuY29tIiwibW9iaWxlIjo5NzA4ODcxNjE3LCJpc0VtYWlsVmVyaWZpZWQiOmZhbHNlLCJpc01vYmlsZVZlcmlmaWVkIjpmYWxzZSwiYXZhaWxhYmxlQmFsYW5jZSI6MCwicGFzc3dvcmQiOiIkMmIkMTAkYkpqZlB3YmQ1N0xzQ25ROENzakxETzJ2UFRiRkVXVGhrcmFjc0lqWENGaW1SODFWdFk4LnEiLCJvdHAiOjAsImVtYWlsT3RwIjowLCJhdmFpbGFibGVVc2VyIjowLCJyb2xlIjoiUkVUQUlMRVIiLCJpc0RlbGV0ZWQiOmZhbHNlLCJjcmVhdGVkQXQiOiIyMDIzLTA2LTIxVDIwOjI1OjA3LjMwM1oiLCJ1cGRhdGVkQXQiOiIyMDIzLTA2LTIxVDIwOjI1OjA3LjMwM1oiLCJfX3YiOjB9.xoYZ1UccAAxuNmPFu0CQsMBNEXI2tDHk0Uquxi08HzU",
 								"type": "text"
 							}
 						],
@@ -4550,6 +4645,16 @@
 								{
 									"key": "userSelfie",
 									"value": "sf/dfssd/rsd",
+									"type": "text"
+								},
+								{
+									"key": "dateOfBirth",
+									"value": "2001-2-23",
+									"type": "text"
+								},
+								{
+									"key": "gender",
+									"value": "MALE",
 									"type": "text"
 								}
 							]
