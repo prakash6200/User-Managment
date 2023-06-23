@@ -98,7 +98,7 @@ module.exports.selfRegistration = async (request, response, next) => {
 
         const checkSuperDistributer = await Admin.findOne({
             _id: superDistributerId,
-            role: "SUPERDISTRIBUTER",
+            role: "SUPER-DISTRIBUTER",
             isDeleted: false,
         });
 

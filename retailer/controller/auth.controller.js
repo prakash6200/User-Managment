@@ -43,7 +43,7 @@ module.exports.selfRegistration = async (request, response, next) => {
         if (!checkSuperDistributer) {
             return response.status(401).json({
                 status: false,
-                message: "Enter valid Super distributer id",
+                message: "Enter valid Distributer id",
                 data: null,
             });
         }
