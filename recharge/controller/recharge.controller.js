@@ -7,6 +7,7 @@ const config = require("../../config/config")
 const stateList = require("../../utils/state.list");
 const companyCode = require("../../utils/company.id")
 const reCompanyCode = require("../../utils/company.code");
+const distributeComission = require("../../utils/utils.controller");
 
 module.exports.stateList = async(request, response) => {
     try{
@@ -124,11 +125,20 @@ module.exports.mrbtsRechage = async (request, response) => {
             },
             data : data
         };
-
+        await TransactionModel.create({
+            fromUser: userData._id,
+            fromAdmin: userData.fromAdmin,
+            amount: amount,
+            status: "SUCCESS",
+            orderId: orderId,
+        });
+        distributeComission.distributeComission(userData, amount, orderId);
         axios.request(axiosConfig)
         .then(async(res) => {
                 userData.availableBalance -= amount;
                 userData.save();
+
+                // distributeComission.distributeComission(userData, amount, orderId);
                 await TransactionModel.create({
                     fromUser: userData._id,
                     fromAdmin: userData.fromAdmin,

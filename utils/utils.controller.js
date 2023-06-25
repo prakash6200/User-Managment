@@ -536,6 +536,49 @@ module.exports.viewComission = async (request, response) => {
     }
 }
 
+async function distributeComission(user, amount, orderId) {
+    try{
+        const recepient = await UserModel.findOne({
+            _id: user.fromUser,
+            isDeleted: false,
+        });
+
+        let comissionAmount = 0;
+
+        const comission = await ComissionModel.findOne({
+            fromAdmin: recepient.fromAdmin,
+            isDeleted: false,
+        });
+
+        if (recepient.role == "RETAILER") {
+            comissionAmount = (amount * comission.retailer)/100;
+        } else if (recepient.role == "DISTRIBUTER") {
+            comissionAmount = (amount * comission.distributer)/100;
+        } else if (recepient.role == "SUPER-DISTRIBUTER") {
+            comissionAmount = (amount * comission.superDistributer)/100;
+        } else if (recepient.role == "ADMIN") {
+            comissionAmount = (amount * comission.admin)/100;
+        } else { // SUPER-ADMIN
+            comissionAmount = (amount * comission.superAdmin)/100;
+        };
+
+        await TransactionModel.create({
+            fromAdmin: recepient.fromAdmin,
+            toUser: recepient._id,
+            amount: comissionAmount,
+            orderId: orderId,
+            status: "SUCCESS",
+        });
+
+        if(recepient.fromUser){
+            await distributeComission(recepient, amount, orderId);
+        };
+    } catch (e) {
+        console.log(e);
+    }
+};
+module.exports.distributeComission = distributeComission;
+
 module.exports.companyBank = async (request, response) => {
     
     try {

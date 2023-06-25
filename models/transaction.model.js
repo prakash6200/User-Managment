@@ -18,7 +18,11 @@ const Transaction = new Schema(
             require: true,
         },
         amount : {
-            type: Schema.Types.Double,
+            type: Number,
+            require: true,
+        },
+        orderId : {
+            type: Number,
             require: true,
         },
         timeStamps : {
