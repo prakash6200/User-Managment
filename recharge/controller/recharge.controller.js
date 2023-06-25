@@ -1,4 +1,5 @@
 const UserModel = require("../../models/users.model");
+const bcrypt = require("bcrypt");
 const TransactionModel = require("../../models/transaction.model");
 const uniqueOrderId = require("../../utils/utils.controller");
 const axios = require("axios");
@@ -71,19 +72,28 @@ module.exports.companyList = async(request, response) => {
 
 module.exports.mrbtsRechage = async (request, response) => {
     try {
-        const { user, mobile, amount, companyId, isStv, trxPassword } = request.body;
+        const { user, mobile, amount, companyId, isStv, trxPin } = request.body;
 
         const orderId = uniqueOrderId.orderId();
                 
         const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
-        })
+        }).select("+trxPin")
 
         if (!userData) {
             return response.status(401).json({
                 status: false,
                 message: "You are not authorize",
+                data: null,
+            });
+        }
+
+        const checkTrxPin = await bcrypt.compare(trxPin, userData.trxPin);
+        if (!checkTrxPin) {
+            return response.status(401).json({
+                status: false,
+                message: "Enter valid Transaction Pin",
                 data: null,
             });
         }
@@ -108,20 +118,27 @@ module.exports.mrbtsRechage = async (request, response) => {
         };
 
         axios.request(axiosConfig)
-        .then((res) => {
-            return response.json({
-                status: true,
-                message: "Recharge successfully",
-                data: JSON.stringify(res.data),
+            .then((res) => {
+                await TransactionModel.create({
+                    fromUser: userData._id,
+                    fromAdmin: userData.fromAdmin,
+                    amount: amount,
+                    status: "SUCCESS",
+                    orderId: orderId,
+                });
+                return response.json({
+                    status: true,
+                    message: "Recharge successfully",
+                    data: JSON.stringify(res.data),
+                });
+            })
+            .catch((error) => {
+                return response.status(401).json({
+                    status: false,
+                    message: "Transaction faield",
+                    data: error,
+                });
             });
-        })
-        .catch((error) => {
-            return response.status(401).json({
-                status: false,
-                message: "Transaction faield",
-                data: error,
-            });
-        });
     } catch (e) {
         console.log(
             "%c 🍨 e: ",

@@ -27,7 +27,7 @@ const Transaction = new Schema(
         },
         status: {
             type: String,
-            enum: ["SUCESS", "PENDING", "FAILED", "REVOKED"]
+            enum: ["SUCCESS", "PENDING", "FAILED", "REVOKED"]
         },
         isDeleted: {
             type: Boolean,

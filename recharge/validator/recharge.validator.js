@@ -6,6 +6,7 @@ module.exports.mrbtsRechage = async (request, response, next) => {
         amount: Joi.number().required(),
         companyId: Joi.number().integer().min(1).max(27).required(),
         isStv: Joi.boolean().required(),
+        trxPin: Joi.number().integer().required().min(100000).max(999999),
     });
     const { error } = rules.validate(request.body);
     if (error) {
