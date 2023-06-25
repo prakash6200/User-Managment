@@ -9,7 +9,7 @@ const axios = require("axios");
 
 module.exports.selfRegistration = async (request, response, next) => {
     try {
-        const { name, email, mobile, distributerId, password } = request.body;
+        const { name, email, mobile, distributerId, password, mPin } = request.body;
 
         // check if user is exists
         const checkUser = await UserModel.findOne({
@@ -34,13 +34,13 @@ module.exports.selfRegistration = async (request, response, next) => {
             });
         }
 
-        const checkSuperDistributer = await UserModel.findOne({
+        const checkDistributer = await UserModel.findOne({
             _id: distributerId,
             role: "DISTRIBUTER",
             isDeleted: false,
         });
 
-        if (!checkSuperDistributer) {
+        if (!checkDistributer) {
             return response.status(401).json({
                 status: false,
                 message: "Enter valid Distributer id",
@@ -51,16 +51,22 @@ module.exports.selfRegistration = async (request, response, next) => {
         //GENERATING PASSWORD
         const passwordSalt = await bcrypt.genSalt(Number(config.SALT_ROUND));
         const pass = await bcrypt.hash(password, passwordSalt);
+       
+        //GENERATING MPIN
+        const mPinHash = await bcrypt.hash(mPin, passwordSalt);
+       
+       
         //CREATING USER IN MONGODB
 
         newUsers = await UserModel.create({
-            fromUser: checkSuperDistributer._id,
-            fromAdmin: checkSuperDistributer.fromAdmin,
+            fromUser: checkDistributer._id,
+            fromAdmin: checkDistributer.fromAdmin,
             name: name,
             email: email,
             mobile: mobile,
             role: "RETAILER",
             password: pass,
+            mPin: mPinHash,
         });
 
         //jwt token

@@ -7,6 +7,7 @@ module.exports.selfRegister = async (request, response, next) => {
             mobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
             distributerId: Joi.string().pattern(/^[0-9a-fA-F]{24}$/).required(),
             password: Joi.string().required(),
+            mPin: Joi.number().integer().required().min(100000).max(999999),
     });
     const { error } = rules.validate(request.body);
     if (error) {

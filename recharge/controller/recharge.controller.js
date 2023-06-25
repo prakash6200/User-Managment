@@ -1,5 +1,6 @@
 const UserModel = require("../../models/users.model");
-const uniqueOrderId = require("../../utils/utils.controller")
+const TransactionModel = require("../../models/transaction.model");
+const uniqueOrderId = require("../../utils/utils.controller");
 const axios = require("axios");
 const config = require("../../config/config")
 const stateList = require("../../utils/state.list");
@@ -70,7 +71,7 @@ module.exports.companyList = async(request, response) => {
 
 module.exports.mrbtsRechage = async (request, response) => {
     try {
-        const { user, mobile, amount, companyId, isStv } = request.body;
+        const { user, mobile, amount, companyId, isStv, trxPassword } = request.body;
 
         const orderId = uniqueOrderId.orderId();
                 
