@@ -11,6 +11,7 @@ router.get("/comission/view", verifyJWTToken, utilsController.viewComission);
 router.put("/update/address", utilsValidation.updateAddress, verifyJWTToken, utilsController.updateAddress);
 router.put("/update/store/details", utilsValidation.updateStoreDetails, verifyJWTToken, utilsController.updateStoreDetails);
 router.put("/update/kyc", utilsValidation.updateKyc, verifyJWTToken, utilsController.updateKyc)
+router.get("/view/bank", verifyJWTToken, utilsController.getBankDetails);
 router.put("/update/bank", utilsValidation.updateBankAcc, verifyJWTToken, utilsController.updateBankAcc);
 router.get("/company/bank", verifyJWTToken, utilsController.companyBank);
 router.get("/transaction", utilsValidation.transactionView, verifyJWTToken, utilsController.transactionView);

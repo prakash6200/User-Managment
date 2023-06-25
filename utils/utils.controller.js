@@ -355,6 +355,42 @@ module.exports.updateKyc = async (request, response) => {
     }
 };
 
+module.exports.getBankDetails = async (request, response) => {
+    try {
+        const { user } = request.body;
+
+        const userData = await UserModel.findOne({
+            _id: user._id,
+            isDeleted: false,
+        })
+
+        if (!userData) {
+            return response.status(401).json({
+                status: false,
+                message: "User not found",
+                data: null,
+            });
+        }
+
+        return response.json({
+            status: true,
+            message: "Your Bank details",
+            data: userData.bank,
+        });
+    } catch (e) {
+        console.log(
+            "%c 🍨 e: ",
+            "font-size:20px;background-color: #465975;color:#fff;",
+            e,
+        );
+        return response.status(500).json({
+            status: false,
+            message: "Something Went To Wrong",
+            data: null,
+        });
+    }
+};
+
 module.exports.updateBankAcc = async (request, response) => {
     try {
         const { user, bankName, branchName, accNo, accType, ifsc, accHolderName } = request.body;
