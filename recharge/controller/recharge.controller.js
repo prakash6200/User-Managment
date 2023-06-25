@@ -87,8 +87,16 @@ module.exports.mrbtsRechage = async (request, response) => {
                 message: "You are not authorize",
                 data: null,
             });
-        }
+        };
 
+        if (userData.availableBalance < amount) {
+            return response.status(401).json({
+                status: false,
+                message: "Low available balance",
+                data: null,
+            });
+        };
+        
         const checkTrxPin = await bcrypt.compare(trxPin, userData.trxPin);
         if (!checkTrxPin) {
             return response.status(401).json({
@@ -118,7 +126,9 @@ module.exports.mrbtsRechage = async (request, response) => {
         };
 
         axios.request(axiosConfig)
-            .then((res) => {
+        .then(async(res) => {
+                userData.availableBalance -= amount;
+                userData.save();
                 await TransactionModel.create({
                     fromUser: userData._id,
                     fromAdmin: userData.fromAdmin,
@@ -274,6 +284,14 @@ module.exports.reExRecharge = async (request, response) => {
             return response.status(401).json({
                 status: false,
                 message: "You are not authorize",
+                data: null,
+            });
+        }
+        
+        if (userData.availableBalance < amount) {
+            return response.status(401).json({
+                status: false,
+                message: "Low available balance",
                 data: null,
             });
         }
