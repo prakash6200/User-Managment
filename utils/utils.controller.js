@@ -538,7 +538,6 @@ module.exports.viewComission = async (request, response) => {
 
 async function distributeComission(user, amount, orderId) {
     try{
-        console.log("hello")
         const recepient = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
@@ -569,6 +568,8 @@ async function distributeComission(user, amount, orderId) {
             orderId: orderId,
             status: "SUCCESS",
         });
+        recepient.availableAmount += comissionAmount;
+        recepient.save();
 
         if(recepient.fromUser){
             await distributeComission(recepient.fromUser, amount, orderId);
