@@ -3,6 +3,7 @@ const uniqueOrderId = require("../../utils/utils.controller")
 const axios = require("axios");
 const config = require("../../config/config");
 const serviceCode = require("../../utils/service.code");
+const distributeComission = require("../../utils/utils.controller");
 
 module.exports.getServiceCode = async (request, response) => {
     try {
@@ -105,16 +106,35 @@ module.exports.payUtilityBill = async (request, response) => {
                 message: "You are not authorize",
                 data: null,
             });
-        }
+        };
+
+        if (userData.availableBalance < amount) {
+            return response.status(401).json({
+                status: false,
+                message: "Low available balance",
+                data: null,
+            });
+        };
 
         let axiosConfig = {
             method: 'get',
             maxBodyLength: Infinity,
             url: `${config.PAY_ONE_BASE_URL}/RechargeAPI/RechargeAPI.aspx?MobileNo=${config.PAY_ONE_MOBILE}&APIKey=${config.PAY_ONY_APIKEY}&REQTYPE=BILLPAY&REFNO=${orderId}&SERCODE=${serCode}&CUSTNO=${custNo}&REFMOBILENO=${refMobile}&AMT=${amount}&STV=0&PCODE=${pinCode}&LAT=${lat}&LONG=${long}&RESPTYPE=JSON`,
-          };
+        };
         
         axios.request(axiosConfig)
-        .then((res) => {
+        .then(async (res) => {
+            userData.availableBalance -= amount;
+            userData.save();
+
+            await distributeComission.distributeComission(userData, amount, orderId);
+            await TransactionModel.create({
+                fromUser: userData._id,
+                fromAdmin: userData.fromAdmin,
+                amount: amount,
+                status: "SUCCESS",
+                orderId: orderId,
+            });
             return response.json({
                 status: true,
                 message: "Bill Payment successful",

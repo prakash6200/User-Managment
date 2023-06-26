@@ -138,7 +138,7 @@ module.exports.mrbtsRechage = async (request, response) => {
                 userData.availableBalance -= amount;
                 userData.save();
 
-                distributeComission.distributeComission(userData, amount, orderId);
+                await distributeComission.distributeComission(userData, amount, orderId);
                 await TransactionModel.create({
                     fromUser: userData._id,
                     fromAdmin: userData.fromAdmin,
@@ -226,7 +226,7 @@ module.exports.mrbtsRechageStateWise = async (request, response) => {
             userData.availableBalance -= amount;
             userData.save();
 
-            distributeComission.distributeComission(userData, amount, orderId);
+            await distributeComission.distributeComission(userData, amount, orderId);
             await TransactionModel.create({
                 fromUser: userData._id,
                 fromAdmin: userData.fromAdmin,
@@ -337,7 +337,7 @@ module.exports.reExRecharge = async (request, response) => {
             userData.availableBalance -= amount;
             userData.save();
 
-            distributeComission.distributeComission(userData, amount, orderId);
+            await distributeComission.distributeComission(userData, amount, orderId);
             await TransactionModel.create({
                 fromUser: userData._id,
                 fromAdmin: userData.fromAdmin,
