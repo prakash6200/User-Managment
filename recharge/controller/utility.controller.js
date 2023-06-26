@@ -96,7 +96,7 @@ module.exports.payUtilityBill = async (request, response) => {
         const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
-        })
+        });
 
         const orderId = uniqueOrderId.orderId();
 

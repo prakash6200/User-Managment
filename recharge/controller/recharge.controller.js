@@ -175,7 +175,7 @@ module.exports.mrbtsRechage = async (request, response) => {
 
 module.exports.mrbtsRechageStateWise = async (request, response) => {
     try {
-        const { user, mobile, amount, companyId, isStv, stateCode, noRoaming } = request.body;
+        const { user, mobile, amount, companyId, isStv, stateCode, noRoaming, trxPin } = request.body;
 
         const orderId = uniqueOrderId.orderId();
                 
@@ -199,6 +199,15 @@ module.exports.mrbtsRechageStateWise = async (request, response) => {
                 data: null,
             });
         };
+
+        const checkTrxPin = await bcrypt.compare(trxPin, userData.trxPin);
+        if (!checkTrxPin) {
+            return response.status(401).json({
+                status: false,
+                message: "Enter valid Transaction Pin",
+                data: null,
+            });
+        }
 
         let data = {
             'api_token': config.MROBOTICS_APIKEY,
@@ -301,7 +310,7 @@ module.exports.reExCompanyCode = async (request, response) => {
 
 module.exports.reExRecharge = async (request, response) => {
     try {
-        const { user, mobile, amount, operatorCode } = request.body;
+        const { user, mobile, amount, operatorCode, trxPin } = request.body;
        
         const userData = await UserModel.findOne({
             _id: user._id,
@@ -324,7 +333,16 @@ module.exports.reExRecharge = async (request, response) => {
                 message: "Low available balance",
                 data: null,
             });
-        }
+        };
+
+        const checkTrxPin = await bcrypt.compare(trxPin, userData.trxPin);
+        if (!checkTrxPin) {
+            return response.status(401).json({
+                status: false,
+                message: "Enter valid Transaction Pin",
+                data: null,
+            });
+        };
 
         let axiosConfig = {
             method: 'get',
