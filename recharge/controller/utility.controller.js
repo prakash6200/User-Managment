@@ -1,4 +1,5 @@
 const UserModel = require("../../models/users.model");
+const bcrypt = require("bcrypt");
 const uniqueOrderId = require("../../utils/utils.controller")
 const axios = require("axios");
 const config = require("../../config/config");
@@ -91,7 +92,7 @@ module.exports.utilityBillInfo = async (request, response) => {
 
 module.exports.payUtilityBill = async (request, response) => {
     try {
-        const { user, serCode, custNo, refMobile, amount, pinCode, lat, long } = request.body;
+        const { user, serCode, custNo, refMobile, amount, pinCode, lat, long, trxPin } = request.body;
                 
         const userData = await UserModel.findOne({
             _id: user._id,
@@ -115,6 +116,15 @@ module.exports.payUtilityBill = async (request, response) => {
                 data: null,
             });
         };
+
+        const checkTrxPin = await bcrypt.compare(trxPin, userData.trxPin);
+        if (!checkTrxPin) {
+            return response.status(401).json({
+                status: false,
+                message: "Enter valid Transaction Pin",
+                data: null,
+            });
+        }
 
         let axiosConfig = {
             method: 'get',
