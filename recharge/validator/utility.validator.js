@@ -13,7 +13,7 @@ module.exports.utilityBillInfo = async (request, response, next) => {
     if (error) {
         return response
             .status(422)
-            .json({ status: false, message: error, data: null });
+            .json({ status: false, message: error.message, data: null });
     } else {
         return next();
     }
@@ -28,12 +28,13 @@ module.exports.payUtilityBill = async (request, response, next) => {
         pinCode: Joi.number().required(),
         lat: Joi.string().required(),
         long: Joi.string().required(),
+        trxPin: Joi.number().integer().required().min(100000).max(999999),
     });
     const { error } = rules.validate(request.body);
     if (error) {
         return response
             .status(422)
-            .json({ status: false, message: error, data: null });
+            .json({ status: false, message: error.message, data: null });
     } else {
         return next();
     }

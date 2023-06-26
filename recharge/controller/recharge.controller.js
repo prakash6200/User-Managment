@@ -182,7 +182,7 @@ module.exports.mrbtsRechageStateWise = async (request, response) => {
         const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
-        })
+        }).select("+trxPin")
 
         if (!userData) {
             return response.status(401).json({
@@ -315,7 +315,7 @@ module.exports.reExRecharge = async (request, response) => {
         const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
-        })
+        }).select("+trxPin")
         
         const orderId = uniqueOrderId.orderId();
 

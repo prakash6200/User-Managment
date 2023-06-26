@@ -12,7 +12,7 @@ module.exports.mrbtsRechage = async (request, response, next) => {
     if (error) {
         return response
             .status(422)
-            .json({ status: false, message: error, data: null });
+            .json({ status: false, message: error.message, data: null });
     } else {
         return next();
     }
@@ -26,12 +26,13 @@ module.exports.mrbtsRechageStateWise = async (request, response, next) => {
         isStv: Joi.boolean().required(),
         noRoaming: Joi.boolean().required(),
         stateCode: Joi.string().required(),
+        trxPin: Joi.number().integer().required().min(100000).max(999999),
     });
     const { error } = rules.validate(request.body);
     if (error) {
         return response
             .status(422)
-            .json({ status: false, message: error, data: null });
+            .json({ status: false, message: error.message, data: null });
     } else {
         return next();
     }
@@ -42,12 +43,13 @@ module.exports.reExRecharge = async (request, response, next) => {
         mobile: Joi.string().length(10).pattern(/^[0-9]+$/).required(),
         amount: Joi.number().required(),
         operatorCode: Joi.number().integer().min(10).max(21).required(),
+        trxPin: Joi.number().integer().required().min(100000).max(999999),
     });
     const { error } = rules.validate(request.body);
     if (error) {
         return response
             .status(422)
-            .json({ status: false, message: error, data: null });
+            .json({ status: false, message: error.message, data: null });
     } else {
         return next();
     }
