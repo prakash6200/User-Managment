@@ -333,7 +333,18 @@ module.exports.reExRecharge = async (request, response) => {
         };
         
         axios.request(axiosConfig)
-        .then((res) => {
+        .then(async(res) => {
+            userData.availableBalance -= amount;
+            userData.save();
+
+            distributeComission.distributeComission(userData, amount, orderId);
+            await TransactionModel.create({
+                fromUser: userData._id,
+                fromAdmin: userData.fromAdmin,
+                amount: amount,
+                status: "SUCCESS",
+                orderId: orderId,
+            });
             return response.json({
                 status: true,
                 message: "Recharge successfully",
