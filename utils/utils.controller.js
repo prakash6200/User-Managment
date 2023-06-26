@@ -538,13 +538,13 @@ module.exports.viewComission = async (request, response) => {
 
 async function distributeComission(user, amount, orderId) {
     try{
+        console.log("hello")
         const recepient = await UserModel.findOne({
-            _id: user.fromUser,
+            _id: user._id,
             isDeleted: false,
         });
 
         let comissionAmount = 0;
-
         const comission = await ComissionModel.findOne({
             fromAdmin: recepient.fromAdmin,
             isDeleted: false,
@@ -571,7 +571,7 @@ async function distributeComission(user, amount, orderId) {
         });
 
         if(recepient.fromUser){
-            await distributeComission(recepient, amount, orderId);
+            await distributeComission(recepient.fromUser, amount, orderId);
         };
     } catch (e) {
         console.log(e);

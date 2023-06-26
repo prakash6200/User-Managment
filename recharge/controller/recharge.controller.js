@@ -132,13 +132,13 @@ module.exports.mrbtsRechage = async (request, response) => {
             status: "SUCCESS",
             orderId: orderId,
         });
-        distributeComission.distributeComission(userData, amount, orderId);
+
         axios.request(axiosConfig)
         .then(async(res) => {
                 userData.availableBalance -= amount;
                 userData.save();
 
-                // distributeComission.distributeComission(userData, amount, orderId);
+                distributeComission.distributeComission(userData, amount, orderId);
                 await TransactionModel.create({
                     fromUser: userData._id,
                     fromAdmin: userData.fromAdmin,
@@ -190,7 +190,15 @@ module.exports.mrbtsRechageStateWise = async (request, response) => {
                 message: "You are not authorize",
                 data: null,
             });
-        }
+        };
+
+        if (userData.availableBalance < amount) {
+            return response.status(401).json({
+                status: false,
+                message: "Low available balance",
+                data: null,
+            });
+        };
 
         let data = {
             'api_token': config.MROBOTICS_APIKEY,
@@ -214,7 +222,19 @@ module.exports.mrbtsRechageStateWise = async (request, response) => {
         };
 
         axios.request(axiosConfig)
-        .then((res) => {
+        .then(async(res) => {
+            userData.availableBalance -= amount;
+            userData.save();
+
+            distributeComission.distributeComission(userData, amount, orderId);
+            await TransactionModel.create({
+                fromUser: userData._id,
+                fromAdmin: userData.fromAdmin,
+                amount: amount,
+                status: "SUCCESS",
+                orderId: orderId,
+            });
+
             return response.json({
                 status: true,
                 message: "Recharge successfully",
