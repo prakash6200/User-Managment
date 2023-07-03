@@ -332,7 +332,6 @@ module.exports.forgotPasswordOtpVerify = async (request, response) => {
             userData.otp = 0;
             delete userData.password;
             const token = jwt.sign(JSON.stringify(userData), config.JWT_AUTH_TOKEN);
-            console.log(token)
             
             const sendData = { userData: userData, token: token };
             
@@ -363,7 +362,7 @@ module.exports.forgotPasswordOtpVerify = async (request, response) => {
 module.exports.setPassword = async (request, response) => {
     try {
         const { user, newPassword, cnfPassword } = request.body;
-        
+     
         const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
