@@ -15,6 +15,10 @@ const smsValidation = require("../../utils/sms/sms.validation");
 
 router.post("/login", authValidation.login, authController.login);
 router.post("/self/registration", authValidation.selfRegister, authController.selfRegistration);
+router.post("/send/mobile/otp", verifyJWTToken, smsController.sendMobileOtp);
+router.post("/send/email/otp", verifyJWTToken, smsController.sendEmailOtp);
+router.patch("/verify/mobile/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyMobileOtp);
+router.patch("/verify/email/otp", smsValidation.verifyMobileOtp, verifyJWTToken, smsController.verifyEmailOtp);
 router.post("/distributer/registration", authValidation.register, verifyJWTToken, authController.register);
 router.post("/fund/transfer", transactionValidation.transferFund, verifyJWTToken, transactionController.transferFund);
 router.get("/available/balance", verifyJWTToken, transactionController.availableBalance);
