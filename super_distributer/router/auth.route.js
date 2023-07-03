@@ -27,5 +27,8 @@ router.post("/forgot/password", smsValidation.forgotPassword, smsController.forg
 router.patch("/verify/forgot/password/otp", smsValidation.forgotPasswordOtpVerify, smsController.forgotPasswordOtpVerify);
 router.put("/set/password", smsValidation.setPassword, verifyJWTToken, smsController.setPassword);
 router.put("/update/kyc", utilsValidation.updateKyc, verifyJWTToken, utilsController.updateKyc);
+router.put("/update/store", utilsValidation.updateStoreDetails, verifyJWTToken, utilsController.updateStoreDetails);
+router.put("/update/address", utilsValidation.updateAddress, verifyJWTToken, utilsController.updateAddress);
+router.put("/update/bank", utilsValidation.updateBankAcc, verifyJWTToken, utilsController.updateBankAcc);
 
 module.exports = router;
