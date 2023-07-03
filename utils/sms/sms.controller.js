@@ -387,7 +387,7 @@ module.exports.setPassword = async (request, response) => {
                 message: "Confirm password not match",
                 data: null,
             });
-        }
+        };
 
         return response.status(200).json({
             status: true,
