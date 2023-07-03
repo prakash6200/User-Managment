@@ -7,6 +7,7 @@ const authValidation = require("../validator/auth.validator");
 const transactionValidation = require("../../fund_transfer/transaction.validator");
 const transactionController = require("../../fund_transfer/transaction.controller");
 const complaintController = require("../../utils/utils.controller");
+const utilsValidation = require("../../utils/utils.validator");
 const utilsController = require("../../utils/utils.controller");
 const ststeDistrict = require("../../utils/state.district");
 const smsController = require("../../utils/sms/sms.controller");
@@ -25,6 +26,6 @@ router.get("/transaction/view", verifyJWTToken, transactionController.transactio
 router.post("/forgot/password", smsValidation.forgotPassword, smsController.forgotPassword);
 router.patch("/verify/forgot/password/otp", smsValidation.forgotPasswordOtpVerify, smsController.forgotPasswordOtpVerify);
 router.put("/set/password", smsValidation.setPassword, verifyJWTToken, smsController.setPassword);
-
+router.put("/update/kyc", utilsValidation.updateKyc, verifyJWTToken, utilsController.updateKyc);
 
 module.exports = router;
