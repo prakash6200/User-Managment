@@ -18,7 +18,7 @@ const Transaction = new Schema(
         },
         type: {
             type: String,
-            enum: ["AEPS", "RECHARGE", "UTILITY", "INTERNAL"],
+            enum: ["AEPS PAY", "AEPS WITHDRAW", "RECHARGE", "UTILITY", "INTERNAL"],
             require: true,
         },
         amount : {

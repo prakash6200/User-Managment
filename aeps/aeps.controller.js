@@ -692,7 +692,7 @@ module.exports.aepsCashWithdrawal = async (request, response) => {
                     fromAdmin: userData.fromAdmin,
                     fromUser: userData._id,
                     amount: transactionAmount,
-                    type: "AEPS",
+                    type: "AEPS WITHDRAW",
                     orderId: orderId,
                     status: "SUCCESS",
                 });
@@ -701,11 +701,11 @@ module.exports.aepsCashWithdrawal = async (request, response) => {
                     fromAdmin: userData.fromAdmin,
                     fromUser: userData._id,
                     amount: transactionAmount,
-                    type: "AEPS",
+                    type: "AEPS WITHDRAW",
                     orderId: orderId,
                     status: "FAILED",
                 });
-            }
+            };
 
             return response.json({
                 status: true,
@@ -800,21 +800,21 @@ module.exports.aepsBalanceEnquery = async (request, response) => {
 
 module.exports.aepsPay = async (request, response) => {
     try {
-        const { user } = request.body;
+        const { user, transactionAmount } = request.body;
 
-        const checkAdmin = await UserModel.findOne({
+        const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
         });
 
-        if(!checkAdmin) {
+        if(!userData) {
             return response.status(401).json({
                 status: false,
                 message: "You are not authorize",
                 data: null,
             });
         }
-        
+        const orderId = uniqueOrderId.orderId();
         const json = JSON.stringify(request.body, null, 2);
 
         const timestamp = new Date().toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(/\//g, '-');
@@ -834,7 +834,27 @@ module.exports.aepsPay = async (request, response) => {
         };
           
         axios.request(axiosConfig)
-        .then((res) => {
+        .then(async(res) => {
+            if (res.data.status) {
+                await TransactionModel.create({
+                    fromAdmin: userData.fromAdmin,
+                    fromUser: userData._id,
+                    amount: transactionAmount,
+                    type: "AEPS PAY",
+                    orderId: orderId,
+                    status: "SUCCESS",
+                });
+            } else {
+                await TransactionModel.create({
+                    fromAdmin: userData.fromAdmin,
+                    fromUser: userData._id,
+                    amount: transactionAmount,
+                    type: "AEPS PAY",
+                    orderId: orderId,
+                    status: "FAILED",
+                });
+            };
+            
             return response.json({
                 status: true,
                 // message: "Statement got successfully",
