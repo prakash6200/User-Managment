@@ -1,6 +1,5 @@
 const mongoose = require("mongoose");
 const { Schema } = mongoose;
-require("@mongoosejs/double");
 const mongoosePaginate = require("mongoose-paginate-v2");
 
 const Transaction = new Schema(
@@ -17,16 +16,17 @@ const Transaction = new Schema(
             type: Schema.Types.ObjectId,
             require: true,
         },
+        type: {
+            type: String,
+            enum: ["AEPS", "RECHARGE", "UTILITY", "INTERNAL"],
+            require: true,
+        },
         amount : {
             type: Number,
             require: true,
         },
         orderId : {
             type: Number,
-            require: true,
-        },
-        timeStamps : {
-            type: Schema.Types.Double,
             require: true,
         },
         status: {

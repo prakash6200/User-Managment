@@ -1,4 +1,6 @@
 const UserModel = require("../models/users.model");
+const TransactionModel = require("../models/transaction.model");
+const uniqueOrderId = require("../utils/utils.controller");
 const axios = require("axios");
 const config = require("../config/config");
 const crypto = require('crypto');
@@ -650,21 +652,21 @@ module.exports.aepsMiniStatement = async (request, response) => {
 
 module.exports.aepsCashWithdrawal = async (request, response) => {
     try {
-        const { user } = request.body;
+        const { user, transactionAmount } = request.body;
 
-        const checkAdmin = await UserModel.findOne({
+        const userData = await UserModel.findOne({
             _id: user._id,
             isDeleted: false,
         });
 
-        if(!checkAdmin) {
+        if(!userData) {
             return response.status(401).json({
                 status: false,
                 message: "You are not authorize",
                 data: null,
             });
         }
-        
+        const orderId = uniqueOrderId.orderId();
         const json = JSON.stringify(request.body, null, 2);
 
         const timestamp = new Date().toLocaleString('en-GB', { day: '2-digit', month: '2-digit', year: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit' }).replace(/\//g, '-');
@@ -682,9 +684,29 @@ module.exports.aepsCashWithdrawal = async (request, response) => {
             },
             data : json
         };
-          
+
         axios.request(axiosConfig)
-        .then((res) => {
+        .then(async(res) => {
+            if (res.data.status) {
+                await TransactionModel.create({
+                    fromAdmin: userData.fromAdmin,
+                    fromUser: userData._id,
+                    amount: transactionAmount,
+                    type: "AEPS",
+                    orderId: orderId,
+                    status: "SUCCESS",
+                });
+            } else {
+                await TransactionModel.create({
+                    fromAdmin: userData.fromAdmin,
+                    fromUser: userData._id,
+                    amount: transactionAmount,
+                    type: "AEPS",
+                    orderId: orderId,
+                    status: "FAILED",
+                });
+            }
+
             return response.json({
                 status: true,
                 // message: "Statement got successfully",
